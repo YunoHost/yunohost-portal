@@ -1,6 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
+  app: {
+    baseURL: '/yunohost/sso',
+    buildAssetsDir: '/assets/'
+  },
   modules: [
     '@nuxtjs/tailwindcss',
     'nuxt-icon',
