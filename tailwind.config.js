@@ -5,5 +5,5 @@ module.exports = {
     {
       pattern: /bg-.*-500/,
     },
-  ]
+  ],
 }

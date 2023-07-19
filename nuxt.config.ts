@@ -3,17 +3,13 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     baseURL: '/yunohost/sso',
-    buildAssetsDir: '/assets/'
+    buildAssetsDir: '/assets/',
   },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    'nuxt-icon',
-    "@nuxtjs/google-fonts",
-  ],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/google-fonts'],
   devtools: { enabled: true },
   googleFonts: {
     families: {
-      'Source+Sans+3': [500, 900]
-    }
-  }
+      'Source+Sans+3': [500, 900],
+    },
+  },
 })

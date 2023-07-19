@@ -2,7 +2,7 @@
 
 - This is a based on [Nuxt v3](https://nuxt.com/)
 
-### Setup 
+### Setup
 
 - I'm doing all this from inside a YunoHost LXC
 - You may want to open port 3000 (or disable the firewall) to access the dev server
