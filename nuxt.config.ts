@@ -12,4 +12,9 @@ export default defineNuxtConfig({
       'Source+Sans+3': [500, 900],
     },
   },
+  runtimeConfig: {
+    public: {
+      apiIp: '', // overridden by NUXT_PUBLIC_API_IP environment variable
+    },
+  },
 })

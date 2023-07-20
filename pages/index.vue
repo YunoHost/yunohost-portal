@@ -1,56 +1,57 @@
 <script setup lang="ts">
-const apiEndpoint = useApiEndpoint()
 const isLoggedIn = useIsLoggedIn()
-let me = {}
 
-const { data, error } = await useFetch(apiEndpoint + '/me', {
-  credentials: 'include',
+const { data } = await useApi<{
+  username: string
+  fullname: string
+  mail: string
+  'mail-aliases': string[]
+  'mail-forward': string[]
+  groups: string[]
+  apps: Record<string, { label: string; url: string }>
+}>('/me')
+
+const me = computed(() => {
+  const appTileColors = [
+    'red',
+    'orange',
+    'yellow',
+    'lime',
+    'green',
+    'teal',
+    'indigo',
+    'sky',
+    'purple',
+    'rose',
+  ]
+  if (!data.value) return
+  return {
+    ...data.value,
+    apps: Object.entries(data.value.apps).map(([id, app]) => {
+      return {
+        ...app,
+        id,
+        color: appTileColors[parseInt(app.label, 36) % appTileColors.length],
+      }
+    }),
+  }
 })
 
-if (error.value && error.value.statusCode >= 400) {
-  isLoggedIn.value = false // FIXME : not confident this actually mutates the state ...
-  // FIXME : we probably want different handlings between 401/403, 500, 502, ...
-  await navigateTo('/login')
-} else {
-  me = data.value
-
-  Object.keys(me.apps).forEach((appId) => {
-    const appTileColors = [
-      'red',
-      'orange',
-      'yellow',
-      'lime',
-      'green',
-      'teal',
-      'indigo',
-      'sky',
-      'purple',
-      'rose',
-    ]
-    const randomColorNumber =
-      parseInt(me.apps[appId].label, 36) % appTileColors.length
-    me.apps[appId].color = appTileColors[randomColorNumber]
-  })
-}
-
 async function logout() {
-  const { error } = await useFetch(apiEndpoint + '/logout', {
-    method: 'GET',
-    credentials: 'include',
-  })
+  const { error } = await useApi('/logout')
 
-  if (error.value && error.value.statusCode !== 200) {
-    // FIXME : display an error or something
-  } else {
+  if (!error.value) {
     // FIXME : meh, turns out the cookie is still valid after successfully calling the route for some reason ... !?
-    isLoggedIn.value = false // FIXME : not confident this actually mutates the state ...
+    isLoggedIn.value = false
     await navigateTo('/login')
+  } else {
+    // FIXME : display an error or something
   }
 }
 </script>
 
 <template>
-  <div>
+  <div v-if="me">
     <div class="flex flex-row items-center min-w-full">
       <span class="flex-none pr-5">
         <Icon name="mdi:account-circle" size="5em" class="text-gray-500" />
@@ -73,7 +74,7 @@ async function logout() {
     </div>
 
     <div id="apps" class="p-10">
-      <div v-if="Object.keys(me.apps).length == 0">
+      <div v-if="!me.apps.length">
         <em class="text-gray-400"
           >There is no app to list here, either because no web app yet is
           installed on the server, or because you don't have access to any.
@@ -81,7 +82,7 @@ async function logout() {
         >
       </div>
 
-      <ul class="flex space-x-4">
+      <ul v-else class="flex space-x-4">
         <!-- NB : because of the usage of dynamic colors, gotta force tailwind to expose those, cf 'safelisting' -->
         <li
           v-for="app in me.apps"

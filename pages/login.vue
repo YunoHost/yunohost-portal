@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const apiEndpoint = useApiEndpoint()
 const isLoggedIn = useIsLoggedIn()
 
 const form = {
@@ -8,21 +7,16 @@ const form = {
 }
 
 async function login() {
-  const { error } = await useFetch(apiEndpoint + '/login', {
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Requested-With': '',
-    },
+  const { error } = await useApi('/login', {
     method: 'POST',
-    credentials: 'include',
     body: { credentials: form.username + ':' + form.password },
   })
 
-  if (error.value && error.value.statusCode !== 200) {
-    // FIXME : display an error or something
-  } else {
-    isLoggedIn.value = true // FIXME : not confident this actually mutates the state ...
+  if (!error.value) {
+    isLoggedIn.value = true
     await navigateTo('/')
+  } else {
+    // FIXME : display an error or something
   }
 }
 </script>
