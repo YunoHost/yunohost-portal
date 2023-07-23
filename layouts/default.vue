@@ -1,5 +1,14 @@
+<script setup lang="ts">
+const head = useLocaleHead({
+  addDirAttribute: true,
+  addSeoAttributes: true,
+})
+</script>
+
 <template>
   <div class="p-10 min-h-screen">
+    <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir"></Html>
+
     <div class="container mx-auto p-4">
       <slot />
     </div>

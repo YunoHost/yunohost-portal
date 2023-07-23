@@ -5,7 +5,12 @@ export default defineNuxtConfig({
     baseURL: '/yunohost/sso',
     buildAssetsDir: '/assets/',
   },
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/google-fonts'],
+  modules: [
+    '@nuxtjs/i18n',
+    '@nuxtjs/tailwindcss',
+    'nuxt-icon',
+    '@nuxtjs/google-fonts',
+  ],
   devtools: { enabled: true },
   googleFonts: {
     families: {
@@ -16,5 +21,19 @@ export default defineNuxtConfig({
     public: {
       apiIp: '', // overridden by NUXT_PUBLIC_API_IP environment variable
     },
+  },
+  i18n: {
+    locales: [
+      {
+        code: 'en-US',
+        iso: 'en-US',
+        name: 'English (United States)',
+        file: 'en-US.json',
+      },
+    ],
+    lazy: true,
+    langDir: 'locales',
+    defaultLocale: 'en-US',
+    strategy: 'no_prefix',
   },
 })
