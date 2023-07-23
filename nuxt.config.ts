@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     buildAssetsDir: '/assets/',
   },
   modules: [
+    '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxtjs/tailwindcss',
     'nuxt-icon',
@@ -36,4 +37,9 @@ export default defineNuxtConfig({
     defaultLocale: 'en-US',
     strategy: 'no_prefix',
   },
+  colorMode: {
+    preference: 'system',
+    dataValue: 'theme',
+    classSuffix: '',
+  }
 })
