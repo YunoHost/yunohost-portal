@@ -35,3 +35,25 @@ export async function useApi<T>(
 
   return result as AsyncData<T, FetchError | null>
 }
+
+export interface UserData {
+  username: string
+  fullname: string
+  mail: string
+  'mail-aliases': string[]
+  'mail-forward': string[]
+  groups: string[]
+  apps: Record<string, { label: string; url: string }>
+}
+
+export const useUserData = () => useState<UserData | undefined>('userData')
+
+export async function useUserInfo() {
+  const userData = useUserData()
+
+  if (!userData.value) {
+    const { data } = await useApi('/me')
+    userData.value = data.value as UserData
+  }
+  return userData as Ref<UserData>
+}
