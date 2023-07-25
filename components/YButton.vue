@@ -1,13 +1,17 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    variant?: string
     type?: HTMLButtonElement['type']
+    text?: string
+    variant?: string
+    icon?: string
     block?: boolean
   }>(),
   {
-    variant: 'primary',
     type: 'button',
+    text: undefined,
+    variant: 'primary',
+    icon: undefined,
     block: false,
   },
 )
@@ -23,6 +27,9 @@ const variantClass = computed(() => {
 
 <template>
   <button class="btn" :class="[variantClass, { 'btn-block': block }]">
-    <slot name="default" />
+    <slot name="default">
+      <Icon v-if="icon" :name="icon" size="1.5em" aria-hidden="true" />
+      {{ text }}
+    </slot>
   </button>
 </template>

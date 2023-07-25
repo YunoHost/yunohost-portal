@@ -63,9 +63,7 @@ const schema = {
         />
       </FormField>
 
-      <YButton type="submit" block>
-        {{ t('login') }}
-      </YButton>
+      <YButton :text="t('login')" type="submit" block />
     </BaseForm>
   </main>
 </template>
