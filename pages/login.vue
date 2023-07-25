@@ -5,9 +5,12 @@ definePageMeta({
   layout: false,
 })
 
-const isLoggedIn = useIsLoggedIn()
-
+const head = useLocaleHead({
+  addDirAttribute: true,
+  addSeoAttributes: true,
+})
 const { t } = useI18n()
+const isLoggedIn = useIsLoggedIn()
 
 async function login(form) {
   const { error } = await useApi('/login', {
@@ -31,6 +34,7 @@ const schema = {
 
 <template>
   <main class="w-50 m-auto">
+    <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir"></Html>
     <img
       class="flex-none mx-auto w-1/2 mb-10"
       src="/assets/img/logo-white.svg"
@@ -67,6 +71,11 @@ const schema = {
 </template>
 
 <style>
+/* FIXME add in css file */
+body {
+  font-family: 'Source Sans 3';
+}
+
 #__nuxt {
   @apply min-h-screen flex;
 }
