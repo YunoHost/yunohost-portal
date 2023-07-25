@@ -4,16 +4,26 @@ const userData = await useUserInfo()
 
 const me = computed(() => {
   const appTileColors = [
-    'bg-red-500',
-    'bg-orange-500',
-    'bg-yellow-500',
-    'bg-lime-500',
-    'bg-green-500',
-    'bg-teal-500',
-    'bg-indigo-500',
-    'bg-sky-500',
-    'bg-purple-500',
-    'bg-rose-500',
+    ['bg-primary', 'text-primary-content'],
+    ['bg-secondary', 'text-secondary-content'],
+    ['bg-accent', 'text-accent-content'],
+    ['bg-neutral', 'text-neutral-content'],
+    ['bg-info', 'text-info-content'],
+    ['bg-success', 'text-success-content'],
+    ['bg-warning', 'text-warning-content'],
+    ['bg-error', 'text-error-content'],
+    // FIXME currently using daisyui theme colors,
+    // if we want more colors we need to adapt those to every themes.
+    // ['bg-red-500', 'text-red-100'],
+    // ['bg-orange-500', 'text-orange-100'],
+    // ['bg-yellow-500', 'text-yellow-100'],
+    // ['bg-lime-500', 'text-lime-100'],
+    // ['bg-green-500', 'text-green-100'],
+    // ['bg-teal-500', 'text-teal-100'],
+    // ['bg-indigo-500', 'text-indigo-100'],
+    // ['bg-primary', 'text-primary-content'],
+    // ['bg-purple-500', 'text-purple-100'],
+    // ['bg-rose-500', 'text-rose-100'],
   ]
   if (!userData.value) return
   return {
@@ -22,7 +32,8 @@ const me = computed(() => {
       return {
         ...app,
         id,
-        color: appTileColors[parseInt(app.label, 36) % appTileColors.length],
+        url: '//' + app.url,
+        colors: appTileColors[parseInt(app.label, 36) % appTileColors.length],
       }
     }),
   }
@@ -31,29 +42,50 @@ const me = computed(() => {
 
 <template>
   <div v-if="me">
-    <div id="apps" class="p-10">
-      <div v-if="!me.apps.length">
-        <em class="text-gray-400"
-          >There is no app to list here, either because no web app yet is
-          installed on the server, or because you don't have access to any.
-          Please check with the admins of the server for more infos!</em
-        >
+    <div id="apps" class="py-10">
+      <div v-if="!me.apps.length" class="w-2/3">
+        <em>{{ t('no_apps') }}</em>
       </div>
 
-      <ul v-else class="flex space-x-4">
+      <ul v-else class="tile-container">
         <li
           v-for="app in me.apps"
           :key="app.id"
-          :class="'text-center leading-none p-5 card h-32 w-32 ' + app.color"
+          class="leading-none card h-40 w-40 relative mr-7 mb-7"
         >
-          <a>
-            <div class="text-6xl font-extrabold">
+          <div class="tile-layer" :class="[app.colors[0], 'brightness-75']" />
+          <a :href="app.url" class="tile-layer p-5" :class="app.colors">
+            <div class="text-6xl font-extrabold mb-1" aria-hidden="true">
               {{ app.label.substring(0, 2) }}
             </div>
-            <span class="leading-tight">{{ app.label }}</span>
+            <span class="leading-tight mt-2">{{ app.label }}</span>
           </a>
         </li>
       </ul>
     </div>
   </div>
 </template>
+
+<style>
+.tile-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 10rem);
+  grid-auto-rows: 10rem;
+  grid-gap: 1.5rem;
+}
+
+.tile-layer {
+  z-index: -1;
+  position: absolute;
+  @apply inset-0;
+  @apply rounded-2xl;
+  transform: translate(0rem, 0rem);
+}
+#apps li.card:hover div.tile-layer {
+  transform: translate(0.75rem, 0.75rem);
+}
+
+#apps li.card:hover {
+  transform: translate(-0.75rem, -0.75rem);
+}
+</style>

@@ -1,4 +1,5 @@
 {
+  "back_to_apps": "Go back to app list",
   "portal": "YunoHost Portal",
   "information": "Your info",
   "username": "Username",
@@ -19,6 +20,7 @@
   "confirm": "Confirm",
   "login": "Log in",
   "logout": "Log out",
+  "no_apps": "There is no app to list here, either because no web app yet is installed on the server, or because you don't have access to any. Please check with the admins of the server for more infos!",
   "password_changed": "Password changed",
   "password_changed_error": "Could not change password",
   "password_not_match": "The passwords don't match",

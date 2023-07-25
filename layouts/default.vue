@@ -36,13 +36,16 @@ async function logout() {
 </script>
 
 <template>
-  <div class="container mx-auto p-5 min-h-screen flex flex-col">
+  <div class="container mx-auto p-10 min-h-screen flex flex-col">
     <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir"></Html>
 
     <header class="py-10">
       <slot name="header">
         <div class="flex flex-row flex-wrap items-center min-w-full">
-          <Icon name="mdi:account-circle" size="5em" class="mr-3" />
+          <NuxtLink to="/">
+            <span class="sr-only">{{ t('back_to_apps') }}</span>
+            <Icon name="mdi:account-circle" size="5em" class="mr-3" />
+          </NuxtLink>
 
           <div>
             <h2 class="text-2xl font-extrabold leading-none tracking-tight">
