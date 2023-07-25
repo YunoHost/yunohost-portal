@@ -1,15 +1,5 @@
 <script setup lang="ts">
-const isLoggedIn = useIsLoggedIn()
-
-const { data } = await useApi<{
-  username: string
-  fullname: string
-  mail: string
-  'mail-aliases': string[]
-  'mail-forward': string[]
-  groups: string[]
-  apps: Record<string, { label: string; url: string }>
-}>('/me')
+const userData = await useUserInfo()
 
 const me = computed(() => {
   const appTileColors = [
@@ -24,10 +14,10 @@ const me = computed(() => {
     'purple',
     'rose',
   ]
-  if (!data.value) return
+  if (!userData.value) return
   return {
-    ...data.value,
-    apps: Object.entries(data.value.apps).map(([id, app]) => {
+    ...userData.value,
+    apps: Object.entries(userData.value.apps).map(([id, app]) => {
       return {
         ...app,
         id,
@@ -36,43 +26,10 @@ const me = computed(() => {
     }),
   }
 })
-
-async function logout() {
-  const { error } = await useApi('/logout')
-
-  if (!error.value) {
-    // FIXME : meh, turns out the cookie is still valid after successfully calling the route for some reason ... !?
-    isLoggedIn.value = false
-    await navigateTo('/login')
-  } else {
-    // FIXME : display an error or something
-  }
-}
 </script>
 
 <template>
   <div v-if="me">
-    <div class="flex flex-row items-center min-w-full">
-      <span class="flex-none pr-5">
-        <Icon name="mdi:account-circle" size="5em" class="text-gray-500" />
-      </span>
-
-      <div class="grow">
-        <h2 class="text-2xl font-extrabold leading-none tracking-tight">
-          {{ me.username }}
-        </h2>
-        <h3>{{ me.fullname }}</h3>
-        <h4 class="opacity-50">{{ me.mail }}</h4>
-      </div>
-
-      <div class="flex-none">
-        <button class="btn bg-gray-800" @click.prevent="logout">
-          <Icon name="mdi:logout" class="text-gray-500" />
-          Logout
-        </button>
-      </div>
-    </div>
-
     <div id="apps" class="p-10">
       <div v-if="!me.apps.length">
         <em class="text-gray-400"

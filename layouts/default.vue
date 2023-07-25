@@ -3,27 +3,92 @@ const head = useLocaleHead({
   addDirAttribute: true,
   addSeoAttributes: true,
 })
+const { t } = useI18n()
+const isLoggedIn = useIsLoggedIn()
+const me = await useUserInfo()
+
+const footerLinks = [
+  { text: t('footerlink_edit'), to: '/edit' },
+  {
+    text: t('footerlink_documentation'),
+    to: '//yunohost.org/docs',
+    newWindow: true,
+  },
+  { text: t('footerlink_support'), to: '//yunohost.org/help', newWindow: true },
+  {
+    text: t('footerlink_administration'),
+    to: '/yunohost/admin/',
+    newWindow: true,
+  },
+]
+
+async function logout() {
+  const { error } = await useApi('/logout')
+
+  if (!error.value) {
+    // FIXME : meh, turns out the cookie is still valid after successfully calling the route for some reason ... !?
+    isLoggedIn.value = false
+    await navigateTo('/login')
+  } else {
+    // FIXME : display an error or something
+  }
+}
 </script>
 
 <template>
-  <div class="p-10 min-h-screen">
+  <div class="container mx-auto p-5 min-h-screen flex flex-col">
     <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir"></Html>
 
-    <div class="container mx-auto p-4">
-      <slot />
-    </div>
+    <header class="py-10">
+      <slot name="header">
+        <div class="flex flex-row flex-wrap items-center min-w-full">
+          <Icon name="mdi:account-circle" size="5em" class="mr-3" />
 
-    <footer class="container fixed bottom-10 mx-10 pr-10 text-gray-400">
+          <div>
+            <h2 class="text-2xl font-extrabold leading-none tracking-tight">
+              {{ me.username }}
+            </h2>
+            <h3>{{ me.fullname }}</h3>
+            <h4 class="opacity-50">{{ me.mail }}</h4>
+          </div>
+
+          <YButton
+            variant="neutral"
+            icon="mdi:logout"
+            :text="t('logout')"
+            class="ml-auto"
+            @click.prevent="logout"
+          />
+        </div>
+      </slot>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="mt-auto">
+      <!-- class="container fixed bottom-10 mx-10 pr-10 text-gray-400" -->
       <slot name="footer">
-        <div class="flex flex-row items-end">
-          <!-- FIXME: wrap this in an if: connected somehow ? -->
-          <nav class="grow space-x-5 border-t mr-10 border-gray-500">
-            <a>Edit my profile</a>
-            <a href="//yunohost.org/docs" target="_blank">Documentation</a>
-            <a href="//yunohost.org/help" target="_blank">Help</a>
-            <a href="/yunohost/admin/" target="_blank">Administration</a>
+        <div class="sm:flex flex-row flex-wrap items-end justify-center">
+          <nav
+            class="border-t border-gray-500 space-x-5 flex-wrap sm:mr-5 text-center sm:text-left"
+          >
+            <NuxtLink
+              v-for="link in footerLinks"
+              :key="link.to"
+              :to="link.to"
+              :target="link.newWindow ? '_blank' : undefined"
+              class="link link-hover text-base-content inline-block"
+            >
+              {{ link.text }}
+            </NuxtLink>
           </nav>
-          <img class="flex-none mr-10" src="/assets/img/logo-white.svg" />
+
+          <img
+            src="/assets/img/logo-white.svg"
+            class="mt-8 sm:mt-0 mx-auto sm:ml-auto sm:mr-0"
+          />
         </div>
       </slot>
     </footer>
@@ -33,9 +98,5 @@ const head = useLocaleHead({
 <style>
 body {
   font-family: 'Source Sans 3';
-  @apply bg-gray-700 text-gray-200;
-}
-.btn {
-  @apply py-2 px-4 rounded;
 }
 </style>
