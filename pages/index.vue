@@ -1,18 +1,19 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const userData = await useUserInfo()
 
 const me = computed(() => {
   const appTileColors = [
-    'red',
-    'orange',
-    'yellow',
-    'lime',
-    'green',
-    'teal',
-    'indigo',
-    'sky',
-    'purple',
-    'rose',
+    'bg-red-500',
+    'bg-orange-500',
+    'bg-yellow-500',
+    'bg-lime-500',
+    'bg-green-500',
+    'bg-teal-500',
+    'bg-indigo-500',
+    'bg-sky-500',
+    'bg-purple-500',
+    'bg-rose-500',
   ]
   if (!userData.value) return
   return {
@@ -40,15 +41,10 @@ const me = computed(() => {
       </div>
 
       <ul v-else class="flex space-x-4">
-        <!-- NB : because of the usage of dynamic colors, gotta force tailwind to expose those, cf 'safelisting' -->
         <li
           v-for="app in me.apps"
           :key="app.id"
-          :class="
-            'text-center leading-none p-5 card h-32 w-32 bg-' +
-            app.color +
-            '-500'
-          "
+          :class="'text-center leading-none p-5 card h-32 w-32 ' + app.color"
         >
           <a>
             <div class="text-6xl font-extrabold">
