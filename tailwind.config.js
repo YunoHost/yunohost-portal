@@ -9,5 +9,5 @@ module.exports = {
   ],
   daisyui: {
     themes: true,
-  }
+  },
 }

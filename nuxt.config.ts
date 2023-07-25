@@ -41,5 +41,5 @@ export default defineNuxtConfig({
     preference: 'system',
     dataValue: 'theme',
     classSuffix: '',
-  }
+  },
 })
