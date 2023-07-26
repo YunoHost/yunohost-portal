@@ -5,6 +5,8 @@ const props = withDefaults(
     text?: string
     variant?: string
     icon?: string
+    iconSize: string
+    iconOnly: boolean
     block?: boolean
   }>(),
   {
@@ -12,6 +14,8 @@ const props = withDefaults(
     text: undefined,
     variant: 'primary',
     icon: undefined,
+    iconSize: '1.5em',
+    iconOnly: false,
     block: false,
   },
 )
@@ -21,6 +25,7 @@ const variantClass = computed(() => {
     primary: 'btn-primary',
     success: 'btn-success',
     info: 'btn-info',
+    error: 'btn-error',
   }[props.variant]
 })
 </script>
@@ -28,8 +33,8 @@ const variantClass = computed(() => {
 <template>
   <button class="btn" :class="[variantClass, { 'btn-block': block }]">
     <slot name="default">
-      <Icon v-if="icon" :name="icon" size="1.5em" aria-hidden="true" />
-      {{ text }}
+      <Icon v-if="icon" :name="icon" :size="iconSize" aria-hidden="true" />
+      <span :class="{ 'sr-only': iconOnly }">{{ text }}</span>
     </slot>
   </button>
 </template>

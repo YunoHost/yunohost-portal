@@ -5,12 +5,14 @@ import * as yup from 'yup'
 
 const props = defineProps<{
   schema: yup.ObjectShape
+  initialValues: Record<string, any>
 }>()
 
 const emit = defineEmits(['submit'])
 
 const { handleSubmit } = useForm({
   validationSchema: toTypedSchema(yup.object(props.schema)),
+  initialValues: props.initialValues,
 })
 
 const onSubmit = handleSubmit((values) => {

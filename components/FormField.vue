@@ -7,6 +7,7 @@ const props = defineProps<{
   label: string
   icon?: string
   description?: string
+  row?: boolean
 }>()
 
 const { errorMessage } = useField(() => props.name)
@@ -33,11 +34,11 @@ provide(formGroupExtras, {
     <div
       role="group"
       :aria-invalid="invalid"
-      :class="{ 'is-invalid': invalid }"
+      :class="{ 'is-invalid': invalid, 'flex-col': !row }"
       class="flex"
     >
       <slot name="label">
-        <label :id="name + '__label'" :for="name" class="block">
+        <label :id="name + '__label'" :for="name" class="block ml-1 mb-2">
           <Icon
             v-if="icon"
             :name="icon"

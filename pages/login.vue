@@ -46,6 +46,7 @@ const schema = {
         :label="t('username')"
         icon="mdi:account-circle"
         class="mb-4"
+        row
       >
         <TextInput name="username" type="text" :placeholder="t('username')" />
       </FormField>
@@ -55,6 +56,7 @@ const schema = {
         :label="t('password')"
         icon="mdi:lock"
         class="mb-4"
+        row
       >
         <TextInput
           name="password"
