@@ -19,6 +19,12 @@ async function login(form) {
   })
 
   if (!error.value) {
+    const redirectUrl = useRedirectUrl().value
+
+    if (redirectUrl) {
+      await navigateTo(atob(redirectUrl), { external: true })
+    }
+
     isLoggedIn.value = true
     await navigateTo('/')
   } else {
