@@ -2,11 +2,16 @@
 import { useField } from 'vee-validate'
 import { formGroupExtras } from '@/composables/form'
 
-const props = defineProps<{
-  name: string
-  type: HTMLInputElement['type']
-  placeholder?: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    name: string
+    type: HTMLInputElement['type']
+    placeholder?: string
+  }>(),
+  {
+    placeholder: '',
+  },
+)
 const attrs = useAttrs()
 const { describedBy, invalid } = inject(formGroupExtras, {
   describedBy: ref(undefined),
