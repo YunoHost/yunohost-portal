@@ -7,6 +7,40 @@ const { t } = useI18n()
 const isLoggedIn = useIsLoggedIn()
 const me = await useUserInfo()
 
+const colorMode = useColorMode()
+const themes = [
+  'system',
+  'light',
+  'dark',
+  'cupcake',
+  'bumblebee',
+  'emerald',
+  'corporate',
+  'synthwave',
+  'retro',
+  'cyberpunk',
+  'valentine',
+  'halloween',
+  'garden',
+  'forest',
+  'aqua',
+  'lofi',
+  'pastel',
+  'fantasy',
+  'wireframe',
+  'black',
+  'luxury',
+  'dracula',
+  'cmyk',
+  'autumn',
+  'business',
+  'acid',
+  'lemonade',
+  'night',
+  'coffee',
+  'winter',
+]
+
 const footerLinks = [
   { text: t('footerlink_edit'), to: '/edit' },
   {
@@ -55,11 +89,21 @@ async function logout() {
             <h4 class="opacity-50">{{ me.mail }}</h4>
           </div>
 
+          <!-- FIXME temp -->
+          <div class="ml-auto mr-4">
+            <label class="mr-4">theme:</label>
+            <select
+              v-model="colorMode.preference"
+              class="select select-bordered"
+            >
+              <option disabled selected>Theme</option>
+              <option v-for="theme of themes" :key="theme">{{ theme }}</option>
+            </select>
+          </div>
+
           <YButton
-            variant="neutral"
             icon="mdi:logout"
             :text="t('logout')"
-            class="ml-auto"
             @click.prevent="logout"
           />
         </div>
