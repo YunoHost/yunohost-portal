@@ -5,7 +5,7 @@
 ### Develop (using Docker)
 
 - Install Docker
-    - It should boil down to adding something like `deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian   bullseye stable` to your apt list
+    - cf [these instructions](https://docs.docker.com/engine/install/debian/#set-up-the-repository) to add Docker's apt repository
     - and then `apt update && apt install docker-ce`
 - Install Docker-compose
     - `pip3 install docker-compose`
