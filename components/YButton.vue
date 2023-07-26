@@ -5,8 +5,8 @@ const props = withDefaults(
     text?: string
     variant?: string
     icon?: string
-    iconSize: string
-    iconOnly: boolean
+    iconSize?: string
+    iconOnly?: boolean
     block?: boolean
   }>(),
   {
