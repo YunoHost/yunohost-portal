@@ -1,0 +1,14 @@
+services:
+
+  portal:
+    build: .
+    ports:
+      - 127.0.0.1:3000:3000
+      - 127.0.0.1:24678:24678
+    volumes:
+      - .:/portal
+      - node_modules:/portal/node_modules
+    command: yarn dev
+
+volumes:
+  node_modules:
