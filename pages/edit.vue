@@ -1,33 +1,39 @@
 <script setup lang="ts">
+import { useForm } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/yup'
 import * as yup from 'yup'
 
 const me = await useUserInfo()
 
-const schema = {
-  username: yup.string(),
-  fullname: yup.string().required().min(1),
-  mailAliases: yup.array().of(yup.string().email()),
-  mailForward: yup.array().of(yup.string().email()),
-}
-const initialValues = {
-  username: me.value.username,
-  fullname: me.value.fullname,
-  mailAliases: me.value['mail-aliases'].length
-    ? me.value['mail-aliases']
-    : [''],
-  mailForward: me.value['mail-forward'].length
-    ? me.value['mail-forward']
-    : [''],
-}
+const { handleSubmit } = useForm({
+  validationSchema: toTypedSchema(
+    yup.object({
+      username: yup.string(),
+      fullname: yup.string().required().min(1),
+      mailAliases: yup.array().of(yup.string().email()),
+      mailForward: yup.array().of(yup.string().email()),
+    }),
+  ),
+  initialValues: {
+    username: me.value.username,
+    fullname: me.value.fullname,
+    mailAliases: me.value['mail-aliases'].length
+      ? me.value['mail-aliases']
+      : [''],
+    mailForward: me.value['mail-forward'].length
+      ? me.value['mail-forward']
+      : [''],
+  },
+})
 
-function onSubmit(form) {
+const onSubmit = handleSubmit((form) => {
   console.log('SUBMIT user edit', form)
-}
+})
 </script>
 
 <template>
   <!-- {{ initialValues }} -->
-  <BaseForm :schema="schema" :initial-values="initialValues" @submit="onSubmit">
+  <form novalidate @submit="onSubmit">
     <div class="flex justify-between">
       <div class="w-1/3">
         <FormField name="username" :label="$t('username')" class="mb-3">
@@ -45,6 +51,8 @@ function onSubmit(form) {
             name="fullname"
             type="text"
             :placeholder="$t('fullname')"
+            autocomplete="name"
+            class="w-full"
           />
         </FormField>
       </div>
@@ -81,5 +89,5 @@ function onSubmit(form) {
       </NuxtLink>
       <YButton :text="$t('ok')" type="submit" variant="success" />
     </div>
-  </BaseForm>
+  </form>
 </template>
