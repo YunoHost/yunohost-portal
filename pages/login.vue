@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useForm } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/yup'
 import * as yup from 'yup'
 
 definePageMeta({
@@ -12,7 +14,16 @@ const head = useLocaleHead({
 const { t } = useI18n()
 const isLoggedIn = useIsLoggedIn()
 
-async function login(form) {
+const { handleSubmit, setErrors } = useForm({
+  validationSchema: toTypedSchema(
+    yup.object({
+      username: yup.string().required(),
+      password: yup.string().required(),
+    }),
+  ),
+})
+
+const login = handleSubmit(async (form) => {
   const { error } = await useApi('/login', {
     method: 'POST',
     body: { credentials: form.username + ':' + form.password },
@@ -28,14 +39,12 @@ async function login(form) {
     isLoggedIn.value = true
     await navigateTo('/')
   } else {
-    // FIXME : display an error or something
+    setErrors({
+      username: t('possibly_invalid_username'),
+      password: t('possibly_invalid_password'),
+    })
   }
-}
-
-const schema = {
-  username: yup.string().required(),
-  password: yup.string().required(),
-}
+})
 </script>
 
 <template>
@@ -46,7 +55,7 @@ const schema = {
       src="/assets/img/logo-white.svg"
     />
 
-    <BaseForm :schema="schema" @submit="login">
+    <form novalidate @submit="login">
       <FormField
         name="username"
         :label="t('username')"
@@ -54,7 +63,12 @@ const schema = {
         class="mb-4"
         row
       >
-        <TextInput name="username" type="text" :placeholder="t('username')" />
+        <TextInput
+          name="username"
+          type="text"
+          :placeholder="t('username')"
+          autocomplete="username"
+        />
       </FormField>
 
       <FormField
@@ -68,11 +82,12 @@ const schema = {
           name="password"
           type="password"
           :placeholder="t('password')"
+          autocomplete="current-password"
         />
       </FormField>
 
       <YButton :text="t('login')" type="submit" block />
-    </BaseForm>
+    </form>
   </main>
 </template>
 
