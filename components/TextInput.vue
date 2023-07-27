@@ -6,11 +6,8 @@ const props = withDefaults(
   defineProps<{
     name: string
     type: HTMLInputElement['type']
-    placeholder?: string
   }>(),
-  {
-    placeholder: '',
-  },
+  {},
 )
 const attrs = useAttrs()
 const { describedBy, invalid } = inject(formGroupExtras, {
@@ -37,7 +34,6 @@ const validationListeners = {
     :value="value"
     :name="name"
     :type="type"
-    :placeholder="placeholder"
     :aria-invalid="invalid"
     :aria-describedby="describedBy"
     class="input input-bordered"
