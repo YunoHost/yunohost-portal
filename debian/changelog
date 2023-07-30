@@ -1,0 +1,5 @@
+yunohost-admin (12.0) unstable; urgency=low
+
+  Initial commit to add debian build
+
+ -- Alexandre Aubin <alex.aubin@mailoo.org>  Sun, 30 Jul 2023 17:30:56 +0200

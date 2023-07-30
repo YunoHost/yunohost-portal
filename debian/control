@@ -1,0 +1,15 @@
+Source: yunohost-portal
+Section: utils
+Priority: extra
+Maintainer: YunoHost Contributors <contrib@yunohost.org>
+Build-Depends: debhelper (>=12), debhelper-compat (= 13)
+ , nodejs (>=10.15.2), git, curl
+Standards-Version: 3.9.6
+Homepage: https://yunohost.org/
+
+Package: yunohost-portal
+Architecture: all
+Depends: ${misc:Depends}
+ , yunohost (>= 11.2)
+Description: user portal designed for yunohost
+ A minimalist user portal designed to be interfaced with YunoHost.
