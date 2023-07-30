@@ -22,7 +22,7 @@ override_dh_auto_build:
 	/usr/bin/apt update
 	/usr/bin/apt install nodejs yarn -y
 	yarn install
-	yarn build
+	yarn generate
 
 
 override_dh_clean:
