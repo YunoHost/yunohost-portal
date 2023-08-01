@@ -50,8 +50,8 @@ export interface UserData {
   username: string
   fullname: string
   mail: string
-  'mail-aliases': string[]
-  'mail-forward': string[]
+  mailalias: string[]
+  mailforward: string[]
   groups: string[]
   apps: Record<string, { label: string; url: string }>
 }
@@ -65,5 +65,13 @@ export async function useUserInfo() {
     const { data } = await useApi('/me')
     userData.value = data.value as UserData
   }
-  return userData as Ref<UserData>
+
+  const update = (data: Partial<UserData>) => {
+    Object.assign(userData.value as UserData, data)
+  }
+
+  return {
+    userData: userData as Ref<UserData>,
+    update,
+  }
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
-const userData = await useUserInfo()
+const { userData } = await useUserInfo()
 
 const me = computed(() => {
   const appTileColors = [

@@ -5,7 +5,7 @@ const head = useLocaleHead({
 })
 const { t } = useI18n()
 const isLoggedIn = useIsLoggedIn()
-const me = await useUserInfo()
+const { userData: me } = await useUserInfo()
 
 const colorMode = useColorMode()
 const themes = [

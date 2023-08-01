@@ -2,32 +2,42 @@
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/yup'
 import * as yup from 'yup'
+import type { UserData } from '@/composables/api'
 
-const me = await useUserInfo()
+const { userData, update } = await useUserInfo()
 
-const { handleSubmit } = useForm({
+const { handleSubmit, setFieldError } = useForm({
   validationSchema: toTypedSchema(
     yup.object({
-      username: yup.string(),
+      username: yup.string().required(),
       fullname: yup.string().required().min(1),
-      mailAliases: yup.array().of(yup.string().email()),
-      mailForward: yup.array().of(yup.string().email()),
+      mailalias: yup.array().of(yup.string().email().required()),
+      mailforward: yup.array().of(yup.string().email().required()),
     }),
   ),
   initialValues: {
-    username: me.value.username,
-    fullname: me.value.fullname,
-    mailAliases: me.value['mail-aliases'].length
-      ? me.value['mail-aliases']
+    username: userData.value.username,
+    fullname: userData.value.fullname,
+    mailalias: userData.value.mailalias.length
+      ? userData.value.mailalias
       : [''],
-    mailForward: me.value['mail-forward'].length
-      ? me.value['mail-forward']
+    mailforward: userData.value.mailforward.length
+      ? userData.value.mailforward
       : [''],
   },
 })
 
-const onSubmit = handleSubmit((form) => {
-  console.log('SUBMIT user edit', form)
+const onSubmit = handleSubmit(async (form) => {
+  const { data, error } = await useApi<UserData>('/update', {
+    method: 'PUT',
+    body: form,
+  })
+
+  if (error.value) {
+    setFieldError(error.value.data.path, error.value.data.error_key)
+  } else if (data.value) {
+    update(data.value)
+  }
 })
 </script>
 
@@ -58,21 +68,17 @@ const onSubmit = handleSubmit((form) => {
       </div>
 
       <div class="basis-1/2">
-        <FormField
-          name="mailAliases"
-          :label="$t('mail_addresses')"
-          class="mb-10"
-        >
+        <FormField name="mailalias" :label="$t('mail_addresses')" class="mb-10">
           <TextInputList
-            name="mailAliases"
+            name="mailalias"
             type="text"
             :placeholder="$t('new_mail')"
           />
         </FormField>
 
-        <FormField name="mailForward" :label="$t('mail_forward')">
+        <FormField name="mailforward" :label="$t('mail_forward')">
           <TextInputList
-            name="mailForward"
+            name="mailforward"
             type="text"
             :placeholder="$t('new_forward')"
           />
