@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    type?: HTMLButtonElement['type']
+    type?: 'button' | 'submit' | 'reset'
     text?: string
     variant?: string
     icon?: string
@@ -31,7 +31,11 @@ const variantClass = computed(() => {
 </script>
 
 <template>
-  <button class="btn" :class="[variantClass, { 'btn-block': block }]">
+  <button
+    class="btn"
+    :class="[variantClass, { 'btn-block': block }]"
+    :type="type"
+  >
     <slot name="default">
       <Icon v-if="icon" :name="icon" :size="iconSize" aria-hidden="true" />
       <span :class="{ 'sr-only': iconOnly }">{{ text }}</span>
