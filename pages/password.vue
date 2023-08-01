@@ -6,18 +6,27 @@ import * as yup from 'yup'
 const { handleSubmit } = useForm({
   validationSchema: toTypedSchema(
     yup.object({
-      currentPassword: yup.string(),
-      newPassword: yup.string().required().min(8),
-      confirmNewPassword: yup
+      current: yup.string().min(8),
+      password: yup.string().required().min(8),
+      confirmPassword: yup
         .string()
-        .oneOf([yup.ref('newPassword')])
+        .oneOf([yup.ref('password')])
         .required(),
     }),
   ),
 })
 
-const onSubmit = handleSubmit((form) => {
-  console.log('SUBMIT user password edit', form)
+const onSubmit = handleSubmit(async (form) => {
+  const { error } = await useApi('/me/update_password', {
+    method: 'PUT',
+    body: { current: form.current, password: form.password },
+  })
+  if (!error.value) {
+    useIsLoggedIn().value = false
+    navigateTo('/login')
+  } else {
+    // FIXME display generic error
+  }
 })
 </script>
 
@@ -31,10 +40,10 @@ const onSubmit = handleSubmit((form) => {
 
     <div class="md:flex">
       <div class="basis-1/2 mb-10 md:mr-10">
-        <FormField name="currentPassword" :label="$t('current_password')">
+        <FormField name="current" :label="$t('current_password')">
           <TextInput
-            name="currentPassword"
-            type="text"
+            name="current"
+            type="password"
             autocomplete="currrent-password"
             class="w-full"
           />
@@ -42,22 +51,19 @@ const onSubmit = handleSubmit((form) => {
       </div>
 
       <div class="basis-1/2 md:ml-10">
-        <FormField name="newPassword" :label="$t('new_password')" class="mb-3">
+        <FormField name="password" :label="$t('new_password')" class="mb-3">
           <TextInput
-            name="newPassword"
-            type="text"
+            name="password"
+            type="password"
             autocomplete="new-password"
             class="w-full"
           />
         </FormField>
 
-        <FormField
-          name="confirmNewPassword"
-          :label="$t('confirm_new_password')"
-        >
+        <FormField name="confirmPassword" :label="$t('confirm_new_password')">
           <TextInput
-            name="confirmNewPassword"
-            type="text"
+            name="confirmPassword"
+            type="password"
             autocomplete="new-password"
             class="w-full"
           />
