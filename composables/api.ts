@@ -1,7 +1,13 @@
-import type { AsyncData } from 'nuxt/app'
 import type { FetchError } from 'ofetch'
 
-export async function useApi<T>(
+const apiEndpoint =
+  'https://' +
+  (process.dev
+    ? useRuntimeConfig().public.apiIp || window.location.hostname
+    : window.location.hostname) +
+  '/yunohost/portalapi'
+
+export function useApi<T>(
   path: string,
   {
     method = 'GET',
@@ -10,30 +16,34 @@ export async function useApi<T>(
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
     body?: Record<string, any>
   } = {},
-): Promise<AsyncData<T, FetchError | null>> {
-  const host = window.location.hostname
-  const apiEndpoint =
-    'https://' +
-    (process.dev ? useRuntimeConfig().public.apiIp || host : host) +
-    '/yunohost/portalapi'
-
-  const result = await useFetch(apiEndpoint + path, {
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Requested-With': '',
-    },
-    method,
-    credentials: 'include',
-    body,
-  })
-
-  const error = result.error.value
-  if (error && error.statusCode === 401) {
-    useIsLoggedIn().value = false
-    navigateTo('/login')
+) {
+  type Resp = {
+    data: Ref<T | null>
+    error: Ref<FetchError | null>
+  }
+  const result: Resp = {
+    data: ref(null),
+    error: ref(null),
   }
 
-  return result as AsyncData<T, FetchError | null>
+  const query = () => {
+    return $fetch(apiEndpoint + path, {
+      method,
+      credentials: 'include',
+      body,
+    })
+      .then((data) => {
+        result.data.value = data as T
+      })
+      .catch((e: FetchError) => {
+        result.error.value = e
+        if (e.statusCode === 401) {
+          useIsLoggedIn().value = false
+          navigateTo('/login')
+        }
+      })
+  }
+  return Promise.resolve(query()).then(() => result)
 }
 
 export interface UserData {
