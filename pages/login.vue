@@ -7,10 +7,6 @@ definePageMeta({
   layout: false,
 })
 
-const head = useLocaleHead({
-  addDirAttribute: true,
-  addSeoAttributes: true,
-})
 const { t } = useI18n()
 const isLoggedIn = useIsLoggedIn()
 
@@ -49,7 +45,6 @@ const login = handleSubmit(async (form) => {
 
 <template>
   <main class="w-50 m-auto">
-    <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir"></Html>
     <img
       class="flex-none mx-auto w-1/2 mb-10"
       src="/assets/img/logo-white.svg"
@@ -90,14 +85,3 @@ const login = handleSubmit(async (form) => {
     </form>
   </main>
 </template>
-
-<style>
-/* FIXME add in css file */
-body {
-  font-family: 'Source Sans 3';
-}
-
-#__nuxt {
-  @apply min-h-screen flex;
-}
-</style>

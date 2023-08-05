@@ -1,8 +1,4 @@
 <script setup lang="ts">
-const head = useLocaleHead({
-  addDirAttribute: true,
-  addSeoAttributes: true,
-})
 const { t } = useI18n()
 const isLoggedIn = useIsLoggedIn()
 const { userData: me } = await useUserInfo()
@@ -71,8 +67,6 @@ async function logout() {
 
 <template>
   <div class="container mx-auto p-10 min-h-screen flex flex-col">
-    <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir"></Html>
-
     <header class="py-10">
       <slot name="header">
         <div class="flex flex-row flex-wrap items-center min-w-full">
@@ -141,9 +135,3 @@ async function logout() {
     </footer>
   </div>
 </template>
-
-<style>
-body {
-  font-family: 'Source Sans 3';
-}
-</style>
