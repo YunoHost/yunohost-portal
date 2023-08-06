@@ -1,4 +1,5 @@
 {
+  "app_list": "App list",
   "back_to_apps": "Go back to app list",
   "portal": "YunoHost Portal",
   "information": "Your info",
@@ -50,5 +51,6 @@
   "footerlink_edit": "Edit my profile",
   "footerlink_documentation": "Documentation",
   "footerlink_support": "Support",
-  "footerlink_administration": "Administration"
+  "footerlink_administration": "Administration",
+  "skip_to_main_content": "Skip to main content",
 }

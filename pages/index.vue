@@ -25,7 +25,7 @@ const me = computed(() => {
     // ['bg-purple-500', 'text-purple-100'],
     // ['bg-rose-500', 'text-rose-100'],
   ]
-  if (!userData.value) return
+
   return {
     ...userData.value,
     apps: Object.entries(userData.value.apps).map(([id, app]) => {
@@ -41,8 +41,10 @@ const me = computed(() => {
 </script>
 
 <template>
-  <div v-if="me">
-    <div id="apps" class="py-10">
+  <div>
+    <PageTitle :text="$t('app_list')" />
+
+    <div id="apps" class="my-10">
       <div v-if="!me.apps.length" class="w-2/3">
         <em>{{ t('no_apps') }}</em>
       </div>

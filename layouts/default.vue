@@ -2,7 +2,7 @@
 const { t } = useI18n()
 const isLoggedIn = useIsLoggedIn()
 const { userData: me } = await useUserInfo()
-
+const skipLink: Ref<HTMLLinkElement | null> = ref(null)
 const colorMode = useColorMode()
 const themes = [
   'system',
@@ -68,6 +68,16 @@ async function logout() {
 <template>
   <div class="container mx-auto p-10 min-h-screen flex flex-col">
     <header class="py-10">
+      <div class="h-10 -mt-10">
+        <a
+          id="skip-link"
+          ref="skipLink"
+          class="link sr-only focus:not-sr-only"
+          href="#main-target"
+          >{{ $t('skip_to_main_content') }}</a
+        >
+      </div>
+
       <slot name="header">
         <div class="flex flex-row flex-wrap items-center min-w-full">
           <NuxtLink to="/">

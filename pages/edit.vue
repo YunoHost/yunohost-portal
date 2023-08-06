@@ -42,58 +42,65 @@ const onSubmit = handleSubmit(async (form) => {
 </script>
 
 <template>
-  <!-- {{ initialValues }} -->
-  <form novalidate @submit="onSubmit">
-    <div class="flex justify-between">
-      <div class="w-1/3">
-        <FormField name="username" :label="$t('username')" class="mb-3">
-          <TextInput
-            name="username"
-            type="text"
-            :placeholder="$t('username')"
-            disabled
-            class="w-full"
-          />
-        </FormField>
+  <div>
+    <PageTitle :text="$t('footerlink_edit')" />
 
-        <FormField name="fullname" :label="$t('fullname')">
-          <TextInput
-            name="fullname"
-            type="text"
-            :placeholder="$t('fullname')"
-            autocomplete="name"
-            class="w-full"
-          />
-        </FormField>
-      </div>
+    <form novalidate class="my-10" @submit="onSubmit">
+      <div class="sm:flex sm:justify-between">
+        <div class="sm:w-1/3">
+          <FormField name="username" :label="$t('username')" class="mb-3">
+            <TextInput
+              name="username"
+              type="text"
+              :placeholder="$t('username')"
+              disabled
+              class="w-full"
+            />
+          </FormField>
 
-      <div class="basis-1/2">
-        <FormField name="mailalias" :label="$t('mail_addresses')" class="mb-10">
-          <TextInputList
+          <FormField name="fullname" :label="$t('fullname')">
+            <TextInput
+              name="fullname"
+              type="text"
+              :placeholder="$t('fullname')"
+              autocomplete="name"
+              class="w-full"
+            />
+          </FormField>
+        </div>
+
+        <div class="basis-1/2 mt-10 sm:mt-0">
+          <FormField
             name="mailalias"
-            type="text"
-            :placeholder="$t('new_mail')"
-          />
-        </FormField>
+            :label="$t('mail_addresses')"
+            class="mb-10"
+          >
+            <TextInputList
+              name="mailalias"
+              type="text"
+              :placeholder="$t('new_mail')"
+            />
+          </FormField>
 
-        <FormField name="mailforward" :label="$t('mail_forward')">
-          <TextInputList
-            name="mailforward"
-            type="text"
-            :placeholder="$t('new_forward')"
-          />
-        </FormField>
+          <FormField name="mailforward" :label="$t('mail_forward')">
+            <TextInputList
+              name="mailforward"
+              type="text"
+              :placeholder="$t('new_forward')"
+            />
+          </FormField>
+        </div>
       </div>
-    </div>
 
-    <div class="flex mt-10">
-      <NuxtLink to="/password" class="btn btn-primary">
-        {{ $t('change_password') }}
-      </NuxtLink>
-      <NuxtLink to="/" class="btn ml-auto mr-2">
-        {{ $t('cancel') }}
-      </NuxtLink>
-      <YButton :text="$t('ok')" type="submit" variant="success" />
-    </div>
-  </form>
+      <div class="flex mt-10">
+        <NuxtLink to="/password" class="btn btn-primary">
+          {{ $t('change_password') }}
+        </NuxtLink>
+        <NuxtLink to="/" class="btn ml-auto mr-2">
+          {{ $t('cancel') }}
+        </NuxtLink>
+        <YButton :text="$t('save')" type="submit" variant="success" />
+      </div>
+    </form>
+  </div>
 </template>
