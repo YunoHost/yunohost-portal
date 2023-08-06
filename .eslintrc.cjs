@@ -7,6 +7,7 @@ module.exports = {
     'plugin:vue/vue3-strongly-recommended',
     '@nuxtjs/eslint-config-typescript',
     'plugin:prettier/recommended',
+    'plugin:vuejs-accessibility/recommended',
   ],
   rules: {
     'prettier/prettier': [
