@@ -8,6 +8,7 @@ const props = defineProps<{
   icon?: string
   description?: string
   row?: boolean
+  srHideLabel?: boolean
 }>()
 
 const { errorMessage } = useField(() => props.name)
@@ -38,7 +39,13 @@ provide(formGroupExtras, {
       class="flex"
     >
       <slot name="label">
-        <label :id="name + '__label'" :for="name" class="block ml-1 mb-2">
+        <!-- eslint-disable vuejs-accessibility/label-has-for -->
+        <label
+          :id="name + '__label'"
+          :for="name"
+          class="block ms-1 mb-2"
+          :class="{ 'sr-only': srHideLabel }"
+        >
           <Icon
             v-if="icon"
             :name="icon"

@@ -70,25 +70,22 @@ const onSubmit = handleSubmit(async (form) => {
         </div>
 
         <div class="basis-1/2 mt-10 sm:mt-0">
-          <FormField
+          <TextInputList
             name="mailalias"
+            type="email"
             :label="$t('mail_addresses')"
+            :input-label="$t('mail_address')"
+            :placeholder="$t('new_mail')"
             class="mb-10"
-          >
-            <TextInputList
-              name="mailalias"
-              type="text"
-              :placeholder="$t('new_mail')"
-            />
-          </FormField>
+          />
 
-          <FormField name="mailforward" :label="$t('mail_forward')">
-            <TextInputList
-              name="mailforward"
-              type="text"
-              :placeholder="$t('new_forward')"
-            />
-          </FormField>
+          <TextInputList
+            name="mailforward"
+            type="email"
+            :label="$t('mail_forwards')"
+            :input-label="$t('mail_forward')"
+            :placeholder="$t('new_forward')"
+          />
         </div>
       </div>
 

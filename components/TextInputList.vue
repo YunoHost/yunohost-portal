@@ -1,47 +1,60 @@
 <script setup lang="ts">
 import { useFieldArray } from 'vee-validate'
-import { formGroupExtras } from '@/composables/form'
-// FIXME couldn't find a way to get the index of the invalid input so for now
-// every inputs are flaged as invalid
 
 const props = defineProps<{
   name: string
+  label: string
+  inputLabel: string
   type: HTMLInputElement['type']
   placeholder?: string
 }>()
 
-const { describedBy, invalid } = inject(formGroupExtras, {
-  describedBy: ref(undefined),
-  invalid: ref(false),
-})
-
+const group: Ref<HTMLElement | null> = ref(null)
 const { remove, push, fields } = useFieldArray(props.name)
+
+function onAdd() {
+  push('')
+  nextTick(() => {
+    // auto focus new input
+    const inputs = group.value?.querySelectorAll('input')
+    if (inputs && inputs.length) {
+      inputs[inputs.length - 1].focus()
+    }
+  })
+}
 </script>
 
 <template>
-  <div v-for="(field, idx) in fields" :key="field.key" class="flex mb-2 join">
-    <input
-      :id="name + '__' + idx"
-      v-model="field.value"
-      :name="name"
-      :type="type"
-      :placeholder="placeholder"
-      :aria-invalid="invalid"
-      :aria-describedby="describedBy"
-      class="input input-bordered join-item w-full"
-      :class="{ 'input-error': invalid }"
-    />
+  <fieldset ref="group">
+    <legend class="ms-1 mb-2">{{ label }}</legend>
 
-    <YButton
-      variant="error"
-      icon="mdi:delete-forever"
-      icon-size="2em"
-      icon-only
-      :text="$t('remove')"
-      class="join-item px-3"
-      @click="remove(idx)"
-    />
-  </div>
+    <FormField
+      v-for="(field, idx) in fields"
+      :key="field.key"
+      :name="`${name}[${idx}]`"
+      :label="inputLabel"
+      class="mb-3"
+      sr-hide-label
+    >
+      <div class="join">
+        <TextInput
+          :name="`${name}[${idx}]`"
+          :type="type"
+          :placeholder="placeholder"
+          class="join-item"
+        />
+        <YButton
+          variant="error"
+          icon="mdi:delete-forever"
+          icon-size="2em"
+          icon-only
+          :text="$t('remove')"
+          class="join-item px-3"
+          @click="remove(idx)"
+        />
+      </div>
+    </FormField>
 
-  <YButton :text="$t('add')" @click="push('')" />
+    <YButton :text="$t('add')" @click="onAdd" />
+  </fieldset>
 </template>
