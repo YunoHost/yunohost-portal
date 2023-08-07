@@ -11,6 +11,7 @@ const props = defineProps<{
   srHideLabel?: boolean
 }>()
 
+const { t } = useI18n()
 const { errorMessage } = useField(() => props.name)
 const invalid = computed(() => !!errorMessage.value)
 const describedBy = computed(() => {
@@ -22,6 +23,16 @@ const describedBy = computed(() => {
       .filter((x) => x)
       .join(' ') || undefined
   )
+})
+
+const error = computed(() => {
+  const e = errorMessage.value as
+    | string
+    | undefined
+    | { key: string; values: Record<string, any> }
+  if (!e) return ''
+  if (typeof e === 'string') return t(e)
+  return t(e.key, e.values)
 })
 
 provide(formGroupExtras, {
@@ -68,7 +79,7 @@ provide(formGroupExtras, {
           aria-atomic="true"
           class="text-error mt-1"
         >
-          {{ errorMessage }}
+          {{ error }}
         </div>
         <small
           v-if="description"

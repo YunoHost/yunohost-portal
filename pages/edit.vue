@@ -10,7 +10,7 @@ const { handleSubmit, setFieldError } = useForm({
   validationSchema: toTypedSchema(
     yup.object({
       username: yup.string().required(),
-      fullname: yup.string().required().min(1),
+      fullname: yup.string().required().min(2),
       mailalias: yup.array().of(yup.string().email().required()),
       mailforward: yup.array().of(yup.string().email().required()),
     }),

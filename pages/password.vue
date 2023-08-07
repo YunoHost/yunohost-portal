@@ -6,11 +6,11 @@ import * as yup from 'yup'
 const { handleSubmit } = useForm({
   validationSchema: toTypedSchema(
     yup.object({
-      current: yup.string().min(8),
+      current: yup.string().required().min(8),
       password: yup.string().required().min(8),
       confirmPassword: yup
         .string()
-        .oneOf([yup.ref('password')])
+        .oneOf([yup.ref('password')], 'v.password_not_match')
         .required(),
     }),
   ),

@@ -6,8 +6,10 @@
   "username": "Username",
   "password": "Password",
   "fullname": "Full name",
+  "mail_address": "E-mail address",
   "mail_addresses": "E-mail addresses",
   "mail_forward": "E-mail forwarding address",
+  "mail_forwards": "E-mail forwarding addresses",
   "new_mail": "newmail{'@'}mydomain.org",
   "new_forward": "newforward{'@'}myforeigndomain.org",
   "add_mail": "Add an e-mail alias",
@@ -53,4 +55,11 @@
   "footerlink_support": "Support",
   "footerlink_administration": "Administration",
   "skip_to_main_content": "Skip to main content",
+  "v": {
+    "field_invalid": "Field value is invalid",
+    "field_required": "Field value is required",
+    "email": "Invalid email: must be alphanumeric and '_.' characters only (e.g. someone{'@'}example.com, s0me-1{'@'}example.com)",
+    "string_too_short": "Invalid value: must be at least {min} characters",
+    "password_not_match": "Passwords don't match."
+  }
 }
