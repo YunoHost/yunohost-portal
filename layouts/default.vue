@@ -41,7 +41,7 @@ const footerLinks = [
   { text: t('footerlink_edit'), to: '/edit' },
   {
     text: t('footerlink_documentation'),
-    to: '//yunohost.org/docs',
+    to: '//yunohost.org/user_guide',
     newWindow: true,
   },
   { text: t('footerlink_support'), to: '//yunohost.org/help', newWindow: true },
