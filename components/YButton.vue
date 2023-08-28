@@ -7,6 +7,7 @@ const props = withDefaults(
     icon?: string
     iconSize?: string
     iconOnly?: boolean
+    iconClass?: string
     block?: boolean
   }>(),
   {

@@ -40,6 +40,12 @@ export function useApi<T>(
         if (e.statusCode === 401) {
           useIsLoggedIn().value = false
           navigateTo('/login')
+        } else if (e.statusCode !== 400 && !e.data?.path) {
+          throw createError({
+            statusCode: e.statusCode,
+            statusMessage: e.message,
+            fatal: true,
+          })
         }
       })
   }
