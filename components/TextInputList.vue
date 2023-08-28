@@ -26,7 +26,7 @@ function onAdd() {
 
 <template>
   <fieldset ref="group">
-    <legend class="ms-1 mb-2">{{ label }}</legend>
+    <legend class="text-xl mb-3">{{ label }}</legend>
 
     <FormField
       v-for="(field, idx) in fields"

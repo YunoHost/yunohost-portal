@@ -2,6 +2,7 @@
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/yup'
 import * as yup from 'yup'
+import { pick, exclude } from '@/utils/common'
 import type { UserData } from '@/composables/api'
 
 const { t } = useI18n()
@@ -19,15 +20,31 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
     yup.object({
       // username: yup.string().required(),
       fullname: yup.string().required().min(2),
+      currentPassword: yup
+        .string()
+        .when('newPassword', ([newPassword], schema) => {
+          return newPassword ? schema.required() : schema
+        }),
+      newPassword: yup.string().matches(/.{8,}/, {
+        excludeEmptyString: true,
+        message: { key: 'v.string_too_short', values: { min: 8 } },
+      }),
+      confirmNewPassword: yup
+        .string()
+        .when('newPassword', ([newPassword], schema) => {
+          return newPassword
+            ? schema.oneOf([yup.ref('newPassword')], 'v.password_not_match')
+            : schema
+        }),
       mailalias: yup.array().of(yup.string().email().required()).required(),
       mailforward: yup.array().of(yup.string().email().required()).required(),
     }),
   ),
   initialValues: {
-    // username: userData.value.username,
-    fullname: userData.value.fullname,
-    mailalias: userData.value.mailalias,
-    mailforward: userData.value.mailforward,
+    currentPassword: '',
+    newPassword: '',
+    confirmNewPassword: '',
+    ...pick(userData.value, 'fullname', 'mailalias', 'mailforward'),
   },
 })
 
@@ -49,7 +66,7 @@ const onSubmit = handleSubmit(async (form) => {
     Pick<UserData, 'fullname' | 'mailalias' | 'mailforward'>
   >('/update', {
     method: 'PUT',
-    body: form,
+    body: exclude(form, 'confirmNewPassword'),
   })
 
   if (error.value) {
@@ -66,10 +83,12 @@ const onSubmit = handleSubmit(async (form) => {
   } else if (data.value) {
     update(data.value)
     resetForm({
-      values: data.value,
-      touched: Object.fromEntries(
-        ['fullname', 'mailalias', 'mailforward'].map((key) => [key, false]),
-      ),
+      values: {
+        ...data.value,
+        currentPassword: '',
+        newPassword: '',
+        confirmNewPassword: '',
+      },
     })
     feedback.value = {
       variant: 'success',
@@ -100,7 +119,7 @@ const onSubmit = handleSubmit(async (form) => {
             />
           </FormField> -->
 
-          <FormField name="fullname" :label="$t('fullname')">
+          <FormField name="fullname" :label="$t('fullname')" class="mb-10">
             <TextInput
               name="fullname"
               type="text"
@@ -109,9 +128,7 @@ const onSubmit = handleSubmit(async (form) => {
               class="w-full"
             />
           </FormField>
-        </div>
 
-        <div class="basis-1/2 mt-10 lg:mt-0">
           <TextInputList
             name="mailalias"
             type="email"
@@ -129,6 +146,48 @@ const onSubmit = handleSubmit(async (form) => {
             :placeholder="$t('new_forward')"
           />
         </div>
+
+        <fieldset class="basis-1/2 mt-10 lg:mt-0">
+          <legend class="text-xl mb-3">{{ $t('change_password') }}</legend>
+
+          <FormField
+            name="currentPassword"
+            :label="$t('current_password')"
+            class="mb-3"
+          >
+            <TextInput
+              name="currentPassword"
+              type="password"
+              autocomplete="current-password"
+              class="w-full"
+            />
+          </FormField>
+
+          <FormField
+            name="newPassword"
+            :label="$t('new_password')"
+            :description="$t('good_practices_about_user_password')"
+            class="mb-3"
+          >
+            <TextInput
+              name="newPassword"
+              type="password"
+              autocomplete="new-password"
+              class="w-full"
+            />
+          </FormField>
+
+          <FormField
+            name="confirmNewPassword"
+            :label="$t('confirm_new_password')"
+          >
+            <TextInput
+              name="confirmNewPassword"
+              type="password"
+              class="w-full"
+            />
+          </FormField>
+        </fieldset>
       </div>
 
       <!-- SR "loading" announcement -->
@@ -139,9 +198,6 @@ const onSubmit = handleSubmit(async (form) => {
       />
 
       <div class="flex mt-10">
-        <NuxtLink to="/password" class="btn btn-primary">
-          {{ $t('change_password') }}
-        </NuxtLink>
         <NuxtLink to="/" class="btn ml-auto me-2">
           {{ $t('cancel') }}
         </NuxtLink>
