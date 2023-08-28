@@ -36,12 +36,12 @@ function onAdd() {
       class="mb-3"
       sr-hide-label
     >
-      <div class="join">
+      <div class="join w-full">
         <TextInput
           :name="`${name}[${idx}]`"
           :type="type"
           :placeholder="placeholder"
-          class="join-item"
+          class="join-item w-full"
         />
         <YButton
           variant="error"

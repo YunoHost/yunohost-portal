@@ -15,6 +15,7 @@ const props = withDefaults(
     variant: 'primary',
     icon: undefined,
     iconSize: '1.5em',
+    iconClass: '',
     iconOnly: false,
     block: false,
   },
@@ -37,7 +38,13 @@ const variantClass = computed(() => {
     :type="type"
   >
     <slot name="default">
-      <Icon v-if="icon" :name="icon" :size="iconSize" aria-hidden="true" />
+      <Icon
+        v-if="icon"
+        :name="icon"
+        :size="iconSize"
+        :class="iconClass"
+        aria-hidden="true"
+      />
       <span :class="{ 'sr-only': iconOnly }">{{ text }}</span>
     </slot>
   </button>
