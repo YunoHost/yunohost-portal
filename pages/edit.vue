@@ -20,20 +20,20 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
     yup.object({
       // username: yup.string().required(),
       fullname: yup.string().required().min(2),
-      currentPassword: yup
+      currentpassword: yup
         .string()
-        .when('newPassword', ([newPassword], schema) => {
-          return newPassword ? schema.required() : schema
+        .when('newpassword', ([newpassword], schema) => {
+          return newpassword ? schema.required() : schema
         }),
-      newPassword: yup.string().matches(/.{8,}/, {
+      newpassword: yup.string().matches(/.{8,}/, {
         excludeEmptyString: true,
         message: { key: 'v.string_too_short', values: { min: 8 } },
       }),
-      confirmNewPassword: yup
+      confirmpassword: yup
         .string()
-        .when('newPassword', ([newPassword], schema) => {
-          return newPassword
-            ? schema.oneOf([yup.ref('newPassword')], 'v.password_not_match')
+        .when('newpassword', ([newpassword], schema) => {
+          return newpassword
+            ? schema.oneOf([yup.ref('newpassword')], 'v.password_not_match')
             : schema
         }),
       mailalias: yup.array().of(yup.string().email().required()).required(),
@@ -41,15 +41,15 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
     }),
   ),
   initialValues: {
-    currentPassword: '',
-    newPassword: '',
-    confirmNewPassword: '',
+    currentpassword: '',
+    newpassword: '',
+    confirmpassword: '',
     ...pick(userData.value, 'fullname', 'mailalias', 'mailforward'),
   },
 })
 
 watch(
-  () => meta.value.touched,
+  () => meta.value.dirty,
   (value) => {
     // remove loading and feedback on edition
     if (value) {
@@ -66,10 +66,12 @@ const onSubmit = handleSubmit(async (form) => {
     Pick<UserData, 'fullname' | 'mailalias' | 'mailforward'>
   >('/update', {
     method: 'PUT',
-    body: exclude(form, 'confirmNewPassword'),
+    body: exclude(form, 'confirmpassword'),
   })
 
   if (error.value) {
+    // Reset form dirty state but keep previous values
+    resetForm({ values: form })
     const errData = error.value.data
     if (errData.path) {
       setFieldError(errData.path, errData.error)
@@ -77,17 +79,23 @@ const onSubmit = handleSubmit(async (form) => {
       feedback.value = {
         variant: 'error',
         icon: 'mdi:alert',
-        message: errData.error,
+        message: errData.error || errData,
       }
     }
   } else if (data.value) {
+    // redirect on password change
+    if (form.newpassword) {
+      useIsLoggedIn().value = false
+      return navigateTo('/login')
+    }
+
     update(data.value)
     resetForm({
       values: {
         ...data.value,
-        currentPassword: '',
-        newPassword: '',
-        confirmNewPassword: '',
+        currentpassword: '',
+        newpassword: '',
+        confirmpassword: '',
       },
     })
     feedback.value = {
@@ -105,8 +113,6 @@ const onSubmit = handleSubmit(async (form) => {
     <PageTitle :text="$t('footerlink_edit')" />
 
     <form novalidate class="my-10" @submit="onSubmit">
-      <BaseAlert v-show="feedback" v-bind="feedback" class="mb-10" />
-
       <div class="lg:flex lg:justify-between">
         <div class="lg:w-1/2 lg:me-20">
           <!-- <FormField name="username" :label="$t('username')" class="mb-3">
@@ -151,12 +157,12 @@ const onSubmit = handleSubmit(async (form) => {
           <legend class="text-xl mb-3">{{ $t('change_password') }}</legend>
 
           <FormField
-            name="currentPassword"
+            name="currentpassword"
             :label="$t('current_password')"
             class="mb-3"
           >
             <TextInput
-              name="currentPassword"
+              name="currentpassword"
               type="password"
               autocomplete="current-password"
               class="w-full"
@@ -164,31 +170,27 @@ const onSubmit = handleSubmit(async (form) => {
           </FormField>
 
           <FormField
-            name="newPassword"
+            name="newpassword"
             :label="$t('new_password')"
             :description="$t('good_practices_about_user_password')"
             class="mb-3"
           >
             <TextInput
-              name="newPassword"
+              name="newpassword"
               type="password"
               autocomplete="new-password"
               class="w-full"
             />
           </FormField>
 
-          <FormField
-            name="confirmNewPassword"
-            :label="$t('confirm_new_password')"
-          >
-            <TextInput
-              name="confirmNewPassword"
-              type="password"
-              class="w-full"
-            />
+          <FormField name="confirmpassword" :label="$t('confirm_new_password')">
+            <TextInput name="confirmpassword" type="password" class="w-full" />
           </FormField>
         </fieldset>
       </div>
+
+      <!-- Success + generic error announcement -->
+      <BaseAlert v-show="feedback" v-bind="feedback" class="mb-10" />
 
       <!-- SR "loading" announcement -->
       <BaseAlert
