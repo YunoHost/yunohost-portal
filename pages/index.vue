@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
-const { userData } = await useUserInfo()
+const appsData = await useApps()
 
-const me = computed(() => {
+const apps = computed(() => {
   const appTileColors = [
     ['bg-primary', 'text-primary-content'],
     ['bg-secondary', 'text-secondary-content'],
@@ -26,17 +26,14 @@ const me = computed(() => {
     // ['bg-rose-500', 'text-rose-100'],
   ]
 
-  return {
-    ...userData.value,
-    apps: Object.entries(userData.value.apps).map(([id, app]) => {
-      return {
-        ...app,
-        id,
-        url: '//' + app.url,
-        colors: appTileColors[parseInt(app.label, 36) % appTileColors.length],
-      }
-    }),
-  }
+  return Object.entries(appsData.value).map(([id, app]) => {
+    return {
+      ...app,
+      id,
+      url: '//' + app.url,
+      colors: appTileColors[parseInt(app.label, 36) % appTileColors.length],
+    }
+  })
 })
 </script>
 
@@ -45,13 +42,13 @@ const me = computed(() => {
     <PageTitle :text="$t('app_list')" />
 
     <div id="apps" class="my-10">
-      <div v-if="!me.apps.length" class="w-2/3">
+      <div v-if="!apps.length" class="w-2/3">
         <em>{{ t('no_apps') }}</em>
       </div>
 
       <ul v-else class="tile-container">
         <li
-          v-for="app in me.apps"
+          v-for="app in apps"
           :key="app.id"
           class="leading-none card h-40 w-40 relative mr-7 mb-7"
         >

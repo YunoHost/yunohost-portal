@@ -69,3 +69,15 @@ export const useUser = async <T extends User | null = User>() => {
 
   return user as Ref<T>
 }
+
+// APP
+
+export const useApps = async () => {
+  const isLoggedIn = useIsLoggedIn()
+  const settings = await useSettings()
+  const user = await useUser()
+
+  return computed(() => {
+    return isLoggedIn.value ? user.value?.apps : settings.value.apps
+  })
+}
