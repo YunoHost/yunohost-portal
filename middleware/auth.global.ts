@@ -1,7 +1,12 @@
-import { useIsLoggedIn, useRedirectUrl } from '@/composables/states'
+import {
+  useIsLoggedIn,
+  useRedirectUrl,
+  useSettings,
+} from '@/composables/states'
 
-export default defineNuxtRouteMiddleware((to, from) => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
   const isLoggedIn = useIsLoggedIn()
+  const settings = await useSettings()
 
   useRedirectUrl().value = (from.query.r as string) || null
   if (useRedirectUrl().value && to.name === 'login') {
@@ -11,7 +16,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (to.name === 'login' && isLoggedIn.value) {
     return navigateTo('/')
   }
-  if (to.name !== 'login' && !isLoggedIn.value) {
+  if (!isLoggedIn.value && !(to.meta.public && settings.value.public)) {
     return navigateTo('/login')
   }
 })

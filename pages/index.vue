@@ -2,6 +2,10 @@
 const { t } = useI18n()
 const appsData = await useApps()
 
+definePageMeta({
+  public: true,
+})
+
 const apps = computed(() => {
   const appTileColors = [
     ['bg-primary', 'text-primary-content'],

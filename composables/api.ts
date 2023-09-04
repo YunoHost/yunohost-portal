@@ -38,11 +38,15 @@ export function useApi<T>(
       .then((data) => {
         result.data.value = data as T
       })
-      .catch((e: FetchError) => {
+      .catch(async (e: FetchError) => {
         result.error.value = e
         if (e.statusCode === 401) {
           useIsLoggedIn().value = false
-          navigateTo('/login')
+          const route = useRoute()
+          const settings = await useSettings()
+          if (!(settings.value.public && route.meta.public)) {
+            navigateTo('/login')
+          }
         } else if (e.statusCode !== 400 && !e.data?.path) {
           throw createError({
             statusCode: e.statusCode,

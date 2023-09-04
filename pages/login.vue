@@ -5,6 +5,7 @@ import * as yup from 'yup'
 
 definePageMeta({
   layout: false,
+  public: true,
 })
 
 const { t } = useI18n()
