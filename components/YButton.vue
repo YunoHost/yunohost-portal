@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { NuxtLink } from '#components'
+
 const props = withDefaults(
   defineProps<{
     type?: 'button' | 'submit' | 'reset'
@@ -33,10 +35,11 @@ const variantClass = computed(() => {
 </script>
 
 <template>
-  <button
+  <component
+    :is="$attrs.to ? NuxtLink : 'button'"
     class="btn"
     :class="[variantClass, { 'btn-block': block }]"
-    :type="type"
+    :type="$attrs.to ? null : type"
   >
     <slot name="default">
       <Icon
@@ -48,5 +51,5 @@ const variantClass = computed(() => {
       />
       <span :class="{ 'sr-only': iconOnly }">{{ text }}</span>
     </slot>
-  </button>
+  </component>
 </template>
