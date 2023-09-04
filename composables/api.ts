@@ -54,33 +54,3 @@ export function useApi<T>(
   }
   return Promise.resolve(query()).then(() => result)
 }
-
-export interface UserData {
-  username: string
-  fullname: string
-  mail: string
-  mailalias: string[]
-  mailforward: string[]
-  groups: string[]
-  apps: Record<string, { label: string; url: string }>
-}
-
-export const useUserData = () => useState<UserData | undefined>('userData')
-
-export async function useUserInfo() {
-  const userData = useUserData()
-
-  if (!userData.value) {
-    const { data } = await useApi('/me')
-    userData.value = data.value as UserData
-  }
-
-  const update = (data: Partial<UserData>) => {
-    Object.assign(userData.value as UserData, data)
-  }
-
-  return {
-    userData: userData as Ref<UserData>,
-    update,
-  }
-}
