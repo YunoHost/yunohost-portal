@@ -3,10 +3,10 @@ import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/yup'
 import * as yup from 'yup'
 import { pick, exclude } from '@/utils/common'
-import type { UserData } from '@/composables/api'
+import type { User } from '@/composables/states'
 
 const { t } = useI18n()
-const { userData, update } = await useUserInfo()
+const user = await useUser()
 
 const loading: Ref<boolean | null> = ref(false)
 const feedback: Ref<{
@@ -44,7 +44,7 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
     currentpassword: '',
     newpassword: '',
     confirmpassword: '',
-    ...pick(userData.value, 'fullname', 'mailalias', 'mailforward'),
+    ...pick(user.value, 'fullname', 'mailalias', 'mailforward'),
   },
 })
 
@@ -63,7 +63,7 @@ const onSubmit = handleSubmit(async (form) => {
   loading.value = true
 
   const { error, data } = await useApi<
-    Pick<UserData, 'fullname' | 'mailalias' | 'mailforward'>
+    Pick<User, 'fullname' | 'mailalias' | 'mailforward'>
   >('/update', {
     method: 'PUT',
     body: exclude(form, 'confirmpassword'),
@@ -89,7 +89,7 @@ const onSubmit = handleSubmit(async (form) => {
       return navigateTo('/login')
     }
 
-    update(data.value)
+    Object.assign(user.value, data)
     resetForm({
       values: {
         ...data.value,

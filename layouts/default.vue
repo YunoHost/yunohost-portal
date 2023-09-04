@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import type { User } from '@/composables/states'
+
 const { t } = useI18n()
 const isLoggedIn = useIsLoggedIn()
-const { userData: me } = await useUserInfo()
+const settings = await useSettings()
+const user = await useUser<User | null>()
 const skipLink: Ref<HTMLLinkElement | null> = ref(null)
 const colorMode = useColorMode()
 const themes = [
@@ -56,9 +59,10 @@ async function logout() {
   const { error } = await useApi('/logout')
 
   if (!error.value) {
-    // FIXME : meh, turns out the cookie is still valid after successfully calling the route for some reason ... !?
+    // Delete user infos
+    user.value = null
     isLoggedIn.value = false
-    await navigateTo('/login')
+    await navigateTo(settings.value.public ? '/' : '/login')
   } else {
     // FIXME : display an error or something
   }
@@ -87,10 +91,10 @@ async function logout() {
 
           <div>
             <h2 class="text-2xl font-extrabold leading-none tracking-tight">
-              {{ me.username }}
+              {{ user?.username || t('visitor') }}
             </h2>
-            <h3>{{ me.fullname }}</h3>
-            <h4 class="opacity-50">{{ me.mail }}</h4>
+            <h3 v-if="user">{{ user.fullname }}</h3>
+            <h4 v-if="user" class="opacity-50">{{ user.mail }}</h4>
           </div>
 
           <!-- FIXME temp -->
@@ -106,10 +110,12 @@ async function logout() {
           </div>
 
           <YButton
+            v-if="isLoggedIn"
             icon="mdi:logout"
             :text="t('logout')"
             @click.prevent="logout"
           />
+          <YButton v-else icon="mdi:login" :text="t('login')" to="/login" />
         </div>
       </slot>
     </header>
