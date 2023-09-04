@@ -1,11 +1,14 @@
 import type { FetchError } from 'ofetch'
 
-const apiEndpoint =
-  'https://' +
-  (process.dev
-    ? useRuntimeConfig().public.apiIp || window.location.hostname
-    : window.location.hostname) +
-  '/yunohost/portalapi'
+const useApiEndpoint = () => {
+  return (
+    'https://' +
+    (process.dev
+      ? useRuntimeConfig().public.apiIp || window.location.hostname
+      : window.location.hostname) +
+    '/yunohost/portalapi'
+  )
+}
 
 export function useApi<T>(
   path: string,
@@ -27,7 +30,7 @@ export function useApi<T>(
   }
 
   const query = () => {
-    return $fetch(apiEndpoint + path, {
+    return $fetch(useApiEndpoint() + path, {
       method,
       credentials: 'include',
       body,
