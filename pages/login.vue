@@ -9,6 +9,11 @@ definePageMeta({
 })
 
 const { t } = useI18n()
+
+useHead({
+  title: t('login'),
+})
+
 const isLoggedIn = useIsLoggedIn()
 
 const { handleSubmit, setErrors } = useForm({

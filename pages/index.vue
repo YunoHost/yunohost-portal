@@ -1,9 +1,13 @@
 <script setup lang="ts">
+definePageMeta({
+  public: true,
+})
+
 const { t } = useI18n()
 const appsData = await useApps()
 
-definePageMeta({
-  public: true,
+useHead({
+  title: t('portal'),
 })
 
 const apps = computed(() => {

@@ -6,6 +6,11 @@ import { pick, exclude } from '@/utils/common'
 import type { User } from '@/composables/states'
 
 const { t } = useI18n()
+
+useHead({
+  title: t('footerlink_edit'),
+})
+
 const user = await useUser()
 
 const loading: Ref<boolean | null> = ref(false)
