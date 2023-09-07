@@ -46,10 +46,7 @@ const login = handleSubmit(async (form) => {
 
 <template>
   <main class="w-50 m-auto">
-    <img
-      class="flex-none mx-auto w-1/2 mb-10"
-      src="/assets/img/logo-white.svg"
-    />
+    <CustomLogo class="flex-none mx-auto w-1/2 mb-10" />
 
     <form novalidate @submit="login">
       <FormField

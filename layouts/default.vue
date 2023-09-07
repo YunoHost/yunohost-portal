@@ -142,10 +142,7 @@ async function logout() {
             </NuxtLink>
           </nav>
 
-          <img
-            src="/assets/img/logo-white.svg"
-            class="mt-8 sm:mt-0 mx-auto sm:ml-auto sm:mr-0"
-          />
+          <CustomLogo class="mt-8 sm:mt-0 mx-auto sm:ml-auto sm:mr-0" />
         </div>
       </slot>
     </footer>
