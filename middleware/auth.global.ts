@@ -13,10 +13,11 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     to.query.r = useRedirectUrl().value
   }
 
-  if (to.name === 'login' && isLoggedIn.value) {
-    return navigateTo('/')
-  }
-  if (!isLoggedIn.value && !(to.meta.public && settings.value.public)) {
+  if (to.name === 'login') {
+    if (isLoggedIn.value) {
+      return navigateTo('/')
+    }
+  } else if (!isLoggedIn.value && !(to.meta.public && settings.value.public)) {
     return navigateTo('/login')
   }
 })
