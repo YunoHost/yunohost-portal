@@ -5,8 +5,9 @@ const props = defineProps<{
   name: string
   label: string
   inputLabel: string
+  buttonLabel: string
   type: HTMLInputElement['type']
-  placeholder?: string
+  placeholder?: string,
 }>()
 
 const group: Ref<HTMLElement | null> = ref(null)
@@ -55,6 +56,6 @@ function onAdd() {
       </div>
     </FormField>
 
-    <YButton :text="$t('add')" @click="onAdd" />
+    <YButton :text="buttonLabel" @click="onAdd" />
   </fieldset>
 </template>

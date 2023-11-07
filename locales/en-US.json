@@ -54,6 +54,8 @@
   "footerlink_documentation": "Documentation",
   "footerlink_support": "Support",
   "footerlink_administration": "Administration",
+  "remove": "Remove",
+  "save": "Save",
   "skip_to_main_content": "Skip to main content",
   "v": {
     "field_invalid": "Field value is invalid",

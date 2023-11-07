@@ -78,14 +78,18 @@ const onSubmit = handleSubmit(async (form) => {
     // Reset form dirty state but keep previous values
     resetForm({ values: form })
     const errData = error.value.data
+    let message
+
     if (errData.path) {
       setFieldError(errData.path, errData.error)
+      message = t('user_saving_fail')
     } else {
-      feedback.value = {
-        variant: 'error',
-        icon: 'mdi:alert',
-        message: errData.error || errData,
-      }
+      message = errData.error || errData
+    }
+    feedback.value = {
+      variant: 'error',
+      icon: 'mdi:alert',
+      message,
     }
   } else if (data.value) {
     // redirect on password change
@@ -145,6 +149,7 @@ const onSubmit = handleSubmit(async (form) => {
             type="email"
             :label="$t('mail_addresses')"
             :input-label="$t('mail_address')"
+            :button-label="$t('add_mail')"
             :placeholder="$t('new_mail')"
             class="mb-10"
           />
@@ -154,6 +159,7 @@ const onSubmit = handleSubmit(async (form) => {
             type="email"
             :label="$t('mail_forwards')"
             :input-label="$t('mail_forward')"
+            :button-label="$t('add_forward')"
             :placeholder="$t('new_forward')"
           />
         </div>
