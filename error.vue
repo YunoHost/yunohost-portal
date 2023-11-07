@@ -16,7 +16,7 @@ const props = defineProps<{
     class="container mx-auto p-10 min-h-screen flex flex-col justify-center items-center"
   >
     <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir"></Html>
-    <img class="logo" src="/assets/img/logo-white.svg" />
+    <img class="logo" src="/assets/img/logo-white.svg" alt="YunoHost logo" />
     <div class="text-center mt-10">
       <h1 class="text-7xl font-bold">{{ error.statusCode }}</h1>
       <p class="py-6">{{ error.statusMessage }}</p>
@@ -24,7 +24,7 @@ const props = defineProps<{
   </main>
 </template>
 
-<style>
+<style scoped>
 .logo {
   width: 50%;
   max-width: 200px;

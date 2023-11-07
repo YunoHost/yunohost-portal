@@ -80,7 +80,7 @@ const customLogo = computed(() => {
   </svg>
 </template>
 
-<style>
+<style scoped>
 svg,
 img,
 .svg-div {
