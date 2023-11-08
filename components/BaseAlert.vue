@@ -30,7 +30,7 @@ const classVariant = computed(() => {
     aria-atomic="true"
     :class="'mt-10 alert ' + classVariant"
   >
-    <Icon v-if="icon" :name="icon" size="2em" aria-hidden="true" />
+    <YIcon v-if="icon" :name="icon" size="2em" aria-hidden="true" />
     <slot name="default">
       {{ message }}
     </slot>
