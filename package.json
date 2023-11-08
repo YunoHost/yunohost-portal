@@ -26,12 +26,12 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-vuejs-accessibility": "^2.1.0",
     "nuxt": "^3.6.2",
-    "nuxt-icon": "^0.4.2",
     "prettier": "^3.0.0",
     "typescript": "^5.1.6"
   },
   "dependencies": {
     "@vee-validate/yup": "^4.10.8",
+    "nuxt-icons": "^3.2.1",
     "vee-validate": "^4.10.8"
   }
 }
