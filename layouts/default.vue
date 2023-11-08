@@ -86,7 +86,7 @@ async function logout() {
         <div class="flex flex-row flex-wrap items-center min-w-full">
           <NuxtLink to="/">
             <span class="sr-only">{{ t('back_to_apps') }}</span>
-            <Icon name="mdi:account-circle" size="5em" class="mr-3" />
+            <YIcon name="account-circle" size="5em" class="mr-3" />
           </NuxtLink>
 
           <div>
@@ -111,11 +111,11 @@ async function logout() {
 
           <YButton
             v-if="isLoggedIn"
-            icon="mdi:logout"
+            icon="logout"
             :text="t('logout')"
             @click.prevent="logout"
           />
-          <YButton v-else icon="mdi:login" :text="t('login')" to="/login" />
+          <YButton v-else icon="login" :text="t('login')" to="/login" />
         </div>
       </slot>
     </header>

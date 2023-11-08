@@ -57,7 +57,7 @@ const login = handleSubmit(async (form) => {
       <FormField
         name="username"
         :label="t('username')"
-        icon="mdi:account-circle"
+        icon="account-circle"
         class="mb-4"
         row
       >
@@ -72,7 +72,7 @@ const login = handleSubmit(async (form) => {
       <FormField
         name="password"
         :label="t('password')"
-        icon="mdi:lock"
+        icon="lock"
         class="mb-4"
         row
       >

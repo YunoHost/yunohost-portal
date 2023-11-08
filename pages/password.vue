@@ -37,7 +37,7 @@ const onSubmit = handleSubmit(async (form) => {
     <form novalidate class="my-10" @submit="onSubmit">
       <!-- FIXME replace with accessible component -->
       <div role="alert" class="alert alert-warning mb-10">
-        <Icon name="mdi:warning-outline" size="2em" />
+        <YIcon name="alert-outline" size="2em" />
         {{ $t('good_practices_about_user_password') }}
       </div>
 

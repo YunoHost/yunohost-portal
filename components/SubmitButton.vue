@@ -16,9 +16,9 @@ const attrs = computed(() => {
       : props.text || t('save'),
     icon:
       props.loading === true
-        ? props.loadingIcon || 'mdi:loading'
+        ? props.loadingIcon || 'loading'
         : props.loading === false
-        ? 'mdi:thumb-up'
+        ? 'thumb-up'
         : props.icon,
     iconClass: props.loading ? 'animate-spin' : '',
     ...baseAttrs,

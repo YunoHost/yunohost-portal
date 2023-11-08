@@ -88,7 +88,7 @@ const onSubmit = handleSubmit(async (form) => {
     }
     feedback.value = {
       variant: 'error',
-      icon: 'mdi:alert',
+      icon: 'alert',
       message,
     }
   } else if (data.value) {
@@ -109,7 +109,7 @@ const onSubmit = handleSubmit(async (form) => {
     })
     feedback.value = {
       variant: 'success',
-      icon: 'mdi:thumb-up',
+      icon: 'thumb-up',
       message: t('user_profile_updated'),
     }
   }

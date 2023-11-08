@@ -42,7 +42,7 @@ const variantClass = computed(() => {
     :type="$attrs.to ? null : type"
   >
     <slot name="default">
-      <Icon
+      <YIcon
         v-if="icon"
         :name="icon"
         :size="iconSize"

@@ -46,7 +46,7 @@ function onAdd() {
         />
         <YButton
           variant="error"
-          icon="mdi:delete-forever"
+          icon="delete-forever"
           icon-size="2em"
           icon-only
           :text="$t('remove')"

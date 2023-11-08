@@ -55,13 +55,13 @@ provide(formGroupExtras, {
           :id="name + '__label'"
           :for="name"
           class="block ms-1 mb-2"
-          :class="{ 'sr-only': srHideLabel }"
+          :class="{ 'sr-only': srHideLabel, 'flex mb-0': !!icon }"
         >
-          <Icon
+          <YIcon
             v-if="icon"
             :name="icon"
-            size="2em"
             aria-hidden="true"
+            size="2em"
             class="m-2"
           />
           <span :class="{ 'sr-only': !!icon }">{{ label }}</span>
