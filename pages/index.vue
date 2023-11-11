@@ -7,7 +7,7 @@ const { t } = useI18n()
 const appsData = await useApps()
 
 useHead({
-  title: t('portal'),
+  title: t('app_list'),
 })
 
 const apps = computed(() => {

@@ -82,7 +82,7 @@ const onSubmit = handleSubmit(async (form) => {
 
     if (errData.path) {
       setFieldError(errData.path, errData.error)
-      message = t('user_saving_fail')
+      message = t('form_has_errors')
     } else {
       message = errData.error || errData
     }
