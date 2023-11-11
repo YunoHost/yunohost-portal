@@ -13,6 +13,14 @@ export default defineNuxtConfig({
     'nuxt-icons',
     '@nuxtjs/google-fonts',
   ],
+  vite: {
+    server: {
+      fs: {
+        // For `./ynh-dev use-git yunohost-portal` to work
+        allow: ["/var/cache/ynh-dev/yunohost-portal/"]
+      }
+    }
+  },
   devtools: { enabled: true },
   googleFonts: {
     families: {
