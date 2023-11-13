@@ -33,18 +33,18 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-    locales: [
-      {
-        code: 'en-US',
-        iso: 'en-US',
-        name: 'English (United States)',
-        file: 'en-US.json',
-      },
-    ],
+    strategy: 'no_prefix',
     lazy: true,
     langDir: 'locales',
-    defaultLocale: 'en-US',
-    strategy: 'no_prefix',
+    defaultLocale: 'en',
+    locales: [
+      {
+        code: 'en',
+        iso: 'en',
+        name: 'English (United States)',
+        file: 'en.json',
+      },
+    ],
   },
   colorMode: {
     preference: 'system',
