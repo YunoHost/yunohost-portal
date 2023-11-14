@@ -30,4 +30,11 @@ body {
 #__nuxt {
   @apply min-h-screen flex;
 }
+
+/* GLOBAL */
+.btn,
+.select {
+  min-height: 2.5rem;
+  height: 2.5rem;
+}
 </style>
