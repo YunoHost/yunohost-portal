@@ -99,6 +99,7 @@ async function logout() {
 
           <!-- FIXME temp -->
           <div class="ml-auto mr-4">
+            <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
             <label class="mr-4">theme:</label>
             <select
               v-model="colorMode.preference"

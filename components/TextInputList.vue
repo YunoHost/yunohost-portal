@@ -7,7 +7,7 @@ const props = defineProps<{
   inputLabel: string
   buttonLabel: string
   type: HTMLInputElement['type']
-  placeholder?: string,
+  placeholder?: string
 }>()
 
 const group: Ref<HTMLElement | null> = ref(null)

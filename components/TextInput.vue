@@ -29,6 +29,7 @@ const validationListeners = {
 </script>
 
 <template>
+  <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
   <input
     :id="name"
     :value="value"

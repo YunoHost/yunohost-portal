@@ -6,7 +6,7 @@ const head = useLocaleHead({
   addSeoAttributes: true,
 })
 
-const props = defineProps<{
+defineProps<{
   error: H3Error
 }>()
 </script>
