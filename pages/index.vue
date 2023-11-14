@@ -49,7 +49,7 @@ const apps = computed(() => {
   <div>
     <PageTitle :text="$t('app_list')" />
 
-    <div id="apps" class="my-10">
+    <div id="apps">
       <div v-if="!apps.length" class="w-2/3">
         <em>{{ t('no_apps') }}</em>
       </div>
@@ -60,9 +60,8 @@ const apps = computed(() => {
           :key="app.id"
           class="leading-none card h-40 w-40 relative mr-7 mb-7"
         >
-          <div class="tile-layer" :class="[app.colors[0], 'brightness-75']" />
           <a :href="app.url" class="tile-layer p-5" :class="app.colors">
-            <div class="text-6xl font-extrabold mb-1" aria-hidden="true">
+            <div class="text-6xl font-extrabold mb-1 mt-2" aria-hidden="true">
               {{ app.label.substring(0, 2) }}
             </div>
             <span class="leading-tight mt-2">{{ app.label }}</span>
@@ -85,14 +84,14 @@ const apps = computed(() => {
   z-index: -1;
   position: absolute;
   @apply inset-0;
-  @apply rounded-2xl;
+  @apply text-center;
   transform: translate(0rem, 0rem);
 }
-#apps li.card:hover div.tile-layer {
-  transform: translate(0.75rem, 0.75rem);
-}
-
 #apps li.card:hover {
-  transform: translate(-0.75rem, -0.75rem);
+  height: 9.5em;
+  width: 9.5em;
+  margin-left: 0.25em;
+  margin-top: 0.25em;
+  transition: all 0.1s ease;
 }
 </style>

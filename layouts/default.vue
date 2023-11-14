@@ -71,7 +71,7 @@ async function logout() {
 
 <template>
   <div class="container mx-auto p-10 min-h-screen flex flex-col">
-    <header class="py-10">
+    <header class="py-2">
       <div class="h-10 -mt-10">
         <a
           id="skip-link"
