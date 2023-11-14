@@ -75,5 +75,33 @@ def remove_stale_translations(ref="en", locales=None):
     save_json(ref_path, ref_data, sort=True)
 
 
+def generate_locales_list():
+    locales = []
+
+    for locale in ALL_LOCALES:
+        path = LOCALE_FILES[locale]
+        data = get_json(path).get("_language", {})
+        code = data.get("code", locale)
+        if locale != code:
+            # Warn that translators have changed the language code
+            print(
+                f"Language's code for file '{locale}.json' is '{code}': file"
+                " should probably be renamed to '{code}.json'"
+            )
+        locales.append(
+            {
+                "code": code,
+                "iso": code,
+                "name": data.get("name", code),
+                "dir": data.get("dir", "ltr"),
+                "fallback": data.get("fallback", "en"),
+                "file": f"{locale}.json",
+            }
+        )
+
+    save_json(LOCALES_LIST_FILE, locales, sort=True)
+
+
 if __name__ == "__main__":
     remove_stale_translations()
+    generate_locales_list()
