@@ -1,3 +1,6 @@
+import type { LocaleObject } from '@nuxtjs/i18n/dist/runtime/composables'
+import locales from './maintenance/locales.json'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
@@ -17,9 +20,9 @@ export default defineNuxtConfig({
     server: {
       fs: {
         // For `./ynh-dev use-git yunohost-portal` to work
-        allow: ["/var/cache/ynh-dev/yunohost-portal/"]
-      }
-    }
+        allow: ['/var/cache/ynh-dev/yunohost-portal/'],
+      },
+    },
   },
   devtools: { enabled: true },
   googleFonts: {
@@ -37,14 +40,7 @@ export default defineNuxtConfig({
     lazy: true,
     langDir: 'locales',
     defaultLocale: 'en',
-    locales: [
-      {
-        code: 'en',
-        iso: 'en',
-        name: 'English (United States)',
-        file: 'en.json',
-      },
-    ],
+    locales: locales as LocaleObject[],
   },
   colorMode: {
     preference: 'system',
