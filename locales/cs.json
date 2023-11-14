@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "cs",
+        "dir": "ltr",
+        "name": "Čeština"
+    },
     "add_forward": "Přidat e-mailovou adresu pro přeposílání",
     "add_mail": "Přidat e-mail alias",
     "cancel": "Storno",

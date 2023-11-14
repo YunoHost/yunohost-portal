@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "pl",
+        "dir": "ltr",
+        "name": "Polski"
+    },
     "add_forward": "Dodaj adres e-mail do przekazywania",
     "add_mail": "Dodaj alias e-mail",
     "cancel": "Anuluj",

@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "eo",
+        "dir": "ltr",
+        "name": "Esperanto"
+    },
     "add_forward": "Aldonu poŝton antaŭen",
     "add_mail": "Aldonu poŝton alias",
     "cancel": "Nuligi",

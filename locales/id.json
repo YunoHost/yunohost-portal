@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "id",
+        "dir": "ltr",
+        "name": "Bahasa Indonesia"
+    },
     "add_forward": "Buat alamat surel terusan",
     "add_mail": "Buat surel alias",
     "cancel": "Batal",

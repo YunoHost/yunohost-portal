@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "de",
+        "dir": "ltr",
+        "name": "Deutsch"
+    },
     "add_forward": "E-Mail-Weiterleitung hinzufügen",
     "add_mail": "E-Mail-Alias hinzufügen",
     "cancel": "Abbrechen",

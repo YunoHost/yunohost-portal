@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "nl",
+        "dir": "ltr",
+        "name": "Nederlands"
+    },
     "add_forward": "Voeg een e-mail doorstuuradres toe",
     "add_mail": "Voeg een e-mailalias toe",
     "cancel": "Annuleren",

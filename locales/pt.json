@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "pt",
+        "dir": "ltr",
+        "name": "Português"
+    },
     "add_forward": "Adicionar um endereço de encaminhamento de email",
     "add_mail": "Adicionar um alias de email",
     "cancel": "Cancelar",

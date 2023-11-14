@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "es",
+        "dir": "ltr",
+        "name": "Español"
+    },
     "add_forward": "Añadir una dirección de reenvío de correo electrónico",
     "add_mail": "Añadir un alias de correo electrónico",
     "cancel": "Cancelar",

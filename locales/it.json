@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "it",
+        "dir": "ltr",
+        "name": "Italiano"
+    },
     "add_forward": "Aggiungi un indirizzo di inoltro e-mail",
     "add_mail": "Aggiungi un alias email",
     "cancel": "Annulla",

@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "fr",
+        "dir": "ltr",
+        "name": "Français"
+    },
     "add_forward": "Ajouter une adresse de transfert",
     "add_mail": "Ajouter un alias de courriel",
     "cancel": "Annuler",

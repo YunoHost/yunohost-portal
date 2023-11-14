@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "hu",
+        "dir": "ltr",
+        "name": "Magyar"
+    },
     "add_forward": "Adjon hozzá egy e-mail továbbító címet",
     "add_mail": "Adjon hozzá egy e-mail álnevet",
     "cancel": "Megszünteti",

@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "ja",
+        "dir": "ltr",
+        "name": "日本語"
+    },
     "add_forward": "電子メール転送アドレスを追加",
     "add_mail": "電子メール エイリアスを追加",
     "cancel": "キャンセル",

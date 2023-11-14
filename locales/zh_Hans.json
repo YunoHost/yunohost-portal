@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "zh_Hans",
+        "dir": "ltr",
+        "name": "简化字"
+    },
     "add_forward": "添加电子邮件转发地址",
     "add_mail": "添加电子邮件别名",
     "cancel": "取消",

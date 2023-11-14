@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "kab",
+        "dir": "ltr",
+        "name": "Taqbaylit"
+    },
     "cancel": "Sefsex",
     "change_password": "Beddel awal n uffir",
     "current_password": "Awal n uɛeddi amiran",

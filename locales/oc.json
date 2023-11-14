@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "oc",
+        "dir": "ltr",
+        "name": "Occitan"
+    },
     "add_forward": "Ajustar una adreça de transferiment",
     "add_mail": "Ajustar un alias d’adreça electronica",
     "cancel": "Anullar",

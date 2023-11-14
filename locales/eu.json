@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "eu",
+        "dir": "ltr",
+        "name": "Euskara"
+    },
     "add_forward": "Gehitu helbide elektronikoa birbidaltzeko e-maila",
     "add_mail": "Gehitu e-mail ezizen bat",
     "cancel": "Utzi",

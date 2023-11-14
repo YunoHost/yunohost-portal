@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "nb-NO",
+        "dir": "ltr",
+        "name": "Norsk bokmål"
+    },
     "cancel": "Avbryt",
     "change_password": "Endre passord",
     "current_password": "Nåværende passord",

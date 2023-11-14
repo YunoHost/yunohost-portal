@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "en",
+        "dir": "ltr",
+        "name": "English"
+    },
     "add_forward": "Add an e-mail forwarding address",
     "add_mail": "Add an e-mail alias",
     "app_list": "App list",

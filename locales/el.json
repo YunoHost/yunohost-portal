@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "el",
+        "dir": "ltr",
+        "name": "Eλληνικά"
+    },
     "add_forward": "Προσθέστε μια διεύθυνση προώθησης email",
     "add_mail": "Προσθέστε ένα ψευδώνυμο email",
     "cancel": "Ματαίωση",

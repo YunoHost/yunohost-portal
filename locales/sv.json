@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "sv",
+        "dir": "ltr",
+        "name": "Svenska"
+    },
     "add_forward": "Lägg till en e-postadress för vidarebefordran",
     "add_mail": "Lägg till ett e-postalias",
     "cancel": "Avbryt",

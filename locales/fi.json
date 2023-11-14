@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "fi",
+        "dir": "ltr",
+        "name": "Suomi"
+    },
     "add_forward": "Lisää sähköpostin välitysosoite",
     "add_mail": "Lisää sähköposti-alias",
     "cancel": "Peruuta",

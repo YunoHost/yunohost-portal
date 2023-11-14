@@ -1,4 +1,9 @@
 {
+    "_language": {
+        "code": "ca",
+        "dir": "ltr",
+        "name": "Català"
+    },
     "add_forward": "Afegir un correu electrònic de reenviament",
     "add_mail": "Afegir un àlies de correu electrònic",
     "cancel": "Cancel·lar",
