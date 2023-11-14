@@ -1,0 +1,23 @@
+{
+    "add_forward": "Aldonu poŝton antaŭen",
+    "add_mail": "Aldonu poŝton alias",
+    "cancel": "Nuligi",
+    "change_password": "Ŝanĝi pasvorton",
+    "current_password": "Nuna pasvorto",
+    "footerlink_administration": "Administrado",
+    "footerlink_documentation": "Dokumentado",
+    "footerlink_edit": "Redakti mian profilon",
+    "footerlink_support": "Subteno",
+    "fullname": "Plena nomo",
+    "good_practices_about_user_password": "Elektu uzantan pasvorton de almenaŭ 8 signoj - kvankam ĝi estas bona praktiko uzi pli longajn (I.E. Pasfraso) kaj / aŭ uzas diversajn specojn de karakteroj (majusklaj, minusklaj, ciferoj kaj specialaj signoj).",
+    "logged_out": "Ensalutinta",
+    "login": "Ensaluti",
+    "logout": "Elsaluti",
+    "mail_addresses": "Retpoŝtadresoj",
+    "mail_forward": "Poŝti antaŭen",
+    "new_forward": "newforward@myforeigndomain.org",
+    "new_mail": "nova-adreso@mia-domajno.org",
+    "new_password": "Nova pasvorto",
+    "password": "Pasvorto",
+    "username": "Uzantnomo"
+}

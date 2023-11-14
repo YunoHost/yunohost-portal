@@ -1,0 +1,23 @@
+{
+    "add_forward": "Добавить адрес пересылки электронной почты",
+    "add_mail": "Добавьте псевдоним электронной почты",
+    "cancel": "Отмена",
+    "change_password": "Сменить пароль",
+    "current_password": "Действующий пароль",
+    "footerlink_administration": "Администрирование",
+    "footerlink_documentation": "Документация",
+    "footerlink_edit": "Редактировать профиль",
+    "footerlink_support": "Поддержка",
+    "fullname": "Полное имя",
+    "good_practices_about_user_password": "Выберите пароль пользователя длиной не менее 8 символов, хотя рекомендуется использовать более длинные (например, парольную фразу) и / или использовать символы различного типа (прописные, строчные буквы, цифры и специальные символы).",
+    "logged_out": "Вы вышли из системы",
+    "login": "Авторизоваться",
+    "logout": "Выйти",
+    "mail_addresses": "Адрес электронной почты",
+    "mail_forward": "Адрес пересылки электронной почты",
+    "new_forward": "newforward@myforeigndomain.org",
+    "new_mail": "newmail@mydomain.org",
+    "new_password": "Новый пароль",
+    "password": "Пароль",
+    "username": "Имя пользователя"
+}

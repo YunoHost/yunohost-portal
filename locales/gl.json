@@ -1,0 +1,23 @@
+{
+    "add_forward": "Engadir un enderezo de reenvío de email",
+    "add_mail": "Engadir un alias de email",
+    "cancel": "Cancelar",
+    "change_password": "Cambiar contrasinal",
+    "current_password": "Contrasinal actual",
+    "footerlink_administration": "Administración",
+    "footerlink_documentation": "Documentación",
+    "footerlink_edit": "Editar o meu perfil",
+    "footerlink_support": "Axuda",
+    "fullname": "Nome completo",
+    "good_practices_about_user_password": "Elixe un contrasinal con 8 caracteres como mínimo - é recomendable que sexa longo (ex. unha frase) e utilizar varios tipos de caracteres (maiúsculas, minúsculas, díxitos e caracteres especiais).",
+    "logged_out": "Sesión pechada",
+    "login": "Acceder",
+    "logout": "Pechar sesión",
+    "mail_addresses": "Enderezos de email",
+    "mail_forward": "Enderezo de reenvío de email",
+    "new_forward": "novoreenvio@omeudominioexterno.org",
+    "new_mail": "novomail@omeudominio.org",
+    "new_password": "Novo contrasinal",
+    "password": "Contrasinal",
+    "username": "Identificador"
+}

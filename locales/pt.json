@@ -1,0 +1,23 @@
+{
+    "add_forward": "Adicionar um endereço de encaminhamento de email",
+    "add_mail": "Adicionar um alias de email",
+    "cancel": "Cancelar",
+    "change_password": "Alterar senha",
+    "current_password": "Senha atual",
+    "footerlink_administration": "Administração",
+    "footerlink_documentation": "Documentação",
+    "footerlink_edit": "Editar o meu perfil",
+    "footerlink_support": "Suporte",
+    "fullname": "Nome completo",
+    "good_practices_about_user_password": "Escolha uma senha de usuário com pelo menos 8 caracteres - embora seja uma boa prática usar palavras mais longas (ou seja, uma senha) e/ou usar vários tipos de caracteres (maiúsculas, minúsculas, dígitos e caracteres especiais).",
+    "logged_out": "Sessão terminada",
+    "login": "Entrar",
+    "logout": "Sair",
+    "mail_addresses": "Endereço de e-mail",
+    "mail_forward": "Endereço de encaminhamento de email",
+    "new_forward": "novoreenvio@dominioexterno.org",
+    "new_mail": "novomail@meudominio.org",
+    "new_password": "Nova senha",
+    "password": "Senha",
+    "username": "Nome de utilizador"
+}

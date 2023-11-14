@@ -1,0 +1,23 @@
+{
+    "add_forward": "Bir e-posta yönlendirme adresi ekleyin",
+    "add_mail": "Bir e-posta takma adı ekleyin",
+    "cancel": "İptal et",
+    "change_password": "Parolayı değiştir",
+    "current_password": "Mevcut parola",
+    "footerlink_administration": "Yönetim",
+    "footerlink_documentation": "Belgelendirme",
+    "footerlink_edit": "Profilimi düzenle",
+    "footerlink_support": "Destek",
+    "fullname": "Ad Soyad",
+    "good_practices_about_user_password": "En az 8 karakterden oluşan bir kullanıcı şifresi seçin - daha uzun olanları (örneğin bir şifre) ve / veya çeşitli karakterleri (büyük harf, küçük harf, rakam ve özel karakterler) kullanmak daha iyidir.",
+    "logged_out": "Çıkış yapıldı",
+    "login": "Oturum aç",
+    "logout": "Çıkış Yap",
+    "mail_addresses": "E-mail adresleri",
+    "mail_forward": "E-posta yönlendirme adresi",
+    "new_forward": "newforward@myforeigndomain.org",
+    "new_mail": "newmail@mydomain.org",
+    "new_password": "Yeni parola",
+    "password": "Parola",
+    "username": "Kullanıcı adı"
+}

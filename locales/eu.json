@@ -1,0 +1,23 @@
+{
+    "add_forward": "Gehitu helbide elektronikoa birbidaltzeko e-maila",
+    "add_mail": "Gehitu e-mail ezizen bat",
+    "cancel": "Utzi",
+    "change_password": "Aldatu pasahitza",
+    "current_password": "Oraingo pasahitza",
+    "footerlink_administration": "Administrazioa",
+    "footerlink_documentation": "Dokumentazioa",
+    "footerlink_edit": "Editatu profila",
+    "footerlink_support": "Laguntza",
+    "fullname": "Izen osoa",
+    "good_practices_about_user_password": "Aukeratu gutxienez 8 karaktere dituen erabiltzaile-pasahitz bat — baina gomendioa pasahitz luzeagoak erabiltzea da (adibidez, esaldi bat) edota karaktere desberdinak erabiltzea (larriak, txikiak, zenbakiak eta karaktere bereziak).",
+    "logged_out": "Saioa amaituta",
+    "login": "Hasi saioa",
+    "logout": "Amaitu saioa",
+    "mail_addresses": "Helbide elektronikoak",
+    "mail_forward": "Birbidalketarako posta elektronikoa",
+    "new_forward": "birbidalketaberria@nirekanpokodomeinua.eus",
+    "new_mail": "postaberria@niredomeinua.eus",
+    "new_password": "Pasahitz berria",
+    "password": "Pasahitza",
+    "username": "Erabiltzaile-izena"
+}

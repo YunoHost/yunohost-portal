@@ -1,0 +1,23 @@
+{
+    "add_forward": "एक ई-मेल अग्रेषण पता जोड़ें",
+    "add_mail": "एक ईमेल उपनाम जोड़ें",
+    "cancel": "रद्द करना",
+    "change_password": "पासवर्ड बदलें",
+    "current_password": "वर्तमान पासवर्ड",
+    "footerlink_administration": "प्रशासन",
+    "footerlink_documentation": "प्रलेखन",
+    "footerlink_edit": "मेरे प्रोफ़ाइल संपादित करे",
+    "footerlink_support": "समर्थन",
+    "fullname": "पूरा नाम",
+    "good_practices_about_user_password": "कम से कम 8 वर्णों का एक उपयोगकर्ता पासवर्ड चुनें - हालाँकि यह लंबे लोगों (यानी एक पासफ़्रेज़) और / या विभिन्न प्रकार के वर्ण (अपरकेस, लोअरकेस, अंक और विशेष वर्ण) का उपयोग करने के लिए अच्छा अभ्यास है।",
+    "logged_out": "लॉग आउट",
+    "login": "लॉग इन करें",
+    "logout": "लोग आउट",
+    "mail_addresses": "ईमेल पता",
+    "mail_forward": "ई-मेल अग्रेषण पता",
+    "new_forward": "newforward@myforeigndomain.org",
+    "new_mail": "newmail@mydomain.org",
+    "new_password": "नया पासवर्ड",
+    "password": "पासवर्ड",
+    "username": "उपयोगकर्ता नाम"
+}

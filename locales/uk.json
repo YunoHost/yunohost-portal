@@ -1,0 +1,23 @@
+{
+    "add_forward": "Додайте адресу переадресації е-пошти",
+    "add_mail": "Додайте аліас е-пошти",
+    "cancel": "Скасувати",
+    "change_password": "Змінити пароль",
+    "current_password": "Поточний пароль",
+    "footerlink_administration": "Адміністрування",
+    "footerlink_documentation": "Документація",
+    "footerlink_edit": "Редагувати мій профіль",
+    "footerlink_support": "Підтримка",
+    "fullname": "Повне ім'я",
+    "good_practices_about_user_password": "Виберіть пароль користувача щонайменше 8 символів - хоча це хороша практика використовувати довші (тобто фрази-гасла) та/або використовувати різні символи (великі, малі, числа та спеціальні символи).",
+    "logged_out": "Ви вийшли з системи",
+    "login": "Увійти",
+    "logout": "Вийти",
+    "mail_addresses": "Адреси е-пошти",
+    "mail_forward": "Адреса переадресації е-пошти",
+    "new_forward": "novapereadresaciya@myforeigndomain.org",
+    "new_mail": "novaeposhta@mydomain.org",
+    "new_password": "Новий пароль",
+    "password": "Пароль",
+    "username": "Ім'я користувача"
+}

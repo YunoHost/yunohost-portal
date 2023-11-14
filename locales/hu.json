@@ -1,0 +1,23 @@
+{
+    "add_forward": "Adjon hozzá egy e-mail továbbító címet",
+    "add_mail": "Adjon hozzá egy e-mail álnevet",
+    "cancel": "Megszünteti",
+    "change_password": "Jelszó módosítása",
+    "current_password": "Jelenlegi jelszó",
+    "footerlink_administration": "Adminisztráció",
+    "footerlink_documentation": "Dokumentáció",
+    "footerlink_edit": "Profilom szerkesztése",
+    "footerlink_support": "Támogatás",
+    "fullname": "Teljes név",
+    "good_practices_about_user_password": "Válasszon legalább 8 karakterből álló felhasználói jelszót - jó gyakorlat azonban hosszabb jelszó használata (azaz egy jelmondat) és/vagy különféle karakterek (nagybetűk, kisbetűk, számjegyek és speciális karakterek) használata.",
+    "logged_out": "Kilépett",
+    "login": "Belépés",
+    "logout": "Kijelentkezés",
+    "mail_addresses": "Email címek",
+    "mail_forward": "E-mail továbbítási cím",
+    "new_forward": "newforward@myforeigndomain.org",
+    "new_mail": "newmail@mydomain.org",
+    "new_password": "Új jelszó",
+    "password": "Jelszó",
+    "username": "Felhasználónév"
+}

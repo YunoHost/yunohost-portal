@@ -1,0 +1,23 @@
+{
+    "add_forward": "Añadir una dirección de reenvío de correo electrónico",
+    "add_mail": "Añadir un alias de correo electrónico",
+    "cancel": "Cancelar",
+    "change_password": "Cambiar contraseña",
+    "current_password": "Contraseña actual",
+    "footerlink_administration": "Administración",
+    "footerlink_documentation": "Documentación",
+    "footerlink_edit": "Editar mi perfil",
+    "footerlink_support": "Ayuda",
+    "fullname": "Nombre completo",
+    "good_practices_about_user_password": "Está a punto de establecer una nueva contraseña de usuario. La contraseña debería de ser de al menos 8 caracteres, aunque es una buena práctica usar una contraseña más larga (es decir, una frase de paso) y/o usar varias clases de caracteres (mayúsculas, minúsculas, dígitos y caracteres especiales).",
+    "logged_out": "Sesión cerrada",
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "mail_addresses": "Direcciones de correo electrónico",
+    "mail_forward": "Direcciones de reenvío de correo electrónico",
+    "new_forward": "nuevoreenvio@midominioexterior.org",
+    "new_mail": "nuevomail@midominio.org",
+    "new_password": "Nueva contraseña",
+    "password": "Contraseña",
+    "username": "Nombre de usuario"
+}

@@ -1,0 +1,23 @@
+{
+    "add_forward": "Voeg een e-mail doorstuuradres toe",
+    "add_mail": "Voeg een e-mailalias toe",
+    "cancel": "Annuleren",
+    "change_password": "Verander wachtwoord",
+    "current_password": "Huidig wachtwoord",
+    "footerlink_administration": "Administratie",
+    "footerlink_documentation": "Documentatie",
+    "footerlink_edit": "Bewerk mijn profiel",
+    "footerlink_support": "Ondersteuning",
+    "fullname": "Voor- en achternaam",
+    "good_practices_about_user_password": "Kies een gebruikerswachtwoord van minimaal 8 tekens - hoewel het een goede gewoonte is om langere (bijvoorbeeld een wachtwoordzin) te gebruiken en/of verschillende soorten tekens te gebruiken (hoofdletters, kleine letters, cijfers en speciale tekens).",
+    "logged_out": "Uitgelogd",
+    "login": "Inloggen",
+    "logout": "Uitloggen",
+    "mail_addresses": "E-mailadressen",
+    "mail_forward": "E-mail doorstuuradres",
+    "new_forward": "nieuw_doorstuuradres@mijndomein.org",
+    "new_mail": "nieuwe_email@mijndomein.org",
+    "new_password": "Nieuw wachtwoord",
+    "password": "Wachtwoord",
+    "username": "Gebruikersnaam"
+}

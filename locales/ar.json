@@ -1,0 +1,23 @@
+{
+    "add_forward": "إضافة عنوان آخر لتوجيه البريد",
+    "add_mail": "إضافة عنوان بريد إلكتروني مستعار",
+    "cancel": "إلغاء",
+    "change_password": "تعديل كلمة السر",
+    "current_password": "كلمة السر الحالية",
+    "footerlink_administration": "الإدارة",
+    "footerlink_documentation": "الدليل",
+    "footerlink_edit": "تعديل ملفي الشخصي",
+    "footerlink_support": "المساعدة",
+    "fullname": "الإسم الكامل",
+    "good_practices_about_user_password": "اختر كلمة مرور مكونة مِن 8 أحرف على الأقل - مع العِلم أنّه مِن الممارسات الجيدة استخدام الأطول (أي عبارة مرور) و/أو إستخدام أنواع مختلفة من الأحرف (الحروف الكبيرة والصغيرة والأرقان والحروف الخاصة).",
+    "logged_out": "تم تسجيل خروجك",
+    "login": "لِج",
+    "logout": "الخروج",
+    "mail_addresses": "عناوين البريد الإلكترونية",
+    "mail_forward": "عناوين توجيه البريد الإلكتروني",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "newmail{'@'}mydomain.org",
+    "new_password": "كلمة السر الجديدة",
+    "password": "كلمة السر",
+    "username": "إسم المستخدم"
+}

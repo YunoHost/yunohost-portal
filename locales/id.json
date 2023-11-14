@@ -1,0 +1,23 @@
+{
+    "add_forward": "Buat alamat surel terusan",
+    "add_mail": "Buat surel alias",
+    "cancel": "Batal",
+    "change_password": "Ubah kata sandi",
+    "current_password": "Kata sandi saat ini",
+    "footerlink_administration": "Administrasi",
+    "footerlink_documentation": "Dokumentasi",
+    "footerlink_edit": "Sunting profil saya",
+    "footerlink_support": "Dukungan",
+    "fullname": "Nama Lengkap",
+    "good_practices_about_user_password": "Pilih kata sandi sekurang-kurangnya 8 karakter - meskipun memang adalah hal yang baik jika menggunakan yang lebih panjang (cth. parafrasa) dan/atau menggunakan berbagai macam karakter (kapital, huruf kecil, angka, dan karakter lainnya).",
+    "logged_out": "Berhasil keluar",
+    "login": "Masuk",
+    "logout": "Keluar",
+    "mail_addresses": "Alamat surel",
+    "mail_forward": "Alamat surel terusan",
+    "new_forward": "terusanbaru@domainlainku.org",
+    "new_mail": "surelbaru@domainku.org",
+    "new_password": "Kata sandi baru",
+    "password": "Kata sandi",
+    "username": "Nama Pengguna"
+}

@@ -1,0 +1,23 @@
+{
+    "add_forward": "Lisää sähköpostin välitysosoite",
+    "add_mail": "Lisää sähköposti-alias",
+    "cancel": "Peruuta",
+    "change_password": "Vaihda salasana",
+    "current_password": "Nykyinen salasana",
+    "footerlink_administration": "Ylläpito",
+    "footerlink_documentation": "Dokumentaatio",
+    "footerlink_edit": "Muokkaa profiiliani",
+    "footerlink_support": "Tuki",
+    "fullname": "Koko nimi",
+    "good_practices_about_user_password": "Valitse vähintään kahdeksan merkkiä pitkä salasana - on kuitenkin hyvä käyttää pidempiä salasanoja (esim. salasanalause) ja/tai erilaisia merkkejä (isoja ja pieniä kirjaimia, numeroita ja erikoismerkkejä).",
+    "logged_out": "Kirjauduttu ulos",
+    "login": "Kirjaudu sisään",
+    "logout": "Kirjaudu ulos",
+    "mail_addresses": "Sähköpostiosoitteet",
+    "mail_forward": "Sähköpostin välitysosoite",
+    "new_forward": "uusivälitys@minunulkopuolinendomain.fi",
+    "new_mail": "uusiosoite@minundomain.fi",
+    "new_password": "Uusi salasana",
+    "password": "Salasana",
+    "username": "Käyttäjänimi"
+}

@@ -1,0 +1,23 @@
+{
+    "add_forward": "Ajustar una adreça de transferiment",
+    "add_mail": "Ajustar un alias d’adreça electronica",
+    "cancel": "Anullar",
+    "change_password": "Cambiar lo senhal",
+    "current_password": "Senhal actual",
+    "footerlink_administration": "Administracion",
+    "footerlink_documentation": "Documentacion",
+    "footerlink_edit": "Editar lo perfil",
+    "footerlink_support": "Assisténcia",
+    "fullname": "Nom complèt",
+    "good_practices_about_user_password": "Causissètz un senhal d’almens 8 caractèrs, es de bon far d’utilizar un senhal mai long (es a dire una frasa de senhal) e/o utilizar mantun tipe de caractèrs (majusculas, minusculas, nombres e caractèrs especials).",
+    "logged_out": "Desconnectat",
+    "login": "Connexion",
+    "logout": "Desconnexion",
+    "mail_addresses": "Adreça de corrièl",
+    "mail_forward": "Adreças de transferiment",
+    "new_forward": "novel_transferiment@domenialonhat.org",
+    "new_mail": "novela_adreça@domeni.org",
+    "new_password": "Nòu senhal",
+    "password": "Senhal",
+    "username": "Nom d’utilizaire"
+}

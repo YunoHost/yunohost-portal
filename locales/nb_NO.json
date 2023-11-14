@@ -1,0 +1,15 @@
+{
+    "cancel": "Avbryt",
+    "change_password": "Endre passord",
+    "current_password": "Nåværende passord",
+    "footerlink_administration": "Administrasjon",
+    "footerlink_documentation": "Dokumentasjon",
+    "footerlink_edit": "Rediger min profil",
+    "footerlink_support": "Støtte",
+    "logged_out": "Utlogget",
+    "login": "Logg inn",
+    "logout": "Logg ut",
+    "new_password": "Nytt passord",
+    "password": "Passord",
+    "username": "Brukernavn"
+}

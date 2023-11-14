@@ -1,0 +1,23 @@
+{
+    "add_forward": "একটি ইমেল ফরোয়ার্ডিং ঠিকানা যুক্ত করুন",
+    "add_mail": "একটি ইমেল ওরফে যুক্ত করুন",
+    "cancel": "বাতিল",
+    "change_password": "পাসওয়ার্ড পরিবর্তন করুন",
+    "current_password": "বর্তমান পাসওয়ার্ড",
+    "footerlink_administration": "প্রশাসন",
+    "footerlink_documentation": "নথিপত্র",
+    "footerlink_edit": "আমার প্রোফাইল সম্পাদনা করুন",
+    "footerlink_support": "সমর্থন",
+    "fullname": "পুরো নাম",
+    "good_practices_about_user_password": "কমপক্ষে 8 টি অক্ষরের ব্যবহারকারীর পাসওয়ার্ডটি চয়ন করুন - যদিও এটি দীর্ঘতর (যেমন একটি পাসফ্রেজ) এবং / অথবা বিভিন্ন ধরণের অক্ষর (বড় হাতের অক্ষর, ছোট হাতের অক্ষর এবং বিশেষ অক্ষর) ব্যবহার করা ভাল অনুশীলন।",
+    "logged_out": "প্রস্থান",
+    "login": "প্রবেশ করুন",
+    "logout": "প্রস্থান",
+    "mail_addresses": "ইমেইল ঠিকানা",
+    "mail_forward": "ই-মেইল ফরওয়ার্ডিং ঠিকানা",
+    "new_forward": "newforward@myforeigndomain.org",
+    "new_mail": "newmail@mydomain.org",
+    "new_password": "নতুন পাসওয়ার্ড",
+    "password": "পাসওয়ার্ড",
+    "username": "ব্যবহারকারীর নাম"
+}

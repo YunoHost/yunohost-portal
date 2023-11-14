@@ -1,0 +1,23 @@
+{
+    "add_forward": "آدرس هدایت ایمیل را اضافه کنید",
+    "add_mail": "یک نام مستعار ایمیل اضافه کنید",
+    "cancel": "لغو",
+    "change_password": "تغییر رمز عبور",
+    "current_password": "رمز عبور فعلی",
+    "footerlink_administration": "مدیریت",
+    "footerlink_documentation": "مستندات",
+    "footerlink_edit": "ویرایش پروفایل من",
+    "footerlink_support": "پشتیبانی",
+    "fullname": "نام و نام خانوادگی",
+    "good_practices_about_user_password": "گذرواژه کاربر متشکل ازانواع مختلف کاراکترها (بزرگ ، کوچک ، رقم و کاراکتر های خاص)را حداقل با 8 کاراکتر انتخاب کنید - هرچند استفاده از کلمات طولانی تر تمرین خوبی است (مانند عبارت عبور).",
+    "logged_out": "خارج شده",
+    "login": "ورود به سیستم",
+    "logout": "خروج",
+    "mail_addresses": "آدرس ایمیل",
+    "mail_forward": "آدرس ارسال به جلو ایمیل",
+    "new_forward": "newforward@myforeigndomain.org",
+    "new_mail": "newmail@mydomain.org",
+    "new_password": "رمز عبور جدید",
+    "password": "کلمه عبور",
+    "username": "نام کاربری"
+}

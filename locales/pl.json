@@ -1,0 +1,23 @@
+{
+    "add_forward": "Dodaj adres e-mail do przekazywania",
+    "add_mail": "Dodaj alias e-mail",
+    "cancel": "Anuluj",
+    "change_password": "Zmień hasło",
+    "current_password": "Aktualne hasło",
+    "footerlink_administration": "Panel administracyjny",
+    "footerlink_documentation": "Dokumentacja",
+    "footerlink_edit": "Edytuj mój profil",
+    "footerlink_support": "Pomoc techniczna",
+    "fullname": "Pełne imię i nazwisko",
+    "good_practices_about_user_password": "Wybierz hasło użytkownika składające się z co najmniej 8 znaków — chociaż dobrą praktyką jest używanie dłuższych i / lub stosowanie różnego rodzaju znaków (wielkie i małe litery, cyfry i znaki specjalne).",
+    "logged_out": "Wylogowano",
+    "login": "Zaloguj Się",
+    "logout": "Wyloguj",
+    "mail_addresses": "Adresy e-mail",
+    "mail_forward": "Adres do przekazywania wiadomości e-mail",
+    "new_forward": "newforward@myforeigndomain.org",
+    "new_mail": "nowymail@domena.org",
+    "new_password": "Nowe hasło",
+    "password": "Hasło",
+    "username": "Nazwa użytkownika"
+}

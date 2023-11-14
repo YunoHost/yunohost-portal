@@ -1,0 +1,23 @@
+{
+    "add_forward": "Lägg till en e-postadress för vidarebefordran",
+    "add_mail": "Lägg till ett e-postalias",
+    "cancel": "Avbryt",
+    "change_password": "Byt lösenord",
+    "current_password": "Nuvarande lösenord",
+    "footerlink_administration": "Administration",
+    "footerlink_documentation": "Dokumentation",
+    "footerlink_edit": "Redigera min profil",
+    "footerlink_support": "Support",
+    "fullname": "Fullständigt namn",
+    "good_practices_about_user_password": "Välj ett användarlösenord på minst åtta tecken - även om det är bra att använda längre (dvs ett lösenord) och / eller använda olika typer av tecken (versaler, versaler, siffror och specialtecken).",
+    "logged_out": "Utloggad",
+    "login": "Logga in",
+    "logout": "Logga ut",
+    "mail_addresses": "E-postadresser",
+    "mail_forward": "E-postadress för vidarebefordring",
+    "new_forward": "ny_vidarebefordring@min_fjarr-doman.org",
+    "new_mail": "ny_adress@min_doman.org",
+    "new_password": "Nytt lösenord",
+    "password": "Lösenord",
+    "username": "Användarnamn"
+}
