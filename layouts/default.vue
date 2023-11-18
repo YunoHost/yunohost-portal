@@ -6,39 +6,6 @@ const isLoggedIn = useIsLoggedIn()
 const settings = await useSettings()
 const user = await useUser<User | null>()
 const skipLink: Ref<HTMLLinkElement | null> = ref(null)
-const colorMode = useColorMode()
-const themes = [
-  'system',
-  'light',
-  'dark',
-  'cupcake',
-  'bumblebee',
-  'emerald',
-  'corporate',
-  'synthwave',
-  'retro',
-  'cyberpunk',
-  'valentine',
-  'halloween',
-  'garden',
-  'forest',
-  'aqua',
-  'lofi',
-  'pastel',
-  'fantasy',
-  'wireframe',
-  'black',
-  'luxury',
-  'dracula',
-  'cmyk',
-  'autumn',
-  'business',
-  'acid',
-  'lemonade',
-  'night',
-  'coffee',
-  'winter',
-]
 
 const footerLinks = [
   { text: t('footerlink_edit'), to: '/edit' },
@@ -98,25 +65,15 @@ async function logout() {
           </div>
 
           <!-- FIXME temp -->
-          <div class="ml-auto mr-4">
-            <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
-            <label class="mr-4">theme:</label>
-            <select
-              v-model="colorMode.preference"
-              class="select select-bordered"
-            >
-              <option disabled selected>Theme</option>
-              <option v-for="theme of themes" :key="theme">{{ theme }}</option>
-            </select>
+          <div class="ms-auto">
+            <YButton
+              v-if="isLoggedIn"
+              icon="logout"
+              :text="t('logout')"
+              @click.prevent="logout"
+            />
+            <YButton v-else icon="login" :text="t('login')" to="/login" />
           </div>
-
-          <YButton
-            v-if="isLoggedIn"
-            icon="logout"
-            :text="t('logout')"
-            @click.prevent="logout"
-          />
-          <YButton v-else icon="login" :text="t('login')" to="/login" />
         </div>
       </slot>
     </header>
