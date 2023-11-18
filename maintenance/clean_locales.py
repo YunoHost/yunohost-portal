@@ -78,23 +78,30 @@ def remove_stale_translations(ref="en", locales=None):
 def generate_locales_list():
     locales = []
 
-    for locale in ALL_LOCALES:
+    for locale in sorted(ALL_LOCALES):
         path = LOCALE_FILES[locale]
         data = get_json(path).get("_language", {})
         code = data.get("code", locale)
+        fallback = [
+            code.strip() for code in data.get("fallback", "").strip().split(",")
+        ]
+        # Remove "en" from fallback locales since there's already a last resort fallback to "en"
+        fallback = [code for code in fallback if code not in ("en", "")]
+
         if locale != code:
             # Warn that translators have changed the language code
             print(
                 f"Language's code for file '{locale}.json' is '{code}': file"
                 " should probably be renamed to '{code}.json'"
             )
+
         locales.append(
             {
                 "code": code,
                 "iso": code,
                 "name": data.get("name", code),
                 "dir": data.get("dir", "ltr"),
-                "fallback": data.get("fallback", "en"),
+                "fallback": fallback or None,
                 "file": f"{locale}.json",
             }
         )

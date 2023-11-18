@@ -2,6 +2,7 @@
     "_language": {
         "code": "br",
         "dir": "ltr",
+        "fallback": "fr",
         "name": "Brezhoneg"
     }
 }

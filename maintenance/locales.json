@@ -1,330 +1,332 @@
 [
     {
-        "code": "el",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "el.json",
-        "iso": "el",
-        "name": "Eλληνικά"
-    },
-    {
-        "code": "te",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "te.json",
-        "iso": "te",
-        "name": "Telugu"
-    },
-    {
-        "code": "ja",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "ja.json",
-        "iso": "ja",
-        "name": "日本語"
-    },
-    {
         "code": "ar",
         "dir": "rtl",
-        "fallback": "en",
+        "fallback": null,
         "file": "ar.json",
         "iso": "ar",
         "name": "العربية"
     },
     {
-        "code": "fi",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "fi.json",
-        "iso": "fi",
-        "name": "Suomi"
-    },
-    {
-        "code": "ne",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "ne.json",
-        "iso": "ne",
-        "name": "नेपाली"
-    },
-    {
-        "code": "de",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "de.json",
-        "iso": "de",
-        "name": "Deutsch"
-    },
-    {
-        "code": "es",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "es.json",
-        "iso": "es",
-        "name": "Español"
-    },
-    {
-        "code": "it",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "it.json",
-        "iso": "it",
-        "name": "Italiano"
-    },
-    {
-        "code": "pl",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "pl.json",
-        "iso": "pl",
-        "name": "Polski"
-    },
-    {
-        "code": "uk",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "uk.json",
-        "iso": "uk",
-        "name": "Українська"
-    },
-    {
-        "code": "eo",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "eo.json",
-        "iso": "eo",
-        "name": "Esperanto"
-    },
-    {
-        "code": "he",
-        "dir": "rtl",
-        "fallback": "en",
-        "file": "he.json",
-        "iso": "he",
-        "name": "עברית"
-    },
-    {
-        "code": "id",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "id.json",
-        "iso": "id",
-        "name": "Bahasa Indonesia"
-    },
-    {
-        "code": "ca",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "ca.json",
-        "iso": "ca",
-        "name": "Català"
-    },
-    {
-        "code": "en",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "en.json",
-        "iso": "en",
-        "name": "English"
-    },
-    {
-        "code": "lt",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "lt.json",
-        "iso": "lt",
-        "name": "Lietuvių"
-    },
-    {
-        "code": "kab",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "kab.json",
-        "iso": "kab",
-        "name": "Taqbaylit"
-    },
-    {
-        "code": "hu",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "hu.json",
-        "iso": "hu",
-        "name": "Magyar"
-    },
-    {
-        "code": "eu",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "eu.json",
-        "iso": "eu",
-        "name": "Euskara"
-    },
-    {
-        "code": "cs",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "cs.json",
-        "iso": "cs",
-        "name": "Čeština"
-    },
-    {
-        "code": "sv",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "sv.json",
-        "iso": "sv",
-        "name": "Svenska"
-    },
-    {
-        "code": "oc",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "oc.json",
-        "iso": "oc",
-        "name": "Occitan"
-    },
-    {
-        "code": "ru",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "ru.json",
-        "iso": "ru",
-        "name": "Русский"
-    },
-    {
-        "code": "sl",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "sl.json",
-        "iso": "sl",
-        "name": "Slovenščina"
-    },
-    {
-        "code": "br",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "br.json",
-        "iso": "br",
-        "name": "Brezhoneg"
-    },
-    {
-        "code": "nb-NO",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "nb_NO.json",
-        "iso": "nb-NO",
-        "name": "Norsk bokmål"
-    },
-    {
-        "code": "pt",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "pt.json",
-        "iso": "pt",
-        "name": "Português"
-    },
-    {
-        "code": "mk",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "mk.json",
-        "iso": "mk",
-        "name": "македонски"
-    },
-    {
-        "code": "fr",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "fr.json",
-        "iso": "fr",
-        "name": "Français"
-    },
-    {
-        "code": "nl",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "nl.json",
-        "iso": "nl",
-        "name": "Nederlands"
-    },
-    {
-        "code": "fa",
-        "dir": "rtl",
-        "fallback": "en",
-        "file": "fa.json",
-        "iso": "fa",
-        "name": "فارسی"
-    },
-    {
-        "code": "hi",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "hi.json",
-        "iso": "hi",
-        "name": "हिन्दी"
-    },
-    {
-        "code": "tr",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "tr.json",
-        "iso": "tr",
-        "name": "Türkçe"
-    },
-    {
-        "code": "pt-BR",
-        "dir": "ltr",
-        "fallback": "en",
-        "file": "pt_BR.json",
-        "iso": "pt-BR",
-        "name": "Português brasileiro"
-    },
-    {
         "code": "bn-BD",
         "dir": "ltr",
-        "fallback": "en",
+        "fallback": null,
         "file": "bn_BD.json",
         "iso": "bn-BD",
         "name": "বাংলা"
     },
     {
+        "code": "br",
+        "dir": "ltr",
+        "fallback": [
+            "fr"
+        ],
+        "file": "br.json",
+        "iso": "br",
+        "name": "Brezhoneg"
+    },
+    {
+        "code": "ca",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "ca.json",
+        "iso": "ca",
+        "name": "Català"
+    },
+    {
         "code": "ckb",
         "dir": "rtl",
-        "fallback": "en",
+        "fallback": null,
         "file": "ckb.json",
         "iso": "ckb",
         "name": "کوردی"
     },
     {
-        "code": "zh_Hans",
+        "code": "cs",
         "dir": "ltr",
-        "fallback": "en",
-        "file": "zh_Hans.json",
-        "iso": "zh_Hans",
-        "name": "简化字"
+        "fallback": null,
+        "file": "cs.json",
+        "iso": "cs",
+        "name": "Čeština"
     },
     {
         "code": "da",
         "dir": "ltr",
-        "fallback": "en",
+        "fallback": null,
         "file": "da.json",
         "iso": "da",
         "name": "Dansk"
     },
     {
+        "code": "de",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "de.json",
+        "iso": "de",
+        "name": "Deutsch"
+    },
+    {
+        "code": "el",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "el.json",
+        "iso": "el",
+        "name": "Eλληνικά"
+    },
+    {
+        "code": "en",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "en.json",
+        "iso": "en",
+        "name": "English"
+    },
+    {
+        "code": "eo",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "eo.json",
+        "iso": "eo",
+        "name": "Esperanto"
+    },
+    {
+        "code": "es",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "es.json",
+        "iso": "es",
+        "name": "Español"
+    },
+    {
+        "code": "eu",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "eu.json",
+        "iso": "eu",
+        "name": "Euskara"
+    },
+    {
+        "code": "fa",
+        "dir": "rtl",
+        "fallback": null,
+        "file": "fa.json",
+        "iso": "fa",
+        "name": "فارسی"
+    },
+    {
+        "code": "fi",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "fi.json",
+        "iso": "fi",
+        "name": "Suomi"
+    },
+    {
+        "code": "fr",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "fr.json",
+        "iso": "fr",
+        "name": "Français"
+    },
+    {
         "code": "gl",
         "dir": "ltr",
-        "fallback": "en",
+        "fallback": null,
         "file": "gl.json",
         "iso": "gl",
         "name": "Galego"
     },
     {
+        "code": "he",
+        "dir": "rtl",
+        "fallback": null,
+        "file": "he.json",
+        "iso": "he",
+        "name": "עברית"
+    },
+    {
+        "code": "hi",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "hi.json",
+        "iso": "hi",
+        "name": "हिन्दी"
+    },
+    {
+        "code": "hu",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "hu.json",
+        "iso": "hu",
+        "name": "Magyar"
+    },
+    {
+        "code": "id",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "id.json",
+        "iso": "id",
+        "name": "Bahasa Indonesia"
+    },
+    {
+        "code": "it",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "it.json",
+        "iso": "it",
+        "name": "Italiano"
+    },
+    {
+        "code": "ja",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "ja.json",
+        "iso": "ja",
+        "name": "日本語"
+    },
+    {
+        "code": "kab",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "kab.json",
+        "iso": "kab",
+        "name": "Taqbaylit"
+    },
+    {
+        "code": "lt",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "lt.json",
+        "iso": "lt",
+        "name": "Lietuvių"
+    },
+    {
+        "code": "mk",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "mk.json",
+        "iso": "mk",
+        "name": "македонски"
+    },
+    {
+        "code": "nb-NO",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "nb_NO.json",
+        "iso": "nb-NO",
+        "name": "Norsk bokmål"
+    },
+    {
+        "code": "ne",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "ne.json",
+        "iso": "ne",
+        "name": "नेपाली"
+    },
+    {
+        "code": "nl",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "nl.json",
+        "iso": "nl",
+        "name": "Nederlands"
+    },
+    {
+        "code": "oc",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "oc.json",
+        "iso": "oc",
+        "name": "Occitan"
+    },
+    {
+        "code": "pl",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "pl.json",
+        "iso": "pl",
+        "name": "Polski"
+    },
+    {
+        "code": "pt",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "pt.json",
+        "iso": "pt",
+        "name": "Português"
+    },
+    {
+        "code": "pt-BR",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "pt_BR.json",
+        "iso": "pt-BR",
+        "name": "Português brasileiro"
+    },
+    {
+        "code": "ru",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "ru.json",
+        "iso": "ru",
+        "name": "Русский"
+    },
+    {
         "code": "sk",
         "dir": "ltr",
-        "fallback": "en",
+        "fallback": null,
         "file": "sk.json",
         "iso": "sk",
         "name": "Slovak"
+    },
+    {
+        "code": "sl",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "sl.json",
+        "iso": "sl",
+        "name": "Slovenščina"
+    },
+    {
+        "code": "sv",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "sv.json",
+        "iso": "sv",
+        "name": "Svenska"
+    },
+    {
+        "code": "te",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "te.json",
+        "iso": "te",
+        "name": "Telugu"
+    },
+    {
+        "code": "tr",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "tr.json",
+        "iso": "tr",
+        "name": "Türkçe"
+    },
+    {
+        "code": "uk",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "uk.json",
+        "iso": "uk",
+        "name": "Українська"
+    },
+    {
+        "code": "zh_Hans",
+        "dir": "ltr",
+        "fallback": null,
+        "file": "zh_Hans.json",
+        "iso": "zh_Hans",
+        "name": "简化字"
     }
 ]

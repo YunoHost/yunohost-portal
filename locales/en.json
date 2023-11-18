@@ -2,6 +2,7 @@
     "_language": {
         "code": "en",
         "dir": "ltr",
+        "fallback": "en",
         "name": "English"
     },
     "add_forward": "Add an e-mail forwarding address",
