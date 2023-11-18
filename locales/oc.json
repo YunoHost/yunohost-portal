@@ -20,8 +20,8 @@
     "logout": "Desconnexion",
     "mail_addresses": "Adreça de corrièl",
     "mail_forward": "Adreças de transferiment",
-    "new_forward": "novel_transferiment@domenialonhat.org",
-    "new_mail": "novela_adreça@domeni.org",
+    "new_forward": "novel_transferiment{'@'}domenialonhat.org",
+    "new_mail": "novela_adreça{'@'}domeni.org",
     "new_password": "Nòu senhal",
     "password": "Senhal",
     "username": "Nom d’utilizaire"

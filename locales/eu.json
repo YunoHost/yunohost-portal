@@ -20,8 +20,8 @@
     "logout": "Amaitu saioa",
     "mail_addresses": "Helbide elektronikoak",
     "mail_forward": "Birbidalketarako posta elektronikoa",
-    "new_forward": "birbidalketaberria@nirekanpokodomeinua.eus",
-    "new_mail": "postaberria@niredomeinua.eus",
+    "new_forward": "birbidalketaberria{'@'}nirekanpokodomeinua.eus",
+    "new_mail": "postaberria{'@'}niredomeinua.eus",
     "new_password": "Pasahitz berria",
     "password": "Pasahitza",
     "username": "Erabiltzaile-izena"

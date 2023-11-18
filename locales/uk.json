@@ -20,8 +20,8 @@
     "logout": "Вийти",
     "mail_addresses": "Адреси е-пошти",
     "mail_forward": "Адреса переадресації е-пошти",
-    "new_forward": "novapereadresaciya@myforeigndomain.org",
-    "new_mail": "novaeposhta@mydomain.org",
+    "new_forward": "novapereadresaciya{'@'}myforeigndomain.org",
+    "new_mail": "novaeposhta{'@'}mydomain.org",
     "new_password": "Новий пароль",
     "password": "Пароль",
     "username": "Ім'я користувача"

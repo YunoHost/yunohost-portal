@@ -20,8 +20,8 @@
     "logout": "Wyloguj",
     "mail_addresses": "Adresy e-mail",
     "mail_forward": "Adres do przekazywania wiadomości e-mail",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "nowymail@domena.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "nowymail{'@'}domena.org",
     "new_password": "Nowe hasło",
     "password": "Hasło",
     "username": "Nazwa użytkownika"

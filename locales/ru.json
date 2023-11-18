@@ -20,8 +20,8 @@
     "logout": "Выйти",
     "mail_addresses": "Адрес электронной почты",
     "mail_forward": "Адрес пересылки электронной почты",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "newmail@mydomain.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "Новый пароль",
     "password": "Пароль",
     "username": "Имя пользователя"

@@ -20,8 +20,8 @@
     "logout": "Keluar",
     "mail_addresses": "Alamat surel",
     "mail_forward": "Alamat surel terusan",
-    "new_forward": "terusanbaru@domainlainku.org",
-    "new_mail": "surelbaru@domainku.org",
+    "new_forward": "terusanbaru{'@'}domainlainku.org",
+    "new_mail": "surelbaru{'@'}domainku.org",
     "new_password": "Kata sandi baru",
     "password": "Kata sandi",
     "username": "Nama Pengguna"

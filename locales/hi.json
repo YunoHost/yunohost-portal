@@ -20,8 +20,8 @@
     "logout": "लोग आउट",
     "mail_addresses": "ईमेल पता",
     "mail_forward": "ई-मेल अग्रेषण पता",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "newmail@mydomain.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "नया पासवर्ड",
     "password": "पासवर्ड",
     "username": "उपयोगकर्ता नाम"

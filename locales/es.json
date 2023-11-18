@@ -20,8 +20,8 @@
     "logout": "Cerrar sesión",
     "mail_addresses": "Direcciones de correo electrónico",
     "mail_forward": "Direcciones de reenvío de correo electrónico",
-    "new_forward": "nuevoreenvio@midominioexterior.org",
-    "new_mail": "nuevomail@midominio.org",
+    "new_forward": "nuevoreenvio{'@'}midominioexterior.org",
+    "new_mail": "nuevomail{'@'}midominio.org",
     "new_password": "Nueva contraseña",
     "password": "Contraseña",
     "username": "Nombre de usuario"

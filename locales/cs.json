@@ -20,8 +20,8 @@
     "logout": "Odhlásit se",
     "mail_addresses": "E-mailová adresa",
     "mail_forward": "E-mail pro přeposílání",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "newmail@mydomain.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "Nové heslo",
     "password": "Heslo",
     "username": "Uživatelské jméno"

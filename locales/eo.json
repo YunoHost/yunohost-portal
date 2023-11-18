@@ -20,8 +20,8 @@
     "logout": "Elsaluti",
     "mail_addresses": "Retpoŝtadresoj",
     "mail_forward": "Poŝti antaŭen",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "nova-adreso@mia-domajno.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "nova-adreso{'@'}mia-domajno.org",
     "new_password": "Nova pasvorto",
     "password": "Pasvorto",
     "username": "Uzantnomo"

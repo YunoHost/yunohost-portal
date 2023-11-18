@@ -20,8 +20,8 @@
     "logout": "Pechar sesión",
     "mail_addresses": "Enderezos de email",
     "mail_forward": "Enderezo de reenvío de email",
-    "new_forward": "novoreenvio@omeudominioexterno.org",
-    "new_mail": "novomail@omeudominio.org",
+    "new_forward": "novoreenvio{'@'}omeudominioexterno.org",
+    "new_mail": "novomail{'@'}omeudominio.org",
     "new_password": "Novo contrasinal",
     "password": "Contrasinal",
     "username": "Identificador"

@@ -20,8 +20,8 @@
     "logout": "登出",
     "mail_addresses": "电子邮件地址",
     "mail_forward": "邮件转发地址",
-    "new_forward": "新转发@我的外部域.org",
-    "new_mail": "新邮件@我的域.org",
+    "new_forward": "新转发{'@'}我的外部域.org",
+    "new_mail": "新邮件{'@'}我的域.org",
     "new_password": "新密码",
     "password": "密码",
     "username": "用户名"

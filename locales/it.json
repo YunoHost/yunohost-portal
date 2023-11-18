@@ -20,8 +20,8 @@
     "logout": "Esci",
     "mail_addresses": "Indirizzi email",
     "mail_forward": "Indirizzo di inoltro e-mail",
-    "new_forward": "nuovoinoltro@miodominiodifferente.org",
-    "new_mail": "nuovaemail@miodominio.org",
+    "new_forward": "nuovoinoltro{'@'}miodominiodifferente.org",
+    "new_mail": "nuovaemail{'@'}miodominio.org",
     "new_password": "Nuova password",
     "password": "Password",
     "username": "Nome utente"

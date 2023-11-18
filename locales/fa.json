@@ -20,8 +20,8 @@
     "logout": "خروج",
     "mail_addresses": "آدرس ایمیل",
     "mail_forward": "آدرس ارسال به جلو ایمیل",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "newmail@mydomain.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "رمز عبور جدید",
     "password": "کلمه عبور",
     "username": "نام کاربری"

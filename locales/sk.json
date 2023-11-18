@@ -20,8 +20,8 @@
     "logout": "Odhlásiť sa",
     "mail_addresses": "E-mailová adresa",
     "mail_forward": "E-mail pre preposielanie",
-    "new_forward": "novepreposielanie@mojadalsiadomena.org",
-    "new_mail": "novymail@mojadomena.org",
+    "new_forward": "novepreposielanie{'@'}mojadalsiadomena.org",
+    "new_mail": "novymail{'@'}mojadomena.org",
     "new_password": "Nové heslo",
     "password": "Heslo",
     "username": "Meno používateľa"

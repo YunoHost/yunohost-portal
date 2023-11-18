@@ -20,8 +20,8 @@
     "logout": "Kijelentkezés",
     "mail_addresses": "Email címek",
     "mail_forward": "E-mail továbbítási cím",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "newmail@mydomain.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "Új jelszó",
     "password": "Jelszó",
     "username": "Felhasználónév"

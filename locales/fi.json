@@ -20,8 +20,8 @@
     "logout": "Kirjaudu ulos",
     "mail_addresses": "Sähköpostiosoitteet",
     "mail_forward": "Sähköpostin välitysosoite",
-    "new_forward": "uusivälitys@minunulkopuolinendomain.fi",
-    "new_mail": "uusiosoite@minundomain.fi",
+    "new_forward": "uusivälitys{'@'}minunulkopuolinendomain.fi",
+    "new_mail": "uusiosoite{'@'}minundomain.fi",
     "new_password": "Uusi salasana",
     "password": "Salasana",
     "username": "Käyttäjänimi"

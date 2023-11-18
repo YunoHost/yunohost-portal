@@ -20,8 +20,8 @@
     "logout": "প্রস্থান",
     "mail_addresses": "ইমেইল ঠিকানা",
     "mail_forward": "ই-মেইল ফরওয়ার্ডিং ঠিকানা",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "newmail@mydomain.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "নতুন পাসওয়ার্ড",
     "password": "পাসওয়ার্ড",
     "username": "ব্যবহারকারীর নাম"

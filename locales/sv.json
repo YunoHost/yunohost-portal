@@ -20,8 +20,8 @@
     "logout": "Logga ut",
     "mail_addresses": "E-postadresser",
     "mail_forward": "E-postadress för vidarebefordring",
-    "new_forward": "ny_vidarebefordring@min_fjarr-doman.org",
-    "new_mail": "ny_adress@min_doman.org",
+    "new_forward": "ny_vidarebefordring{'@'}min_fjarr-doman.org",
+    "new_mail": "ny_adress{'@'}min_doman.org",
     "new_password": "Nytt lösenord",
     "password": "Lösenord",
     "username": "Användarnamn"

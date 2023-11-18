@@ -20,8 +20,8 @@
     "logout": "Abmelden",
     "mail_addresses": "E-Mail-Adressen",
     "mail_forward": "E-Mail-Weiterleitung",
-    "new_forward": "neueweiterleitung@anderedomain.org",
-    "new_mail": "neueadresse@meinedomain.org",
+    "new_forward": "neueweiterleitung{'@'}anderedomain.org",
+    "new_mail": "neueadresse{'@'}meinedomain.org",
     "new_password": "Neues Passwort",
     "password": "Passwort",
     "username": "Benutzername"

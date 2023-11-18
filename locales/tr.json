@@ -20,8 +20,8 @@
     "logout": "Çıkış Yap",
     "mail_addresses": "E-mail adresleri",
     "mail_forward": "E-posta yönlendirme adresi",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "newmail@mydomain.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "Yeni parola",
     "password": "Parola",
     "username": "Kullanıcı adı"

@@ -20,8 +20,8 @@
     "logout": "Uitloggen",
     "mail_addresses": "E-mailadressen",
     "mail_forward": "E-mail doorstuuradres",
-    "new_forward": "nieuw_doorstuuradres@mijndomein.org",
-    "new_mail": "nieuwe_email@mijndomein.org",
+    "new_forward": "nieuw_doorstuuradres{'@'}mijndomein.org",
+    "new_mail": "nieuwe_email{'@'}mijndomein.org",
     "new_password": "Nieuw wachtwoord",
     "password": "Wachtwoord",
     "username": "Gebruikersnaam"

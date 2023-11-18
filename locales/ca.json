@@ -20,8 +20,8 @@
     "logout": "Tancar sessió",
     "mail_addresses": "Adreces de correu electrònic",
     "mail_forward": "Correu electrònic de reenviament",
-    "new_forward": "noureenviament@dominiextern.org",
-    "new_mail": "nou_correu@domini.org",
+    "new_forward": "noureenviament{'@'}dominiextern.org",
+    "new_mail": "nou_correu{'@'}domini.org",
     "new_password": "Nova contrasenya",
     "password": "Contrasenya",
     "username": "Nom d'usuari"

@@ -20,8 +20,8 @@
     "logout": "ログアウト",
     "mail_addresses": "電子メールアドレス",
     "mail_forward": "電子メール転送アドレス",
-    "new_forward": "newforward@myforeigndomain.org",
-    "new_mail": "newmail@mydomain.org",
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "新しいパスワード",
     "password": "パスワード",
     "username": "ユーザー名"
