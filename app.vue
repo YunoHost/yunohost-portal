@@ -33,7 +33,8 @@ body {
 
 /* GLOBAL */
 .btn,
-.select {
+.select,
+.input {
   min-height: 2.5rem;
   height: 2.5rem;
 }

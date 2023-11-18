@@ -39,7 +39,6 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
     lazy: true,
     langDir: 'locales',
-    defaultLocale: 'en',
     locales: locales as LocaleObject[],
   },
   colorMode: {
