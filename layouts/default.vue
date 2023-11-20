@@ -53,7 +53,7 @@ async function logout() {
         <div class="flex flex-row flex-wrap items-center min-w-full">
           <NuxtLink to="/">
             <span class="sr-only">{{ t('back_to_apps') }}</span>
-            <YIcon name="account-circle" size="5em" class="mr-3" />
+            <YIcon name="account-circle" size="5em" class="me-3" />
           </NuxtLink>
 
           <div>
@@ -64,7 +64,6 @@ async function logout() {
             <h4 v-if="user" class="opacity-50">{{ user.mail }}</h4>
           </div>
 
-          <!-- FIXME temp -->
           <div class="ms-auto">
             <YButton
               v-if="isLoggedIn"
@@ -83,11 +82,10 @@ async function logout() {
     </main>
 
     <footer class="mt-auto">
-      <!-- class="container fixed bottom-10 mx-10 pr-10 text-gray-400" -->
       <slot name="footer">
         <div class="sm:flex flex-row flex-wrap items-end justify-center">
           <nav
-            class="border-t border-gray-500 space-x-5 flex-wrap sm:mr-5 text-center sm:text-left"
+            class="border-t border-gray-500 space-x-5 flex-wrap sm:me-5 text-center sm:text-left"
           >
             <NuxtLink
               v-for="link in footerLinks"
@@ -100,7 +98,7 @@ async function logout() {
             </NuxtLink>
           </nav>
 
-          <CustomLogo class="mt-8 sm:mt-0 mx-auto sm:ml-auto sm:mr-0" />
+          <CustomLogo class="mt-8 sm:mt-0 mx-auto sm:ms-auto sm:me-0" />
         </div>
       </slot>
     </footer>
