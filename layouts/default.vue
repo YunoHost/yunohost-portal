@@ -50,28 +50,32 @@ async function logout() {
       </div>
 
       <slot name="header">
-        <div class="flex flex-row flex-wrap items-center min-w-full">
-          <NuxtLink to="/">
+        <div class="flex flex-row items-center">
+          <NuxtLink to="/" class="me-5">
             <span class="sr-only">{{ t('back_to_apps') }}</span>
-            <YIcon name="account-circle" size="5em" class="me-3" />
+            <CustomLogo class="logo" />
           </NuxtLink>
 
-          <div>
-            <h2 class="text-2xl font-extrabold leading-none tracking-tight">
-              {{ user?.username || t('visitor') }}
-            </h2>
-            <h3 v-if="user">{{ user.fullname }}</h3>
-            <h4 v-if="user" class="opacity-50">{{ user.mail }}</h4>
-          </div>
+          <div
+            class="flex min-[500px]:w-full max-[500px]:flex-col max-[500px]:ms-auto"
+          >
+            <div>
+              <h2 class="text-2xl font-extrabold leading-none tracking-tight">
+                {{ user?.username || t('visitor') }}
+              </h2>
+              <h3 v-if="user">{{ user.fullname }}</h3>
+              <h4 v-if="user" class="opacity-50">{{ user.mail }}</h4>
+            </div>
 
-          <div class="ms-auto">
-            <YButton
-              v-if="isLoggedIn"
-              icon="logout"
-              :text="t('logout')"
-              @click.prevent="logout"
-            />
-            <YButton v-else icon="login" :text="t('login')" to="/login" />
+            <div class="min-[500px]:ms-auto max-[500px]:mt-2">
+              <YButton
+                v-if="isLoggedIn"
+                icon="logout"
+                :text="t('logout')"
+                @click.prevent="logout"
+              />
+              <YButton v-else icon="login" :text="t('login')" to="/login" />
+            </div>
           </div>
         </div>
       </slot>
@@ -83,24 +87,26 @@ async function logout() {
 
     <footer class="mt-auto">
       <slot name="footer">
-        <div class="sm:flex flex-row flex-wrap items-end justify-center">
-          <nav
-            class="border-t border-gray-500 space-x-5 flex-wrap sm:me-5 text-center sm:text-left"
+        <nav
+          class="flex pt-2 flex-col border-t border-gray-500 flex-wrap text-center sm:space-x-5 sm:flex-row sm:inline-flex"
+        >
+          <NuxtLink
+            v-for="link in footerLinks"
+            :key="link.to"
+            :to="link.to"
+            :target="link.newWindow ? '_blank' : undefined"
+            class="link link-hover text-base-content inline-block"
           >
-            <NuxtLink
-              v-for="link in footerLinks"
-              :key="link.to"
-              :to="link.to"
-              :target="link.newWindow ? '_blank' : undefined"
-              class="link link-hover text-base-content inline-block"
-            >
-              {{ link.text }}
-            </NuxtLink>
-          </nav>
-
-          <CustomLogo class="mt-8 sm:mt-0 mx-auto sm:ms-auto sm:me-0" />
-        </div>
+            {{ link.text }}
+          </NuxtLink>
+        </nav>
       </slot>
     </footer>
   </div>
 </template>
+
+<style scoped>
+header .logo {
+  width: 100px;
+}
+</style>
