@@ -5,7 +5,6 @@ const { t } = useI18n()
 const isLoggedIn = useIsLoggedIn()
 const settings = await useSettings()
 const user = await useUser<User | null>()
-const skipLink: Ref<HTMLLinkElement | null> = ref(null)
 
 const footerLinks = [
   { text: t('footerlink_edit'), to: '/edit' },
@@ -39,14 +38,17 @@ async function logout() {
 <template>
   <div class="container mx-auto p-10 min-h-screen flex flex-col">
     <header class="py-2">
-      <div class="h-10 -mt-10">
+      <div id="focus-reset" class="h-10 -mt-10 focus-target" tabindex="-1">
+        <a class="link sr-only focus:not-sr-only" href="#main-target">
+          {{ $t('skip_link.main_content') }}
+        </a>
         <a
-          id="skip-link"
-          ref="skipLink"
+          v-if="isLoggedIn"
           class="link sr-only focus:not-sr-only"
-          href="#main-target"
-          >{{ $t('skip_to_main_content') }}</a
+          href="#main-footer"
         >
+          {{ $t('skip_link.footer') }}
+        </a>
       </div>
 
       <slot name="header">
@@ -85,7 +87,7 @@ async function logout() {
       <slot />
     </main>
 
-    <footer class="mt-auto">
+    <footer id="main-footer" class="mt-auto focus-target" tabindex="-1">
       <slot name="footer">
         <nav
           class="flex pt-2 flex-col border-t border-gray-500 flex-wrap text-center sm:space-x-5 sm:flex-row sm:inline-flex"
@@ -108,5 +110,13 @@ async function logout() {
 <style scoped>
 header .logo {
   width: 100px;
+}
+
+.focus-target:not(:focus-visible) {
+  outline: none;
+}
+
+#focus-reset {
+  outline: none;
 }
 </style>

@@ -39,7 +39,10 @@
     "possibly_invalid_username": "Username is possibly invalid",
     "remove": "Remove",
     "save": "Save",
-    "skip_to_main_content": "Skip to main content",
+    "skip_link": {
+        "main_content": "Skip to main content",
+        "footer": "Skip to footer"
+    },
     "theme": "Theme",
     "username": "Username",
     "v": {
