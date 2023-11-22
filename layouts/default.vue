@@ -87,7 +87,12 @@ async function logout() {
       <slot />
     </main>
 
-    <footer id="main-footer" class="mt-auto focus-target" tabindex="-1">
+    <footer
+      v-if="isLoggedIn"
+      id="main-footer"
+      class="mt-auto focus-target"
+      tabindex="-1"
+    >
       <slot name="footer">
         <nav
           class="flex pt-2 flex-col border-t border-gray-500 flex-wrap text-center sm:space-x-5 sm:flex-row sm:inline-flex"
