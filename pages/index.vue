@@ -56,11 +56,11 @@ const apps = computed(() => {
 
       <ul v-else class="tile-container">
         <li v-for="app in apps" :key="app.id" class="tile relative">
-          <a :href="app.url" class="btn p-5" :class="app.variant">
-            <div class="text-6xl font-extrabold mb-1" aria-hidden="true">
+          <a :href="app.url" class="btn" :class="app.variant">
+            <span class="text-6xl font-extrabold" aria-hidden="true">
               {{ app.label.substring(0, 2) }}
-            </div>
-            <span class="leading-tight mt-2">{{ app.label }}</span>
+            </span>
+            <span class="leading-tight">{{ app.label }}</span>
           </a>
         </li>
       </ul>
@@ -71,17 +71,19 @@ const apps = computed(() => {
 <style>
 .tile-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 10rem);
-  grid-auto-rows: 10rem;
+  grid-template-columns: repeat(auto-fit, 9rem);
+  grid-auto-rows: 9rem;
   grid-gap: 1.5rem;
 }
 
 .tile a {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  text-align: start;
-  border-radius: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
 }
 
 .tile:hover a,
