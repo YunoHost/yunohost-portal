@@ -1,23 +1,33 @@
 <script setup lang="ts">
-const settings = await useSettings()
-const customLogo = computed(() => {
-  const logo = settings.value.portal_logo
-  if (!logo) return {}
+type CustomLogo = Partial<Record<'is' | 'content', string>>
+let customLogo: Ref<CustomLogo> | ComputedRef<CustomLogo>
 
-  const [mimetype, base64Content] = logo.split(':')
-  if (mimetype === 'image/svg+xml') {
-    // Will render as inline SVG so that CSS "currentColor" can cascade to it
-    return {
-      is: 'svg',
-      content: atob(base64Content),
+try {
+  const settings = await useSettings()
+
+  customLogo = computed(() => {
+    const logo = settings.value.portal_logo
+
+    if (!logo) return {}
+
+    const [mimetype, base64Content] = logo.split(':')
+    if (mimetype === 'image/svg+xml') {
+      // Will render as inline SVG so that CSS "currentColor" can cascade to it
+      return {
+        is: 'svg',
+        content: atob(base64Content),
+      }
+    } else {
+      return {
+        is: 'img',
+        content: `data:${mimetype};base64, ${base64Content}`,
+      }
     }
-  } else {
-    return {
-      is: 'img',
-      content: `data:${mimetype};base64, ${base64Content}`,
-    }
-  }
-})
+  })
+} catch (error) {
+  // If `yunohost-portal-api` is down we can't get settings
+  customLogo = ref({})
+}
 </script>
 
 <template>
