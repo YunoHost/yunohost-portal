@@ -4,6 +4,8 @@ definePageMeta({
 })
 
 const { t } = useI18n()
+const isLoggedIn = await useIsLoggedIn()
+const settings = await useSettings()
 const appsData = await useApps()
 
 useHead({

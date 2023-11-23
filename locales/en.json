@@ -45,6 +45,7 @@
     },
     "theme": "Theme",
     "username": "Username",
+    "visitor": "Visitor",
     "v": {
         "email": "Invalid email: must be alphanumeric and '_.' characters only (e.g. someone{'@'}example.com, s0me-1{'@'}example.com)",
         "field_invalid": "Field value is invalid",

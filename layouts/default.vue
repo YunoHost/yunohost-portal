@@ -61,12 +61,21 @@ async function logout() {
           <div
             class="flex min-[500px]:w-full max-[500px]:flex-col max-[500px]:ms-auto"
           >
-            <div>
-              <h2 class="text-2xl font-extrabold leading-none tracking-tight">
-                {{ user?.username || t('visitor') }}
-              </h2>
-              <h3 v-if="user">{{ user.fullname }}</h3>
-              <h4 v-if="user" class="opacity-50">{{ user.mail }}</h4>
+            <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events vuejs-accessibility/no-static-element-interactions -->
+            <div class="profile cursor-pointer" @click="navigateTo('/edit')">
+              <div>
+                <span
+                  class="text-2xl font-extrabold tracking-tight leading-none"
+                >
+                  {{ user?.username || t('visitor') }}
+                </span>
+                <YIcon v-if="user" name="pencil" size="1.25em" class="ms-2" />
+              </div>
+              <div v-if="user" class="leading-none">{{ user.fullname }}</div>
+              <div v-if="user" class="opacity-50">{{ user.mail }}</div>
+              <NuxtLink to="/edit" class="link sr-only focus:not-sr-only">
+                {{ t('footerlink_edit') }}
+              </NuxtLink>
             </div>
 
             <div class="min-[500px]:ms-auto max-[500px]:mt-2">
@@ -115,6 +124,10 @@ async function logout() {
 <style scoped>
 header .logo {
   width: 100px;
+}
+
+header .profile:not(:hover) .nuxt-icon {
+  display: none;
 }
 
 .focus-target:not(:focus-visible) {
