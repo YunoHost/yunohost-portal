@@ -169,46 +169,6 @@ const onSubmit = handleSubmit(async (form) => {
   <div>
     <PageTitle :text="$t('footerlink_edit')" />
 
-    <section class="mt-5">
-      <h2 class="text-3xl">{{ t('edit_browser_settings') }}</h2>
-
-      <form novalidate class="my-10" @submit.prevent>
-        <div role="group" class="flex align mb-3">
-          <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
-          <label for="language" class="label me-3">{{ t('language') }}</label>
-          <select id="language" v-model="locale" class="select select-bordered">
-            <option disabled selected>{{ t('language') }}</option>
-            <option
-              v-for="option in localesAsOptions"
-              :key="option.value"
-              :value="option.value"
-            >
-              {{ option.text }}
-            </option>
-          </select>
-        </div>
-
-        <div role="group" class="flex align">
-          <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
-          <label for="theme" class="label me-3">{{ t('theme') }}</label>
-          <select
-            id="theme"
-            v-model="colorMode.preference"
-            class="select select-bordered"
-          >
-            <option disabled selected>{{ t('theme') }}</option>
-            <option
-              v-for="option in themesAsOptions"
-              :key="option.value"
-              :value="option.value"
-            >
-              {{ option.text }}
-            </option>
-          </select>
-        </div>
-      </form>
-    </section>
-
     <section>
       <h2 class="text-3xl">{{ t('edit_personal_settings') }}</h2>
 
@@ -313,6 +273,46 @@ const onSubmit = handleSubmit(async (form) => {
             {{ $t('cancel') }}
           </NuxtLink>
           <SubmitButton :loading="loading" variant="success" />
+        </div>
+      </form>
+    </section>
+
+    <section class="my-10">
+      <h2 class="text-4xl font-bold">{{ t('edit_browser_settings') }}</h2>
+
+      <form novalidate class="my-10" @submit.prevent>
+        <div role="group" class="flex align mb-3">
+          <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
+          <label for="language" class="label me-3">{{ t('language') }}</label>
+          <select id="language" v-model="locale" class="select select-bordered">
+            <option disabled selected>{{ t('language') }}</option>
+            <option
+              v-for="option in localesAsOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.text }}
+            </option>
+          </select>
+        </div>
+
+        <div role="group" class="flex align">
+          <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
+          <label for="theme" class="label me-3">{{ t('theme') }}</label>
+          <select
+            id="theme"
+            v-model="colorMode.preference"
+            class="select select-bordered"
+          >
+            <option disabled selected>{{ t('theme') }}</option>
+            <option
+              v-for="option in themesAsOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.text }}
+            </option>
+          </select>
         </div>
       </form>
     </section>
