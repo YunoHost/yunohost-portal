@@ -25,6 +25,8 @@ export interface Settings {
   portal_theme: string
   portal_title: string
   show_other_domains_apps: 0 | 1
+  portal_user_intro: string
+  portal_public_intro: string
   apps: Record<string, { label: string; url: string }>
 }
 

@@ -10,6 +10,15 @@ useHead({
   title: t('app_list'),
 })
 
+const intro = computed(() => {
+  const {
+    portal_user_intro: userIntro,
+    portal_public_intro: publicIntro,
+    public: isPublic,
+  } = settings.value
+  return isLoggedIn.value ? userIntro : isPublic ? publicIntro : null
+})
+
 const apps = computed(() => {
   const appTileVariant = [
     'btn-primary',
@@ -49,7 +58,9 @@ const apps = computed(() => {
   <div>
     <PageTitle :text="$t('app_list')" sr-only />
 
-    <div id="apps" class="my-10">
+    <CustomText v-if="intro" :content="intro" />
+
+    <section id="apps" class="my-10">
       <div v-if="!apps.length" class="w-2/3">
         <em>{{ t('no_apps') }}</em>
       </div>
@@ -64,11 +75,11 @@ const apps = computed(() => {
           </a>
         </li>
       </ul>
-    </div>
+    </section>
   </div>
 </template>
 
-<style>
+<style scoped>
 .tile-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, 9rem);
