@@ -43,6 +43,34 @@ export const usePreferedLocale = () => {
   })
 }
 
+// THEME
+
+const usePreferedThemeState = () =>
+  useState<string>(
+    'preferedTheme',
+    () => localStorage.getItem('preferedTheme') || 'auto',
+  )
+
+export const usePreferedTheme = async () => {
+  const preferedTheme = usePreferedThemeState()
+  const colorMode = useColorMode()
+  const settings = await useSettings()
+
+  return computed({
+    get: () => preferedTheme.value,
+    set: (value) => {
+      preferedTheme.value = value
+      localStorage.setItem('preferedTheme', value)
+
+      if (value === 'auto') {
+        value = settings.value.portal_theme
+      }
+
+      colorMode.preference = value
+    },
+  })
+}
+
 export const useRedirectUrl = () =>
   useState<string | null>('redirectUrl', () => null)
 

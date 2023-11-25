@@ -5,6 +5,8 @@ useHead({
   title: t('footerlink_edit'),
 })
 
+const settings = await useSettings()
+const preferedTheme = await usePreferedTheme()
 const preferedLocale = usePreferedLocale()
 
 const localesAsOptions = computed(() => {
@@ -24,8 +26,8 @@ const localesAsOptions = computed(() => {
   return options
 })
 
-const colorMode = useColorMode()
 const themesAsOptions = [
+  'auto',
   'system',
   'light',
   'dark',
@@ -60,7 +62,10 @@ const themesAsOptions = [
   'nord',
   'sunset',
 ].map((theme) => ({
-  text: theme.charAt(0).toUpperCase() + theme.slice(1),
+  text:
+    theme !== 'auto'
+      ? theme.charAt(0).toUpperCase() + theme.slice(1)
+      : t('automatic', { name: settings.value.portal_theme }),
   value: theme,
 }))
 </script>
@@ -113,7 +118,7 @@ const themesAsOptions = [
           <label for="theme" class="label me-3">{{ t('theme') }}</label>
           <select
             id="theme"
-            v-model="colorMode.preference"
+            v-model="preferedTheme"
             class="select select-bordered"
           >
             <option disabled selected>{{ t('theme') }}</option>

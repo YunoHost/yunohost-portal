@@ -1,8 +1,8 @@
 import { setLocale } from 'yup'
-import { usePreferedLocale } from '@/composables/states'
+import { usePreferedLocale, usePreferedTheme } from '@/composables/states'
 
 export default defineNuxtPlugin({
-  setup() {
+  async setup() {
     // Override default yup errors
     // https://github.com/jquense/yup/blob/master/src/locale.ts
     setLocale({
@@ -15,6 +15,12 @@ export default defineNuxtPlugin({
         min: ({ min }) => ({ key: 'v.string_too_short', values: { min } }),
       },
     })
+
+    const preferedTheme = await usePreferedTheme()
+    const colorMode = useColorMode()
+    if (preferedTheme.value !== 'auto') {
+      colorMode.preference = preferedTheme.value
+    }
   },
   hooks: {
     'app:created'() {

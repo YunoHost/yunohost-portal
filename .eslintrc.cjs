@@ -18,5 +18,6 @@ module.exports = {
         singleQuote: true,
       },
     ],
+    camelcase: 'warn',
   },
 }
