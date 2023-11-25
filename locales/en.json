@@ -7,6 +7,9 @@
     },
     "add_forward": "Add an e-mail forwarding address",
     "add_mail": "Add an e-mail alias",
+    "api": {
+        "processing": "Processing…"
+    },
     "app_list": "App list",
     "back_to_apps": "Go back to app list",
     "cancel": "Cancel",
