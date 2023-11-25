@@ -2,7 +2,7 @@
 import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/yup'
 import * as yup from 'yup'
-import { pick } from '@/utils/common'
+import { exclude, pick } from '@/utils/common'
 import type { User } from '@/composables/states'
 import type { Feedback } from '@/composables/form'
 
@@ -16,12 +16,13 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
   validationSchema: toTypedSchema(
     yup.object({
       fullname: yup.string().required().min(2),
+      mail: yup.string(),
       mailalias: yup.array().of(yup.string().email().required()).required(),
       mailforward: yup.array().of(yup.string().email().required()).required(),
     }),
   ),
   initialValues: {
-    ...pick(user.value, 'fullname', 'mailalias', 'mailforward'),
+    ...pick(user.value, 'fullname', 'mail', 'mailalias', 'mailforward'),
   },
 })
 
@@ -43,7 +44,7 @@ const onSubmit = handleSubmit(async (form) => {
     Pick<User, 'fullname' | 'mailalias' | 'mailforward'>
   >('/update', {
     method: 'PUT',
-    body: form,
+    body: exclude(form, 'mail'),
   })
 
   if (error.value) {
@@ -89,6 +90,10 @@ const onSubmit = handleSubmit(async (form) => {
         autocomplete="name"
         class="w-full"
       />
+    </FormField>
+
+    <FormField name="mail" :label="$t('primary_mail_adress')" class="mb-10">
+      <TextInput name="mail" type="text" class="w-full" disabled />
     </FormField>
 
     <TextInputList
