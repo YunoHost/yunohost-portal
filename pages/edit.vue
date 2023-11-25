@@ -1,15 +1,27 @@
 <script setup lang="ts">
-const { t, locale, locales } = useI18n()
+const { t, locales, getBrowserLocale } = useI18n()
 
 useHead({
   title: t('footerlink_edit'),
 })
 
+const preferedLocale = usePreferedLocale()
+
 const localesAsOptions = computed(() => {
-  return locales.value.map((locale) => ({
+  const options = locales.value.map((locale) => ({
     text: locale.name,
     value: locale.code,
   }))
+  const browserLocale = getBrowserLocale()
+  const browserLocaleName = locales.value.find(
+    (locale) => locale.code === browserLocale,
+  )?.name
+  options.unshift({
+    text: t('automatic', { name: browserLocaleName }),
+    value: 'auto',
+  })
+
+  return options
 })
 
 const colorMode = useColorMode()
@@ -80,7 +92,11 @@ const themesAsOptions = [
         <div role="group" class="flex align mb-3">
           <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
           <label for="language" class="label me-3">{{ t('language') }}</label>
-          <select id="language" v-model="locale" class="select select-bordered">
+          <select
+            id="language"
+            v-model="preferedLocale"
+            class="select select-bordered"
+          >
             <option disabled selected>{{ t('language') }}</option>
             <option
               v-for="option in localesAsOptions"

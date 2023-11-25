@@ -11,6 +11,7 @@
         "processing": "Processing…"
     },
     "app_list": "App list",
+    "automatic": "Automatic ({name})",
     "back_to_apps": "Go back to app list",
     "cancel": "Cancel",
     "change_password": "Change password",

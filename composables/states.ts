@@ -1,3 +1,5 @@
+// AUTH
+
 export const useIsLoggedIn = () => {
   const isLoggedIn = useState<boolean>(
     'isLoggedIn',
@@ -9,6 +11,34 @@ export const useIsLoggedIn = () => {
     set: (value) => {
       isLoggedIn.value = value
       localStorage.setItem('isLoggedIn', value.toString())
+    },
+  })
+}
+
+// LOCALE
+
+const usePreferedLocaleState = () =>
+  useState<string>(
+    'preferedLocale',
+    () => localStorage.getItem('preferedLocale') || 'auto',
+  )
+
+export const usePreferedLocale = () => {
+  const preferedLocale = usePreferedLocaleState()
+  const { locale, getBrowserLocale, defaultLocale } = useNuxtApp().$i18n
+
+  return computed({
+    get: () => preferedLocale.value,
+    set: (value) => {
+      preferedLocale.value = value
+      localStorage.setItem('preferedLocale', value)
+
+      if (value === 'auto') {
+        const browserLocale = getBrowserLocale()
+        value = browserLocale || defaultLocale
+      }
+
+      locale.value = value
     },
   })
 }

@@ -40,6 +40,9 @@ export default defineNuxtConfig({
     lazy: true,
     langDir: 'locales',
     locales: locales as LocaleObject[],
+    detectBrowserLanguage: {
+      useCookie: false,
+    },
   },
   colorMode: {
     preference: 'system',
