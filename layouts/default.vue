@@ -17,7 +17,7 @@ const footerLinks = [
   { text: t('footerlink_support'), to: '//yunohost.org/help', newWindow: true },
   {
     text: t('footerlink_administration'),
-    to: '/yunohost/admin/',
+    to: `//${settings.value.domain}/yunohost/admin/`,
     newWindow: true,
   },
 ]
