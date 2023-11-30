@@ -74,6 +74,8 @@ export const usePreferedTheme = async () => {
 export const useRedirectUrl = () =>
   useState<string | null>('redirectUrl', () => null)
 
+export const useQueryMsg = () => useState<string | null>('queryMsg', () => null)
+
 // SETTINGS
 
 export interface Settings {

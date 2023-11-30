@@ -3,6 +3,7 @@ import type { User } from '@/composables/states'
 
 const { t } = useI18n()
 const isLoggedIn = useIsLoggedIn()
+const queryMsg = useQueryMsg()
 const settings = await useSettings()
 const user = await useUser<User | null>()
 
@@ -37,6 +38,15 @@ async function logout() {
 
 <template>
   <div class="container mx-auto p-10 min-h-screen flex flex-col">
+    <BaseAlert
+      v-if="queryMsg"
+      variant="warning"
+      icon="alert-outline"
+      :message="t('ssowat.' + queryMsg)"
+      class="mb-4"
+      assertive
+    />
+
     <header class="py-2">
       <div id="focus-reset" class="h-10 -mt-10 focus-target" tabindex="-1">
         <a class="link sr-only focus:not-sr-only" href="#main-target">

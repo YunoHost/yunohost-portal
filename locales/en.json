@@ -49,6 +49,7 @@
         "footer": "Skip to footer"
     },
     "ssowat": {
+        "access_denied": "You are not allowed to access this url.",
         "protected": "Please log in to access this url."
     },
     "theme": "Theme",

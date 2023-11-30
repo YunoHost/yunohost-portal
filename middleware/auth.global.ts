@@ -1,6 +1,7 @@
 import {
   useIsLoggedIn,
   useRedirectUrl,
+  useQueryMsg,
   useSettings,
 } from '@/composables/states'
 
@@ -16,6 +17,13 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     }
   } else {
     redirectUrl.value = null
+  }
+
+  const queryMsg = useQueryMsg()
+  if (to.query.msg) {
+    queryMsg.value = from.query.msg as string
+  } else {
+    queryMsg.value = null
   }
 
   if (to.name === 'login') {
