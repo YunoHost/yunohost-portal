@@ -19,7 +19,7 @@ withDefaults(
     <slot name="default" />
 
     <!-- Success + generic error announcement -->
-    <BaseAlert v-show="feedback" v-bind="feedback" class="mb-8" />
+    <BaseAlert v-show="feedback" v-bind="feedback" class="my-8" />
 
     <!-- SR "loading" announcement -->
     <BaseAlert

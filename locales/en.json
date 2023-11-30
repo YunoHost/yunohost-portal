@@ -48,6 +48,9 @@
         "main_content": "Skip to main content",
         "footer": "Skip to footer"
     },
+    "ssowat": {
+        "protected": "Please log in to access this url."
+    },
     "theme": "Theme",
     "user_profile_updated": "User personal information updated with success!",
     "username": "Username",

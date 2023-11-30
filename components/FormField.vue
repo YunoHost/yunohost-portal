@@ -46,7 +46,7 @@ provide(formGroupExtras, {
     <div
       role="group"
       :aria-invalid="invalid"
-      :class="{ 'is-invalid': invalid, 'flex-col': !row }"
+      :class="{ 'is-invalid': invalid, 'flex-col': !row, 'items-center': row }"
       class="flex"
     >
       <slot name="label">
@@ -54,15 +54,15 @@ provide(formGroupExtras, {
         <label
           :id="name + '__label'"
           :for="name"
-          class="block ms-1 mb-2"
-          :class="{ 'sr-only': srHideLabel, 'flex mb-0': !!icon }"
+          class="block ms-1"
+          :class="{ 'sr-only': srHideLabel, flex: !!icon, 'mb-2': !icon }"
         >
           <YIcon
             v-if="icon"
             :name="icon"
             aria-hidden="true"
             size="2em"
-            class="m-2"
+            class="me-2"
           />
           <span :class="{ 'sr-only': !!icon }">{{ label }}</span>
         </label>

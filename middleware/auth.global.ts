@@ -8,9 +8,14 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   const isLoggedIn = useIsLoggedIn()
   const settings = await useSettings()
 
-  useRedirectUrl().value = (from.query.r as string) || null
-  if (useRedirectUrl().value && to.name === 'login') {
-    to.query.r = useRedirectUrl().value
+  const redirectUrl = useRedirectUrl()
+  if (to.query.r) {
+    redirectUrl.value = to.query.r as string
+    if (to.name !== 'login') {
+      return navigateTo({ path: '/login', query: { r: to.query.r } })
+    }
+  } else {
+    redirectUrl.value = null
   }
 
   if (to.name === 'login') {

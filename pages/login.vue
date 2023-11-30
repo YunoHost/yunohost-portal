@@ -15,6 +15,7 @@ useHead({
 })
 
 const isLoggedIn = useIsLoggedIn()
+const redirectUrl = useRedirectUrl()
 
 const { handleSubmit, setErrors } = useForm({
   validationSchema: toTypedSchema(
@@ -32,10 +33,8 @@ const login = handleSubmit(async (form) => {
   })
 
   if (!error.value) {
-    const redirectUrl = useRedirectUrl().value
-
-    if (redirectUrl) {
-      await navigateTo(atob(redirectUrl), { external: true })
+    if (redirectUrl.value) {
+      await navigateTo(atob(redirectUrl.value), { external: true })
     }
 
     isLoggedIn.value = true
@@ -50,8 +49,17 @@ const login = handleSubmit(async (form) => {
 </script>
 
 <template>
-  <main class="w-50 m-auto">
+  <main class="w-50 m-auto max-w-[250px]">
     <CustomLogo class="flex-none mx-auto w-1/2 mb-10" />
+
+    <BaseAlert
+      v-if="redirectUrl"
+      variant="warning"
+      icon="alert-outline"
+      :message="t('ssowat.protected')"
+      class="mb-4"
+      assertive
+    />
 
     <form novalidate @submit="login">
       <FormField

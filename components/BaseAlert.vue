@@ -28,7 +28,7 @@ const classVariant = computed(() => {
   <div
     :aria-live="assertive ? 'assertive' : 'polite'"
     aria-atomic="true"
-    :class="'mt-8 alert ' + classVariant"
+    :class="'alert ' + classVariant"
   >
     <YIcon v-if="icon" :name="icon" size="2em" aria-hidden="true" />
     <slot name="default">
