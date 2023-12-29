@@ -68,7 +68,7 @@ provide(formGroupExtras, {
         </label>
       </slot>
 
-      <div>
+      <div class="w-full">
         <slot name="default" />
 
         <div

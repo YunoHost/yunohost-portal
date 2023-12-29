@@ -39,6 +39,7 @@
     "new_password": "New password",
     "no_apps": "There is no app to list here, either because no web app yet is installed on the server, or because you don't have access to any. Please check with the admins of the server for more infos!",
     "password": "Password",
+    "password_changed_reconnect": "Your password has been changed, please reconnect.",
     "possibly_invalid_password": "Password is possibly invalid",
     "possibly_invalid_username": "Username is possibly invalid",
     "primary_mail_adress": "Primary mail adress",

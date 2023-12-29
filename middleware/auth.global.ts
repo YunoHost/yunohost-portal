@@ -21,7 +21,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
   const queryMsg = useQueryMsg()
   if (to.query.msg) {
-    queryMsg.value = from.query.msg as string
+    queryMsg.value = to.query.msg as string
   } else {
     queryMsg.value = null
   }

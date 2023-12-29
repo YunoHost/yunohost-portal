@@ -16,6 +16,7 @@ useHead({
 
 const isLoggedIn = useIsLoggedIn()
 const redirectUrl = useRedirectUrl()
+const queryMsg = useQueryMsg()
 
 const { handleSubmit, setErrors } = useForm({
   validationSchema: toTypedSchema(
@@ -49,7 +50,7 @@ const login = handleSubmit(async (form) => {
 </script>
 
 <template>
-  <main class="w-50 m-auto max-w-[250px]">
+  <main class="w-50 m-auto max-w-[300px]">
     <CustomLogo class="flex-none mx-auto w-1/2 mb-10" />
 
     <BaseAlert
@@ -57,6 +58,15 @@ const login = handleSubmit(async (form) => {
       variant="warning"
       icon="alert-outline"
       :message="t('ssowat.protected')"
+      class="mb-4"
+      assertive
+    />
+
+    <BaseAlert
+      v-if="queryMsg"
+      variant="info"
+      icon="login"
+      :message="t(queryMsg)"
       class="mb-4"
       assertive
     />
@@ -74,6 +84,7 @@ const login = handleSubmit(async (form) => {
           type="text"
           :placeholder="t('username')"
           autocomplete="username"
+          class="w-full"
         />
       </FormField>
 
@@ -89,6 +100,7 @@ const login = handleSubmit(async (form) => {
           type="password"
           :placeholder="t('password')"
           autocomplete="current-password"
+          class="w-full"
         />
       </FormField>
 

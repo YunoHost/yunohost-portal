@@ -47,7 +47,7 @@ watch(
 const onSubmit = handleSubmit(async (form) => {
   loading.value = true
 
-  const { error, data } = await useApi('/update', {
+  const { error } = await useApi('/update', {
     method: 'PUT',
     body: exclude(form, 'confirmpassword'),
   })
@@ -71,11 +71,13 @@ const onSubmit = handleSubmit(async (form) => {
       icon: 'alert',
       message,
     }
-  } else if (data.value) {
+  } else {
     // reset loggedin state and redirect to login
-    // FIXME toast ok message
     useIsLoggedIn().value = false
-    return navigateTo('/login')
+    return navigateTo({
+      path: '/login',
+      query: { msg: 'password_changed_reconnect' },
+    })
   }
 
   loading.value = false
