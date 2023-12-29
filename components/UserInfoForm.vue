@@ -64,7 +64,7 @@ const onSubmit = handleSubmit(async (form) => {
       message,
     }
   } else if (data.value) {
-    Object.assign(user.value, data)
+    Object.assign(user.value, data.value)
     resetForm({
       values: { ...data.value, mail: user.value.mail },
     })
