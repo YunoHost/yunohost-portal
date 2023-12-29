@@ -9,7 +9,7 @@ import type { Feedback } from '@/composables/form'
 const { t } = useI18n()
 
 const user = await useUser()
-const loading: Ref<boolean | null> = ref(false)
+const loading: Ref<boolean> = ref(false)
 const feedback: Ref<Feedback> = ref(null)
 
 const { handleSubmit, setFieldError, resetForm, meta } = useForm({
@@ -29,9 +29,8 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
 watch(
   () => meta.value.dirty,
   (value) => {
-    // remove loading and feedback on edition
+    // remove global feedback on edition
     if (value) {
-      loading.value = null
       feedback.value = null
     }
   },
@@ -49,7 +48,7 @@ const onSubmit = handleSubmit(async (form) => {
 
   if (error.value) {
     // Reset form dirty state but keep previous values
-    resetForm({ values: form })
+    resetForm({ values: { ...form, mail: user.value.mail } })
     const errData = error.value.data
     let message
 
@@ -67,7 +66,7 @@ const onSubmit = handleSubmit(async (form) => {
   } else if (data.value) {
     Object.assign(user.value, data)
     resetForm({
-      values: data.value,
+      values: { ...data.value, mail: user.value.mail },
     })
     feedback.value = {
       variant: 'success',

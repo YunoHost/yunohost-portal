@@ -7,7 +7,7 @@ import type { Feedback } from '@/composables/form'
 
 const { t } = useI18n()
 
-const loading: Ref<boolean | null> = ref(false)
+const loading: Ref<boolean> = ref(false)
 const feedback: Ref<Feedback> = ref(null)
 
 const { handleSubmit, setFieldError, resetForm, meta } = useForm({
@@ -37,9 +37,8 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
 watch(
   () => meta.value.dirty,
   (value) => {
-    // remove loading and feedback on edition
+    // remove global feedback on edition
     if (value) {
-      loading.value = null
       feedback.value = null
     }
   },

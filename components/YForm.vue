@@ -3,7 +3,7 @@ import type { Feedback } from '@/composables/form'
 
 withDefaults(
   defineProps<{
-    loading: boolean | null
+    loading: boolean
     feedback?: Feedback
     submitVariant?: 'success' | 'warning' | 'error'
   }>(),

@@ -18,33 +18,20 @@ const attrs = computed(() => {
       props.loading === true
         ? props.loadingIcon || 'loading'
         : props.loading === false
-        ? 'thumb-up'
-        : props.icon,
+          ? 'thumb-up'
+          : props.icon,
     iconClass: props.loading ? 'animate-spin' : '',
     ...baseAttrs,
   }
 })
 
 const onClick = (e: MouseEvent) => {
-  if (props.loading !== null) {
+  if (props.loading) {
     e.preventDefault()
   }
 }
 </script>
 
 <template>
-  <YButton
-    v-bind="attrs"
-    :aria-disabled="loading !== null"
-    :class="{ 'btn-disabled no-animation': loading !== null }"
-    type="submit"
-    @click="onClick"
-  />
+  <YButton v-bind="attrs" type="submit" @click="onClick" />
 </template>
-
-<style scoped>
-.btn-disabled {
-  pointer-events: unset;
-  cursor: not-allowed;
-}
-</style>
