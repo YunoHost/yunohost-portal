@@ -69,26 +69,31 @@ async function logout() {
           </NuxtLink>
 
           <div
-            class="flex min-[500px]:w-full max-[500px]:flex-col max-[500px]:ms-auto"
+            class="flex flex-grow flex-wrap min-[500px]:w-full max-[500px]:flex-col max-[500px]:ms-auto"
           >
             <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events vuejs-accessibility/no-static-element-interactions -->
-            <div class="profile cursor-pointer" @click="navigateTo('/edit')">
-              <div>
-                <span
-                  class="text-2xl font-extrabold tracking-tight leading-none"
-                >
-                  {{ user?.username || t('visitor') }}
+            <div v-if="user" class="flex-grow">
+              <div class="profile cursor-pointer flex flex-col" @click="navigateTo('/edit')">
+                <span>
+                  <span
+                    class="text-2xl font-extrabold tracking-tight leading-none"
+                  >
+                    {{ user.username }}
+                  </span>
+                  <YIcon name="pencil" size="1.25em" class="ms-2" />
                 </span>
-                <YIcon v-if="user" name="pencil" size="1.25em" class="ms-2" />
+                <span class="leading-none">{{ user.fullname }}</span>
+                <span class="opacity-50">{{ user.mail }}</span>
+                <NuxtLink to="/edit" class="link sr-only focus:not-sr-only">
+                  {{ t('footerlink_edit') }}
+                </NuxtLink>
               </div>
-              <div v-if="user" class="leading-none">{{ user.fullname }}</div>
-              <div v-if="user" class="opacity-50">{{ user.mail }}</div>
-              <NuxtLink to="/edit" class="link sr-only focus:not-sr-only">
-                {{ t('footerlink_edit') }}
-              </NuxtLink>
             </div>
+            <p v-else-if="settings.portal_title" class="text-3xl font-bold flex-grow min-[800px]:text-center mb-3">
+              {{ settings.portal_title }}
+            </p>
 
-            <div class="min-[500px]:ms-auto max-[500px]:mt-2">
+            <div class="max-[500px]:mt-2">
               <YButton
                 v-if="isLoggedIn"
                 icon="logout"
@@ -109,12 +114,12 @@ async function logout() {
     <footer
       v-if="isLoggedIn"
       id="main-footer"
-      class="mt-auto focus-target"
+      class="mt-auto focus-target border-t border-gray-500"
       tabindex="-1"
     >
       <slot name="footer">
         <nav
-          class="flex pt-2 flex-col border-t border-gray-500 flex-wrap text-center sm:space-x-5 sm:flex-row sm:inline-flex"
+          class="flex pt-2 flex-col flex-wrap text-center sm:space-x-5 sm:flex-row sm:inline-flex"
         >
           <NuxtLink
             v-for="link in footerLinks"
