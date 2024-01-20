@@ -81,13 +81,13 @@ export const useQueryMsg = () => useState<string | null>('queryMsg', () => null)
 export interface Settings {
   domain: string
   public: boolean
-  portal_logo: string
+  portal_logo?: string
   portal_theme: string
-  portal_title: string
+  portal_title?: string
   show_other_domains_apps: 0 | 1
   portal_user_intro: string
   portal_public_intro: string
-  apps: Record<string, { label: string; url: string }>
+  apps: Record<string, { label: string; url: string, description?: Record<string, string>, logo?: string }>
 }
 
 const useSettingsState = () => useState<Settings>('settings')

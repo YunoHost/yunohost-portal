@@ -1,10 +1,12 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
+    tag?: string
     text?: string
     srOnly?: boolean
   }>(),
   {
+    tag: 'h1',
     text: undefined,
     srOnly: false,
   },
@@ -12,7 +14,8 @@ withDefaults(
 </script>
 
 <template>
-  <h1
+  <component
+    :tag="tag"
     id="main-target"
     tabindex="-1"
     class="inline-block text-4xl font-bold"
@@ -21,11 +24,11 @@ withDefaults(
     <slot name="default">
       {{ text }}
     </slot>
-  </h1>
+  </component>
 </template>
 
 <style scoped>
-h1 {
+#main-target {
   /* Need some override here because of `not-sr-only` styles */
   margin-top: 2rem !important;
   margin-bottom: 0.75rem !important;

@@ -43,6 +43,9 @@ defineProps<{
   @apply mb-4;
 }
 
+.intro h1 {
+  @apply text-6xl font-bold my-10 text-center;
+}
 .intro h2 {
   @apply text-5xl font-bold my-10;
 }
