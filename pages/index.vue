@@ -3,7 +3,7 @@ definePageMeta({
   public: true,
 })
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const isLoggedIn = await useIsLoggedIn()
 const settings = await useSettings()
 const appsData = await useApps()
@@ -28,11 +28,40 @@ const apps = Object.entries(appsData.value).map(([id, app]) => {
     description: app.description[locale.value] || app.description.en
   }
 })
+
+const search = ref('')
+
+async function onSearchSubmit() {
+  await navigateTo(
+    settings.value.search_engine + search.value,
+    {
+      open: {
+        target: '_blank',
+      }
+    }
+  )
+}
 </script>
 
 <template>
   <div>
     <CustomText v-if="intro" :content="intro" />
+
+    <form class="flex my-16" @submit.prevent>
+      <div class="join w-full max-w-xl mx-auto">
+        <input
+          v-model="search"
+          type="search"
+          class="input input-bordered join-item w-full"
+          name="search"
+          :placeholder="t('search_engine_placeholder', { engine: settings.search_engine_name })"
+        >
+        <button type="submit" class="btn btn-primary join-item px-2" @click="onSearchSubmit">
+          <YIcon name="magnify" aria-hidden="true" class="m-0" />
+          <span class="sr-only">{{ t('search') }}</span>
+        </button>
+      </div>
+    </form>
 
     <section id="apps" class="my-16">
       <PageTitle :text="t('app_list')" tag="h2" sr-only class="mb-4" />

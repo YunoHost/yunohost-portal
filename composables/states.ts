@@ -84,6 +84,8 @@ export interface Settings {
   portal_logo?: string
   portal_theme: string
   portal_title?: string
+  search_engine?: string
+  search_engine_name?: string
   show_other_domains_apps: 0 | 1
   portal_user_intro: string
   portal_public_intro: string

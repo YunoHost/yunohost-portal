@@ -45,6 +45,8 @@
     "primary_mail_adress": "Primary mail adress",
     "remove": "Remove",
     "save": "Save",
+    "search": "Search",
+    "search_engine_placeholder": "Search on {engine}",
     "skip_link": {
         "main_content": "Skip to main content",
         "footer": "Skip to footer"
