@@ -24,5 +24,9 @@
     "new_mail": "nouvelle_adresse{'@'}domaine.org",
     "new_password": "Nouveau mot de passe",
     "password": "Mot de passe",
-    "username": "Nom d’utilisateur⋅ice"
+    "username": "Nom d’utilisateur⋅ice",
+    "search": "Recherche",
+    "search_engine_placeholder": "Rechercher sur {engine}",
+    "language": "Langue",
+    "mail_address": "Adresse de courriel"
 }
