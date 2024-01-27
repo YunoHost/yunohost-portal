@@ -24,5 +24,7 @@
     "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "كلمة السر الجديدة",
     "password": "كلمة السر",
-    "username": "إسم المستخدم"
+    "username": "إسم المستخدم",
+    "language": "اللغة",
+    "mail_address": "عنوان البريد الإلكتروني"
 }
