@@ -26,5 +26,12 @@
     "password": "كلمة السر",
     "username": "إسم المستخدم",
     "language": "اللغة",
-    "mail_address": "عنوان البريد الإلكتروني"
+    "mail_address": "عنوان البريد الإلكتروني",
+    "primary_mail_adress": "العنوان الرئيسي للبريد الإلكتروني",
+    "remove": "إزالة",
+    "save": "حفظك",
+    "search": "بحث",
+    "search_engine_placeholder": "البحث على {engine}",
+    "theme": "الحُلّة",
+    "visitor": "زائر"
 }
