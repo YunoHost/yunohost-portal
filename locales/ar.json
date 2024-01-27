@@ -33,5 +33,21 @@
     "search": "بحث",
     "search_engine_placeholder": "البحث على {engine}",
     "theme": "الحُلّة",
-    "visitor": "زائر"
+    "visitor": "زائر",
+    "app_list": "قائمة التطبيقات",
+    "back_to_apps": "العودة إلى قائمة التطبيقات",
+    "confirm_new_password": "تأكيد كلمة المرور الجديدة",
+    "edit_personal_settings": "تعديل المعلومات الشخصية",
+    "form_has_errors": "تحتوي الاستمارة على بعض الأخطاء",
+    "password_changed_reconnect": "لقد تم تعديل كلمتك السرية، لذا يرجى إعادة الاتصال.",
+    "possibly_invalid_password": "يُحتَمل أنّ كلمتك السرية غير صالحة",
+    "possibly_invalid_username": "يُحتَمل أن يكون اسم المستخدم غير صالح",
+    "skip_link": {
+        "main_content": "تجاهل وامضِ إلى المحتوى"
+    },
+    "v": {
+        "field_invalid": "قيمة الحقل غير صالحة",
+        "field_required": "قيمة الحقل مطلوبة",
+        "password_not_match": "كلمات المرور ليست متطابقة."
+    }
 }
