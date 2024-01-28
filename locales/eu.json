@@ -24,5 +24,39 @@
     "new_mail": "postaberria{'@'}niredomeinua.eus",
     "new_password": "Pasahitz berria",
     "password": "Pasahitza",
-    "username": "Erabiltzaile-izena"
+    "username": "Erabiltzaile-izena",
+    "automatic": "Automatikoa ({name})",
+    "back_to_apps": "Itzuli aplikazioen zerrendara",
+    "confirm_new_password": "Baieztatu pasahitz berria",
+    "form_has_errors": "Errore batzuk daude",
+    "language": "Hizkuntza",
+    "mail_address": "ePosta helbidea",
+    "mail_forwards": "Birbidalketarako posta elektronikoak",
+    "password_changed_reconnect": "Pasahitza aldatu da, birkonektatu.",
+    "possibly_invalid_password": "Agian pasahitza okerra da",
+    "possibly_invalid_username": "Agian erabiltzaile-izena okerra da",
+    "remove": "Kendu",
+    "save": "Gorde",
+    "search": "Bilatu",
+    "search_engine_placeholder": "Bilatu {engine} erabiliz",
+    "skip_link": {
+        "footer": "Egin salto oinera",
+        "main_content": "Egin salto muinera"
+    },
+    "ssowat": {
+        "access_denied": "Ez duzu URL honetara sartzeko baimenik.",
+        "protected": "Hasi saioa URL honetara sartzeko."
+    },
+    "theme": "Gaia",
+    "visitor": "Bisitaria",
+    "v": {
+        "email": "ePosta baliogabea: must be alphanumeric and '_.' characters only (e.g. norbait{'@'}adibidea.eus, n0r-ba1t{'@'}adibidea.eus)",
+        "field_invalid": "Eremuko balioak ez du balio",
+        "password_not_match": "Pasahitzak ez datoz bat."
+    },
+    "app_list": "Aplikazioen zerrenda",
+    "edit_personal_settings": "Editatu informazio pertsonala",
+    "no_apps": "Ez dago hemen zerrendatzeko aplikaziorik, zerbitzarian oraindik ez dagoelako web-aplikaziorik instalatuta, edo ez duzulako sarbiderik. Jarri harremanetan zerbitzariaren administratzailearekin informazio gehiagorako!",
+    "primary_mail_adress": "ePosta helbide nagusia",
+    "user_profile_updated": "Erabiltzailearen informazio pertsonala ondo eguneratu da!"
 }
