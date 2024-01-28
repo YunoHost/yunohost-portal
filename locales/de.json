@@ -2,7 +2,8 @@
     "_language": {
         "code": "de",
         "dir": "ltr",
-        "name": "Deutsch"
+        "name": "Deutsch",
+        "fallback": "Englisch"
     },
     "add_forward": "E-Mail-Weiterleitung hinzufügen",
     "add_mail": "E-Mail-Alias hinzufügen",
@@ -49,5 +50,20 @@
     "skip_link": {
         "main_content": "Zum Hauptinhalt springen",
         "footer": "Zur Fußzeile springen"
+    },
+    "automatic": "Automatisch {name}",
+    "ssowat": {
+        "access_denied": "Zugriff auf diesen URL nicht gestattet.",
+        "protected": "Bitte anmelden um auf diesen URL zuzugreifen."
+    },
+    "theme": "Thema",
+    "user_profile_updated": "Aktualisierung der Benutzerdaten erfolgreich!",
+    "visitor": "Besucher",
+    "v": {
+        "email": "Ungültige E-Mail: Zeichenkette muss alphanumerisch und „_.“ sein. Nur Zeichen (z. B. jemand{'@'}example.com, s0me-\n1{'@'}example.com)",
+        "field_invalid": "Falscher Feldinhalt",
+        "password_not_match": "Die Passwörter stimmen nicht überein.",
+        "field_required": "Notwendiger Feldinhalt",
+        "string_too_short": "Ungültiger Wert: muss mindestens {min} Zeichen lang sein"
     }
 }
