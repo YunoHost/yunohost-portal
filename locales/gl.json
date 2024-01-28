@@ -24,5 +24,42 @@
     "new_mail": "novomail{'@'}omeudominio.org",
     "new_password": "Novo contrasinal",
     "password": "Contrasinal",
-    "username": "Identificador"
+    "username": "Identificador",
+    "automatic": "Automático ({name})",
+    "confirm_new_password": "Confirma o novo contrasinal",
+    "edit_browser_settings": "Editar os axustes só para o navegador",
+    "edit_personal_settings": "Editar a información persoal",
+    "form_has_errors": "O formulario ten erros",
+    "language": "Idioma",
+    "mail_forwards": "Enderezos de reenvío de correo",
+    "password_changed_reconnect": "Cambiaches o contrasinal, volve a acceder por favor.",
+    "possibly_invalid_password": "Probablemente o contrasinal non é válido",
+    "possibly_invalid_username": "Problemente o identificador non é correcto",
+    "primary_mail_adress": "Enderezo principal de correo",
+    "remove": "Retirar",
+    "save": "Gardar",
+    "search": "Buscar",
+    "search_engine_placeholder": "Buscar en {engine}",
+    "skip_link": {
+        "main_content": "Ir ao contido principal",
+        "footer": "Ir ao rodapé"
+    },
+    "ssowat": {
+        "protected": "Accede á conta para ir a este URL.",
+        "access_denied": "Non tes permiso para acceder a este URL."
+    },
+    "theme": "Decorado",
+    "user_profile_updated": "Actualizouse correctamente a información persoal!",
+    "visitor": "Visitante",
+    "v": {
+        "field_invalid": "O valor non é válido",
+        "field_required": "Requírese un valor para o campo",
+        "password_not_match": "O contrasinais non concordan.",
+        "string_too_short": "Valor non válido: ten que ter {min} caracteres como mínimo",
+        "email": "Correo non válido: só pode ser alfanumérico e con '_' (ex. persoa{'@'}exemplo.com, p3rs0a-1{'@'}exemplo.com)"
+    },
+    "app_list": "Lista de Apps",
+    "back_to_apps": "Volver á lista de apps",
+    "mail_address": "Enderezo de correo",
+    "no_apps": "Non hai nada na lista, ou ben porque aínda non instalaches ningunha app web no servidor, ou ben porque non tes acceso a ningunha. Contacta coa administración do servidor para ter máis información!"
 }
