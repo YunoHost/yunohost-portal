@@ -2,7 +2,8 @@
     "_language": {
         "code": "zh_Hans",
         "dir": "ltr",
-        "name": "简化字"
+        "name": "简体中文",
+        "fallback": "zh"
     },
     "add_forward": "添加电子邮件转发地址",
     "add_mail": "添加电子邮件别名",
@@ -24,5 +25,45 @@
     "new_mail": "新邮件{'@'}我的域.org",
     "new_password": "新密码",
     "password": "密码",
-    "username": "用户名"
+    "username": "用户名",
+    "api": {
+        "processing": "正在处理…"
+    },
+    "app_list": "应用列表",
+    "automatic": "自动 ({name})",
+    "back_to_apps": "返回至应用列表",
+    "confirm_new_password": "确认新密码",
+    "edit_browser_settings": "编辑仅限浏览器的设置",
+    "edit_personal_settings": "编辑个人信息",
+    "form_has_errors": "此表格包含一些错误",
+    "language": "语言",
+    "remove": "移除",
+    "visitor": "访客",
+    "v": {
+        "email": "无效的电子邮件：只能包含字母、数字和 '_.' 字符（例如：someone{'@'}example.com，s0me-1{'@'}example.com）",
+        "field_invalid": "字段值无效",
+        "field_required": "字段值是必填项",
+        "password_not_match": "密码不匹配。",
+        "string_too_short": "无效的值：必须至少为 {min} 个字符"
+    },
+    "mail_address": "电子邮件地址",
+    "mail_forwards": "电子邮件转发地址",
+    "no_apps": "这里没有要列出的应用，可能是因为服务器上尚未安装任何网络应用，或者是因为您没有任何应用的访问权限。请与服务器管理员联系以获取更多信息！",
+    "password_changed_reconnect": "您的密码已更改，请重新连接。",
+    "possibly_invalid_password": "密码可能无效",
+    "possibly_invalid_username": "用户名可能无效",
+    "primary_mail_adress": "主要邮件地址",
+    "save": "保存",
+    "search": "搜索",
+    "search_engine_placeholder": "搜索于 {engine}",
+    "skip_link": {
+        "main_content": "跳转至主要内容",
+        "footer": "跳转至页脚"
+    },
+    "ssowat": {
+        "access_denied": "您无权访问此 URL。",
+        "protected": "请登录以访问此 URL。"
+    },
+    "theme": "主题",
+    "user_profile_updated": "用户个人信息已成功更新！"
 }
