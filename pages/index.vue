@@ -47,7 +47,7 @@ async function onSearchSubmit() {
   <div>
     <CustomText v-if="intro" :content="intro" />
 
-    <form class="flex my-16" @submit.prevent>
+    <form v-if="settings.search_engine" class="flex my-16" @submit.prevent>
       <div class="join w-full max-w-xl mx-auto">
         <input
           v-model="search"
