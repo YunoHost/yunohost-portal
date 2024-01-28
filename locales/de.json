@@ -24,5 +24,30 @@
     "new_mail": "neueadresse{'@'}meinedomain.org",
     "new_password": "Neues Passwort",
     "password": "Passwort",
-    "username": "Benutzername"
+    "username": "Benutzername",
+    "api": {
+        "processing": "In Arbeit …"
+    },
+    "app_list": "Programmliste",
+    "back_to_apps": "Zurück zur Programmliste",
+    "confirm_new_password": "Neues Passwort bestätigen",
+    "edit_browser_settings": "Browsereinstellungen ändern",
+    "edit_personal_settings": "Pesönliche Daten ändern",
+    "form_has_errors": "Das Formular enthält Fehler",
+    "language": "Sprache",
+    "mail_address": "E-Mail Adresse",
+    "mail_forwards": "E-Mail Weiterleitungsadresse",
+    "no_apps": "Es gibt hier keine App zum Auflisten, entweder weil noch keine Web-App auf dem Server installiert ist oder weil Sie keinen Zugriff darauf haben. Bitte erkundigen Sie sich bei den Administratoren des Servers nach weiteren Informationen!",
+    "password_changed_reconnect": "Ihr Passwort wurde geändert, bitte neu verbinden.",
+    "possibly_invalid_password": "Das Passwort scheint falsch zu sein",
+    "possibly_invalid_username": "Der Benutzername scheint falsch zu sein",
+    "primary_mail_adress": "Primäre Mail Adresse",
+    "remove": "Entfernen",
+    "save": "Sichern",
+    "search": "Suchen",
+    "search_engine_placeholder": "Auf der {Suchmaschine} suchen",
+    "skip_link": {
+        "main_content": "Zum Hauptinhalt springen",
+        "footer": "Zur Fußzeile springen"
+    }
 }
