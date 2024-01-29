@@ -2,7 +2,8 @@
     "_language": {
         "code": "ca",
         "dir": "ltr",
-        "name": "Català"
+        "name": "Català",
+        "fallback": "ca"
     },
     "add_forward": "Afegir un correu electrònic de reenviament",
     "add_mail": "Afegir un àlies de correu electrònic",
@@ -24,5 +25,45 @@
     "new_mail": "nou_correu{'@'}domini.org",
     "new_password": "Nova contrasenya",
     "password": "Contrasenya",
-    "username": "Nom d'usuari"
+    "username": "Nom d'usuari",
+    "api": {
+        "processing": "S'està processant…"
+    },
+    "app_list": "Llista d'aplicacions",
+    "automatic": "Automàtic ({name})",
+    "back_to_apps": "Torna a la llista d'aplicacions",
+    "confirm_new_password": "Confirmeu la nova contrasenya",
+    "edit_browser_settings": "Editeu la configuració del navegador",
+    "edit_personal_settings": "Edita la informació personal",
+    "form_has_errors": "El formulari conté alguns errors",
+    "language": "Idioma",
+    "password_changed_reconnect": "S'ha canviat la vostra contrasenya, torneu a connectar-vos.",
+    "possibly_invalid_password": "És possible que la contrasenya no sigui vàlida",
+    "possibly_invalid_username": "És possible que el nom d'usuari no sigui vàlid",
+    "remove": "Eliminar",
+    "save": "Desar",
+    "search": "Cercar",
+    "skip_link": {
+        "main_content": "Saltar al contingut principal",
+        "footer": "Saltar al peu de pàgina"
+    },
+    "ssowat": {
+        "access_denied": "No teniu permís per accedir a aquesta URL.",
+        "protected": "Inicieu sessió per accedir a aquesta URL."
+    },
+    "theme": "Tema",
+    "user_profile_updated": "La informació personal de l'usuari s'ha actualitzat correctament!",
+    "visitor": "Visitant",
+    "v": {
+        "field_invalid": "El valor del camp no és vàlid",
+        "field_required": "El valor del camp és obligatori",
+        "password_not_match": "Les contrasenyes no coincideixen.",
+        "string_too_short": "Valor no vàlid: ha de tenir com a mínim {min} caràcters",
+        "email": "Correu electrònic no vàlid: ha de ser alfanumèric i els caràcters «_-.» només (p. ex. nom{'@'}exemple.com, _n-0.m{'@'}exemple.com)"
+    },
+    "mail_address": "Correu electrònic",
+    "mail_forwards": "Adreces de reenviament de correu electrònic",
+    "no_apps": "No hi ha cap aplicació per llistar aquí, ja sigui perquè encara no hi ha cap aplicació web instal·lada al servidor o perquè no hi teniu accés. Consulteu amb els administradors del servidor per obtenir més informació!",
+    "primary_mail_adress": "Adreça de correu principal",
+    "search_engine_placeholder": "Cercar a {engine}"
 }
