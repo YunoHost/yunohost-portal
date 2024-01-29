@@ -61,5 +61,8 @@
     "app_list": "Lista de Apps",
     "back_to_apps": "Volver á lista de apps",
     "mail_address": "Enderezo de correo",
-    "no_apps": "Non hai nada na lista, ou ben porque aínda non instalaches ningunha app web no servidor, ou ben porque non tes acceso a ningunha. Contacta coa administración do servidor para ter máis información!"
+    "no_apps": "Non hai nada na lista, ou ben porque aínda non instalaches ningunha app web no servidor, ou ben porque non tes acceso a ningunha. Contacta coa administración do servidor para ter máis información!",
+    "api": {
+        "processing": "A procesar…"
+    }
 }
