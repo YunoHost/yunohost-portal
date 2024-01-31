@@ -2,7 +2,8 @@
     "_language": {
         "code": "es",
         "dir": "ltr",
-        "name": "Español"
+        "name": "Español",
+        "fallback": "es"
     },
     "add_forward": "Añadir una dirección de reenvío de correo electrónico",
     "add_mail": "Añadir un alias de correo electrónico",
@@ -19,10 +20,50 @@
     "login": "Iniciar sesión",
     "logout": "Cerrar sesión",
     "mail_addresses": "Direcciones de correo electrónico",
-    "mail_forward": "Direcciones de reenvío de correo electrónico",
+    "mail_forward": "Dirección de reenvío de correo electrónico",
     "new_forward": "nuevoreenvio{'@'}midominioexterior.org",
     "new_mail": "nuevomail{'@'}midominio.org",
     "new_password": "Nueva contraseña",
     "password": "Contraseña",
-    "username": "Nombre de usuario"
+    "username": "Nombre de usuario",
+    "app_list": "Lista de aplicaciones",
+    "automatic": "Automático ({name})",
+    "back_to_apps": "Volver a la lista de aplicaciones",
+    "edit_personal_settings": "Editar la información personal",
+    "form_has_errors": "El formulario tiene algunos errores",
+    "language": "Idioma",
+    "mail_address": "Dirección de correo electrónico",
+    "password_changed_reconnect": "Su contraseña ha sido cambiada, favor reconectarse.",
+    "possibly_invalid_password": "La contraseña podría ser inválida",
+    "possibly_invalid_username": "El nombre de usuario podría ser inválido",
+    "primary_mail_adress": "Dirección de correo electrónico principal",
+    "remove": "Borrar",
+    "save": "Guardar",
+    "search": "Buscar",
+    "search_engine_placeholder": "Buscar en {engine}",
+    "skip_link": {
+        "main_content": "Ir al contenido principal",
+        "footer": "Ir al pie"
+    },
+    "ssowat": {
+        "access_denied": "No tiene permiso de acceder a esta URL.",
+        "protected": "Por favor inicie sesión para acceder a esta URL."
+    },
+    "theme": "Tema",
+    "visitor": "Visitante",
+    "v": {
+        "email": "Correo electrónico inválido: debe ser solamente con caracteres alfanuméricos y '_.' únicamente (por ejemplo alguien{'@'}ejemplo.com, 4l-gu13n{'@'}ejemplo.com)",
+        "field_invalid": "El valor del campo es inválido",
+        "field_required": "El valor del campo es obligatorio",
+        "password_not_match": "Las contraseñas no coinciden.",
+        "string_too_short": "Valor inválido: debe ser de al menos {min} caracteres"
+    },
+    "api": {
+        "processing": "Procesando…"
+    },
+    "confirm_new_password": "Confirmar la nueva contraseña",
+    "mail_forwards": "Direcciones de reenvío de correo electrónico",
+    "no_apps": "No hay aplicación que listar aquí, sea porque no se ha instalado una aplicación de red en el servidor, o porque usted no tiene acceso a ninguna. ¡Por favor revise con la administración del servidor para más información!",
+    "user_profile_updated": "¡Información personal de usuario actualizada con éxito!",
+    "edit_browser_settings": "Editar las configuraciones para el navegador"
 }
