@@ -24,5 +24,39 @@
     "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "كلمة السر الجديدة",
     "password": "كلمة السر",
-    "username": "إسم المستخدم"
+    "username": "إسم المستخدم",
+    "language": "اللغة",
+    "mail_address": "عنوان البريد الإلكتروني",
+    "primary_mail_adress": "العنوان الرئيسي للبريد الإلكتروني",
+    "remove": "إزالة",
+    "save": "حفظك",
+    "search": "بحث",
+    "search_engine_placeholder": "البحث على {engine}",
+    "theme": "الحُلّة",
+    "visitor": "زائر",
+    "app_list": "قائمة التطبيقات",
+    "back_to_apps": "العودة إلى قائمة التطبيقات",
+    "confirm_new_password": "تأكيد كلمة المرور الجديدة",
+    "edit_personal_settings": "تعديل المعلومات الشخصية",
+    "form_has_errors": "تحتوي الاستمارة على بعض الأخطاء",
+    "password_changed_reconnect": "لقد تم تعديل كلمتك السرية، لذا يرجى إعادة الاتصال.",
+    "possibly_invalid_password": "يُحتَمل أنّ كلمتك السرية غير صالحة",
+    "possibly_invalid_username": "يُحتَمل أن يكون اسم المستخدم غير صالح",
+    "skip_link": {
+        "main_content": "تجاهل وامضِ إلى المحتوى",
+        "footer": "تخطي إلى ذيل الصفحة"
+    },
+    "v": {
+        "field_invalid": "قيمة الحقل غير صالحة",
+        "field_required": "قيمة الحقل مطلوبة",
+        "password_not_match": "كلمات المرور ليست متطابقة."
+    },
+    "automatic": "تلقائي ({name})",
+    "edit_browser_settings": "تعديل اعدادات المتصفح فقط",
+    "mail_forwards": "عناوين البريد الالكترونية لإعادة التوجيه",
+    "ssowat": {
+        "access_denied": "لا يُسمح لك بالنفاذ إلى هذا الرابط التشعبي.",
+        "protected": "يرجى تسجيل الدخول قصد النفاذ إلى هذه الصفحة."
+    },
+    "user_profile_updated": "تم تحديث المعلومات الشخصية للمستخدم بنجاح!"
 }
