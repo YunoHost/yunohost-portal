@@ -1,5 +1,6 @@
 <script setup lang="ts">
-type CustomLogo = Partial<Record<'is' | 'content', string>>
+const settings = await useSettings()
+type CustomLogo = Partial<Record<'is' | 'src', string>>
 let customLogo: Ref<CustomLogo> | ComputedRef<CustomLogo>
 
 try {
@@ -10,17 +11,16 @@ try {
 
     if (!logo) return {}
 
-    const [mimetype, base64Content] = logo.split(':')
-    if (mimetype === 'image/svg+xml') {
+    if (logo.substr(-4) === '.svg') {
       // Will render as inline SVG so that CSS "currentColor" can cascade to it
       return {
         is: 'svg',
-        content: atob(base64Content),
+        src: `//${settings.value.domain}/yunohost/sso/customassets/${logo}`,
       }
     } else {
       return {
         is: 'img',
-        content: `data:${mimetype};base64, ${base64Content}`,
+        src: `//${settings.value.domain}/yunohost/sso/customassets/${logo}`,
       }
     }
   })
@@ -35,11 +35,11 @@ try {
     v-if="customLogo.is === 'svg'"
     aria-hidden="true"
     class="svg-div"
-    v-html="customLogo.content"
+    v-html="customLogo.src"
   />
   <img
     v-else-if="customLogo.is === 'img'"
-    :src="customLogo.content"
+    :src="customLogo.src"
     alt=""
     aria-hidden="true"
   />
