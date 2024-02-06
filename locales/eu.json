@@ -2,7 +2,8 @@
     "_language": {
         "code": "eu",
         "dir": "ltr",
-        "name": "Euskara"
+        "name": "Euskara",
+        "fallback": "ingelesa"
     },
     "add_forward": "Gehitu helbide elektronikoa birbidaltzeko e-maila",
     "add_mail": "Gehitu e-mail ezizen bat",
@@ -28,7 +29,7 @@
     "automatic": "Automatikoa ({name})",
     "back_to_apps": "Itzuli aplikazioen zerrendara",
     "confirm_new_password": "Baieztatu pasahitz berria",
-    "form_has_errors": "Errore batzuk daude",
+    "form_has_errors": "Orriak errore batzuk ditu",
     "language": "Hizkuntza",
     "mail_address": "ePosta helbidea",
     "mail_forwards": "Birbidalketarako posta elektronikoak",
@@ -41,7 +42,7 @@
     "search_engine_placeholder": "Bilatu {engine} erabiliz",
     "skip_link": {
         "footer": "Egin salto oinera",
-        "main_content": "Egin salto muinera"
+        "main_content": "Egin salto eduki nagusira"
     },
     "ssowat": {
         "access_denied": "Ez duzu URL honetara sartzeko baimenik.",
@@ -50,13 +51,19 @@
     "theme": "Gaia",
     "visitor": "Bisitaria",
     "v": {
-        "email": "ePosta baliogabea: must be alphanumeric and '_.' characters only (e.g. norbait{'@'}adibidea.eus, n0r-ba1t{'@'}adibidea.eus)",
-        "field_invalid": "Eremuko balioak ez du balio",
-        "password_not_match": "Pasahitzak ez datoz bat."
+        "email": "Arazoa posta elektronikoarekin: zenbakiak, hizkiak eta '_.' bakarrik erabili daitezke (esaterako norbait@adibidea.eus, n0r-ba1t@adibidea.eus)",
+        "field_invalid": "Eremuko balioa ez da baliozkoa",
+        "password_not_match": "Pasahitzak ez datoz bat.",
+        "string_too_short": "Balioa ez da baliozkoa: {min} karaktere izan behar ditu gutxienez",
+        "field_required": "Eremuko balioa beharrezkoa da"
     },
     "app_list": "Aplikazioen zerrenda",
     "edit_personal_settings": "Editatu informazio pertsonala",
     "no_apps": "Ez dago hemen zerrendatzeko aplikaziorik, zerbitzarian oraindik ez dagoelako web-aplikaziorik instalatuta, edo ez duzulako sarbiderik. Jarri harremanetan zerbitzariaren administratzailearekin informazio gehiagorako!",
     "primary_mail_adress": "ePosta helbide nagusia",
-    "user_profile_updated": "Erabiltzailearen informazio pertsonala ondo eguneratu da!"
+    "user_profile_updated": "Erabiltzailearen informazio pertsonala ondo eguneratu da!",
+    "api": {
+        "processing": "Prozesatzen…"
+    },
+    "edit_browser_settings": "Editatu soilik nabigatzailearen ezarpenak"
 }
