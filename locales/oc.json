@@ -2,7 +2,8 @@
     "_language": {
         "code": "oc",
         "dir": "ltr",
-        "name": "Occitan"
+        "name": "Occitan",
+        "fallback": "fr"
     },
     "add_forward": "Ajustar una adreça de transferiment",
     "add_mail": "Ajustar un alias d’adreça electronica",
@@ -24,5 +25,32 @@
     "new_mail": "novela_adreça{'@'}domeni.org",
     "new_password": "Nòu senhal",
     "password": "Senhal",
-    "username": "Nom d’utilizaire"
+    "username": "Nom d’utilizaire",
+    "app_list": "Lista de las aplicacions",
+    "automatic": "Automatic ({name})",
+    "confirm_new_password": "Confirmar lo senhal novèl",
+    "edit_browser_settings": "Modificar sonque los paramètres del navegador",
+    "edit_personal_settings": "Modificar las informacions personalas",
+    "form_has_errors": "Lo formulari content d’errors",
+    "language": "Lenga",
+    "mail_address": "Adreça electronica",
+    "remove": "Suprimir",
+    "save": "Enregistrar",
+    "search": "Cercar",
+    "skip_link": {
+        "main_content": "Anar al contengut principal",
+        "footer": "Sautar al pè de pagina"
+    },
+    "ssowat": {
+        "access_denied": "Avètz pas l’autorizacion d’accedir a aquesta URL.",
+        "protected": "Mercés de vos connectar per accedir a aquesta URL."
+    },
+    "theme": "Tèma",
+    "visitor": "Visitaire",
+    "api": {
+        "processing": "Tractament…"
+    },
+    "back_to_apps": "Tornar a la lista d’aplicacions",
+    "primary_mail_adress": "Adreça electronica principala",
+    "search_engine_placeholder": "Cercar sus {engine}"
 }
