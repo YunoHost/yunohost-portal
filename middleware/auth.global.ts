@@ -5,7 +5,7 @@ import {
   useSettings,
 } from '@/composables/states'
 
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async (to) => {
   const isLoggedIn = useIsLoggedIn()
   const settings = await useSettings()
 

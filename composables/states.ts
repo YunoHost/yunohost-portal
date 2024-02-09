@@ -78,10 +78,20 @@ export const useQueryMsg = () => useState<string | null>('queryMsg', () => null)
 
 // SETTINGS
 
+type AppsSettings = Record<
+  string,
+  {
+    label: string
+    url: string
+    description?: Record<string, string>
+    logo?: string
+  }
+>
+
 export interface Settings {
   domain: string
   public: boolean
-  portal_logo?: { is: 'img' | 'svg', src: string }
+  portal_logo?: { is: 'img' | 'svg'; src: string }
   portal_theme: string
   portal_title?: string
   search_engine?: string
@@ -89,7 +99,7 @@ export interface Settings {
   show_other_domains_apps: 0 | 1
   portal_user_intro: string
   portal_public_intro: string
-  apps: Record<string, { label: string; url: string, description?: Record<string, string>, logo?: string }>
+  apps: AppsSettings
 }
 
 const useSettingsState = () => useState<Settings>('settings')
@@ -100,17 +110,22 @@ export const useSettings = async () => {
   if (!settings.value) {
     const { data } = await useApi<Settings>('/public')
 
-    const logo = data.value.portal_logo
+    const logo = data.value!.portal_logo as unknown as string | undefined
     if (logo) {
       const src = `https://${data.value.domain}/yunohost/sso/customassets/${logo}`
-      const is = data.value.portal_logo.substr(-4) === '.svg' ? 'svg' : 'img'
-      data.value.portal_logo = { is, src: is === 'svg' ? '' : src }
+      const is = logo.slice(-4) === '.svg' ? 'svg' : 'img'
+      data.value!.portal_logo = { is, src: is === 'svg' ? '' : src }
 
       if (is === 'svg') {
         // Query file content to inject inline SVG so that CSS "currentColor" can cascade to it
-        $fetch(src).then((blob) => blob.text()).then((text) => {
-          data.value.portal_logo.src = text.replace('<?xml version="1.0" encoding="utf-8"?>', '')
-        })
+        $fetch<Blob>(src)
+          .then((blob) => blob.text())
+          .then((text) => {
+            data.value!.portal_logo!.src = text.replace(
+              '<?xml version="1.0" encoding="utf-8"?>',
+              '',
+            )
+          })
       }
     }
 
@@ -132,7 +147,7 @@ export interface User {
   mailalias: string[]
   mailforward: string[]
   groups: string[]
-  apps: Record<string, { label: string; url: string }>
+  apps: AppsSettings
 }
 
 export const useUserState = () => useState<User | null>('user', () => null)

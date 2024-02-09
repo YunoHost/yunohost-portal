@@ -71,9 +71,12 @@ async function logout() {
           <div
             class="flex flex-grow flex-wrap min-[500px]:w-full max-[500px]:flex-col max-[500px]:ms-auto"
           >
-            <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events vuejs-accessibility/no-static-element-interactions -->
             <div v-if="user" class="flex-grow">
-              <div class="profile cursor-pointer flex flex-col" @click="navigateTo('/edit')">
+              <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events vuejs-accessibility/no-static-element-interactions -->
+              <div
+                class="profile cursor-pointer flex flex-col"
+                @click="navigateTo('/edit')"
+              >
                 <span>
                   <span
                     class="text-2xl font-extrabold tracking-tight leading-none"
@@ -89,7 +92,10 @@ async function logout() {
                 </NuxtLink>
               </div>
             </div>
-            <p v-else-if="settings.portal_title" class="text-3xl font-bold flex-grow min-[800px]:text-center mb-3">
+            <p
+              v-else-if="settings.portal_title"
+              class="text-3xl font-bold flex-grow min-[800px]:text-center mb-3"
+            >
               {{ settings.portal_title }}
             </p>
 

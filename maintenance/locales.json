@@ -18,9 +18,7 @@
     {
         "code": "br",
         "dir": "ltr",
-        "fallback": [
-            "fr"
-        ],
+        "fallback": ["fr"],
         "file": "br.json",
         "iso": "br",
         "name": "Brezhoneg"

@@ -15,7 +15,7 @@ withDefaults(
 
 <template>
   <component
-    :tag="tag"
+    :is="tag"
     id="main-target"
     tabindex="-1"
     class="inline-block text-4xl font-bold"

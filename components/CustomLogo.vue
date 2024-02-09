@@ -17,7 +17,7 @@ try {
     v-html="customLogo.src"
   />
   <img
-    v-else-if="customLogo?.is === 'svg'"
+    v-else-if="customLogo?.is === 'img'"
     :src="customLogo.src"
     alt=""
     aria-hidden="true"
