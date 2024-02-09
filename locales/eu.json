@@ -51,7 +51,7 @@
     "theme": "Gaia",
     "visitor": "Bisitaria",
     "v": {
-        "email": "Arazoa posta elektronikoarekin: zenbakiak, hizkiak eta '_.' bakarrik erabili daitezke (esaterako norbait@adibidea.eus, n0r-ba1t@adibidea.eus)",
+        "email": "Arazoa posta elektronikoarekin: zenbakiak, hizkiak eta '_.' bakarrik erabili daitezke (esaterako norbait{'@'}adibidea.eus, n0r-ba1t{'@'}adibidea.eus)",
         "field_invalid": "Eremuko balioa ez da baliozkoa",
         "password_not_match": "Pasahitzak ez datoz bat.",
         "string_too_short": "Balioa ez da baliozkoa: {min} karaktere izan behar ditu gutxienez",
