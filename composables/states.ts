@@ -81,7 +81,7 @@ export const useQueryMsg = () => useState<string | null>('queryMsg', () => null)
 export interface Settings {
   domain: string
   public: boolean
-  portal_logo?: string
+  portal_logo?: { is: 'img' | 'svg', src: string }
   portal_theme: string
   portal_title?: string
   search_engine?: string
@@ -99,6 +99,21 @@ export const useSettings = async () => {
 
   if (!settings.value) {
     const { data } = await useApi<Settings>('/public')
+
+    const logo = data.value.portal_logo
+    if (logo) {
+      const src = `https://${data.value.domain}/yunohost/sso/customassets/${logo}`
+      const is = data.value.portal_logo.substr(-4) === '.svg' ? 'svg' : 'img'
+      data.value.portal_logo = { is, src: is === 'svg' ? '' : src }
+
+      if (is === 'svg') {
+        // Query file content to inject inline SVG so that CSS "currentColor" can cascade to it
+        $fetch(src).then((blob) => blob.text()).then((text) => {
+          data.value.portal_logo.src = text.replace('<?xml version="1.0" encoding="utf-8"?>', '')
+        })
+      }
+    }
+
     settings.value = data.value as Settings
 
     const colorMode = useColorMode()

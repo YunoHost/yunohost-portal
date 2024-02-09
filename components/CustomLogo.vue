@@ -1,44 +1,23 @@
 <script setup lang="ts">
-const settings = await useSettings()
-type CustomLogo = Partial<Record<'is' | 'src', string>>
-let customLogo: Ref<CustomLogo> | ComputedRef<CustomLogo>
+let customLogo: Settings['portal_logo']
 
 try {
   const settings = await useSettings()
-
-  customLogo = computed(() => {
-    const logo = settings.value.portal_logo
-
-    if (!logo) return {}
-
-    if (logo.substr(-4) === '.svg') {
-      // Will render as inline SVG so that CSS "currentColor" can cascade to it
-      return {
-        is: 'svg',
-        src: `//${settings.value.domain}/yunohost/sso/customassets/${logo}`,
-      }
-    } else {
-      return {
-        is: 'img',
-        src: `//${settings.value.domain}/yunohost/sso/customassets/${logo}`,
-      }
-    }
-  })
-} catch (error) {
+  customLogo = settings.value.portal_logo
+} catch {
   // If `yunohost-portal-api` is down we can't get settings
-  customLogo = ref({})
 }
 </script>
 
 <template>
   <div
-    v-if="customLogo.is === 'svg'"
+    v-if="customLogo?.is === 'svg'"
     aria-hidden="true"
     class="svg-div"
     v-html="customLogo.src"
   />
   <img
-    v-else-if="customLogo.is === 'img'"
+    v-else-if="customLogo?.is === 'svg'"
     :src="customLogo.src"
     alt=""
     aria-hidden="true"
