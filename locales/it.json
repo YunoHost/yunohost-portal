@@ -2,7 +2,8 @@
     "_language": {
         "code": "it",
         "dir": "ltr",
-        "name": "Italiano"
+        "name": "Italiano",
+        "fallback": "Inglese"
     },
     "add_forward": "Aggiungi un indirizzo di inoltro e-mail",
     "add_mail": "Aggiungi un alias email",
@@ -24,5 +25,45 @@
     "new_mail": "nuovaemail{'@'}miodominio.org",
     "new_password": "Nuova password",
     "password": "Password",
-    "username": "Nome utente"
+    "username": "Nome utente",
+    "app_list": "Elenco delle app",
+    "ssowat": {
+        "protected": "Accedi per accedere a questo URL.",
+        "access_denied": "Non ti è permesso di accedere a questo URL."
+    },
+    "back_to_apps": "Torna all’elenco delle app",
+    "edit_browser_settings": "Modifica le impostazioni unicamente relative al browser",
+    "edit_personal_settings": "Modifica le informazioni personali",
+    "form_has_errors": "Il modulo contiene alcuni errori",
+    "mail_address": "Indirizzo e-mail",
+    "mail_forwards": "Indirizzo e-mail di inoltro",
+    "password_changed_reconnect": "La tua password è stata cambiata, prova a riconnetterti.",
+    "possibly_invalid_password": "La password non è valida",
+    "possibly_invalid_username": "Il nome utente non è valido",
+    "primary_mail_adress": "Indirizzo e-mail primario",
+    "remove": "Rimuovi",
+    "save": "Salva",
+    "search": "Cerca",
+    "search_engine_placeholder": "Cerca su {engine}",
+    "skip_link": {
+        "footer": "Salta al piè di pagina",
+        "main_content": "Salta al contenuto principale"
+    },
+    "visitor": "Visitatore",
+    "v": {
+        "field_invalid": "Il valore di questo campo non è valido",
+        "field_required": "È obbligatorio inserire un valore per questo campo",
+        "password_not_match": "Le password non corrispondono.",
+        "string_too_short": "Valore non valido: deve contenere almeno {min} caratteri",
+        "email": "Indirizzo e-mail non valido: dev’essere alfanumerico e contenere solo ‘_.’ come caratteri speciali (es. qualcuno{'@'}esempio.com, qualcun0-1{'@'}esempio.com)"
+    },
+    "confirm_new_password": "Conferma nuova password",
+    "language": "Lingua",
+    "theme": "Tema",
+    "user_profile_updated": "Informazioni personali dell’utente aggiornate con successo!",
+    "automatic": "Automatico ({name})",
+    "no_apps": "Non ci sono app da elencare qui, o perché non ci sono ancora web app installate sul server, o perché non hai accesso ad alcuna. Fai una verifica con le persone che amministrano il server per maggiori informazioni!",
+    "api": {
+        "processing": "Il server sta processando la richiesta…"
+    }
 }
