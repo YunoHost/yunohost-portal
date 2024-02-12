@@ -2,7 +2,8 @@
     "_language": {
         "code": "gl",
         "dir": "ltr",
-        "name": "Galego"
+        "name": "Galego",
+        "fallback": "gl"
     },
     "add_forward": "Engadir un enderezo de reenvío de email",
     "add_mail": "Engadir un alias de email",
