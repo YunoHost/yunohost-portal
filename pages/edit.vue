@@ -26,6 +26,8 @@ const localesAsOptions = computed(() => {
   return options
 })
 
+const { colors, sizes } = useThemeOverride()
+
 const themesAsOptions = [
   'auto',
   'system',
@@ -131,7 +133,91 @@ const themesAsOptions = [
             </option>
           </select>
         </div>
+
+        <fieldset class="theme-override mt-8">
+          <legend class="text-xl mb-6">{{ $t('theming.override') }}</legend>
+
+          <div
+            v-for="(_, colorName) in colors"
+            :key="colorName"
+            class="flex flex-wrap mb-2"
+          >
+            <FormField
+              :name="`color-picker-${colorName}`"
+              :label="
+                $t('theming.color_picker', {
+                  colorName: $t(`theming.colors.${colorName}`),
+                })
+              "
+              sr-hide-label
+            >
+              <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
+              <input
+                :id="`color-picker-${colorName}`"
+                v-model="colors[colorName]"
+                type="color"
+                class="inline-block w-8 h-8 -mr-8 cursor-pointer"
+              />
+              <div
+                :class="'bg-' + colorName"
+                class="inline-block w-8 h-8 pointer-events-none border border-base-300"
+              />
+            </FormField>
+
+            <FormField
+              :name="`color-hex-${colorName}`"
+              :label="
+                $t('theming.color_hex', {
+                  colorName: $t(`theming.colors.${colorName}`),
+                })
+              "
+              sr-hide-label
+            >
+              <input
+                :id="`color-hex-${colorName}`"
+                v-model="colors[colorName]"
+                size="7"
+                class="input input-bordered px-2 font-mono ml-3"
+              />
+            </FormField>
+
+            <span class="ml-3" aria-hidden>
+              {{ $t(`theming.colors.${colorName}`) }}
+            </span>
+          </div>
+
+          <div v-for="(_, sizeName) in sizes" :key="sizeName" class="flex mb-2">
+            <FormField
+              :name="`size-${sizeName}`"
+              :label="
+                $t('theming.size', {
+                  sizeName: $t(`theming.sizes.${sizeName}`),
+                })
+              "
+              sr-hide-label
+            >
+              <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
+              <input
+                :id="`size-${sizeName}`"
+                v-model="sizes[sizeName]"
+                type="number"
+                size="6"
+                class="input input-bordered inline-block pe-1"
+              />
+              <span class="ml-3" aria-hidden>
+                {{ $t(`theming.sizes.${sizeName}`) }}
+              </span>
+            </FormField>
+          </div>
+        </fieldset>
       </form>
     </section>
   </div>
 </template>
+
+<style scoped>
+.theme-override input.input {
+  min-height: 2rem;
+  height: 2rem;
+}
+</style>

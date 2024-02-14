@@ -14,6 +14,31 @@
     "automatic": "Automatic ({name})",
     "back_to_apps": "Go back to app list",
     "cancel": "Cancel",
+    "theming": {
+        "color_picker": "Pick a color for {colorName}",
+        "color_hex": "Enter a color hex value for {colorName}",
+        "colors": {
+            "primary": "Primary",
+            "secondary": "Secondary",
+            "accent": "Accentuated",
+            "neutral": "Neutral",
+            "base-100": "Site background",
+            "base-200": "Disabled state",
+            "base-300": "Card borders and headers",
+            "base-content": "Text",
+            "info": "Information",
+            "success": "Success/Valid",
+            "warning": "Warning",
+            "error": "Error/Invalid"
+        },
+        "override": "Theme override",
+        "size": "Define a size in rem for {sizeName}",
+        "sizes": {
+            "card-radius": "Card radius",
+            "btn-radius": "Button radius",
+            "btn-border": "Button border size"
+        }
+    },
     "change_password": "Change password",
     "confirm_new_password": "Confirm new password",
     "current_password": "Current password",
