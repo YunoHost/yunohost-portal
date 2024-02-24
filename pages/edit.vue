@@ -33,6 +33,7 @@ const themesAsOptions = [
   'system',
   'light',
   'dark',
+  'admin',
   'legacy',
   'cupcake',
   'bumblebee',
