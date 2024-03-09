@@ -64,6 +64,6 @@
         "email": "Adresse mail invalide : elle doit être alphanumérique et peut contenir les caractères '_.' (par exemple : dupond{'@'}exemple.fr, dup0nd-1{'@'}exemple.fr)"
     },
     "form_has_errors": "Le formulaire contient quelques erreurs",
-    "no_apps": "Il n'y a aucune application à lister ici, soit parce qu'aucune application web n'est encore installée sur le serveur, soit parce que vous n'y avez accès. Veuillez vérifier auprès des administrateurs du serveur pour plus d'informations !",
+    "no_apps": "Il n'y a aucune application à lister ici, soit parce qu'aucune application web n'est encore installée sur le serveur, soit parce que vous n'y avez accès. Veuillez vérifier auprès des personnes chargées de l'administration du serveur pour plus d'informations !",
     "user_profile_updated": "Mise à jour des informations personnelles du compte réussie !"
 }
