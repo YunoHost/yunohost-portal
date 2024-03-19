@@ -1,3 +1,5 @@
+import { useThemeOverrideState } from '@/composables/theming'
+
 // AUTH
 
 export const useIsLoggedIn = () => {
@@ -133,6 +135,11 @@ export const useSettings = async () => {
 
     const colorMode = useColorMode()
     colorMode.preference = settings.value.portal_theme
+
+    const themeOverride = useThemeOverrideState()
+    if (themeOverride.value) {
+      useThemeOverride().init(themeOverride.value)
+    }
   }
 
   return settings

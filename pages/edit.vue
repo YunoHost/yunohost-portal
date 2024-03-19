@@ -26,11 +26,15 @@ const localesAsOptions = computed(() => {
   return options
 })
 
+const { colors, sizes } = useThemeOverride()
+
 const themesAsOptions = [
   'auto',
   'system',
   'light',
   'dark',
+  'admin',
+  'legacy',
   'cupcake',
   'bumblebee',
   'emerald',
@@ -76,25 +80,31 @@ const themesAsOptions = [
 
     <div class="lg:flex lg:justify-between">
       <section
-        class="lg:w-1/2 lg:me-20 h-full card card-body border border-neutral my-10"
+        class="lg:w-1/2 lg:me-20 h-full card card-bordered border-base-300 my-10"
       >
-        <h2 class="text-3xl mb-3">{{ t('edit_personal_settings') }}</h2>
+        <div class="card-header bg-base-300 py-4 px-8">
+          <h2 class="text-3xl">{{ t('edit_personal_settings') }}</h2>
+        </div>
 
-        <UserInfoForm />
+        <UserInfoForm class="p-8" />
       </section>
 
-      <section class="lg:w-1/2 card card-body border border-neutral my-10">
-        <h2 class="text-3xl mb-3">{{ $t('change_password') }}</h2>
+      <section class="lg:w-1/2 card card-bordered border-base-300 my-10">
+        <div class="card-header bg-base-300 py-4 px-8">
+          <h2 class="text-3xl">{{ $t('change_password') }}</h2>
+        </div>
 
-        <UserPasswordForm />
+        <UserPasswordForm class="p-8" />
       </section>
     </div>
 
-    <section class="card card-body border border-neutral my-10">
-      <h2 class="text-3xl mb-3">{{ t('edit_browser_settings') }}</h2>
+    <section class="card card-bordered border-base-300 my-10">
+      <div class="card-header bg-base-300 py-4 px-8">
+        <h2 class="text-3xl">{{ t('edit_browser_settings') }}</h2>
+      </div>
 
-      <form novalidate @submit.prevent>
-        <div role="group" class="flex align mb-3">
+      <form class="p-8" novalidate @submit.prevent>
+        <div role="group" class="flex flex-wrap align mb-3">
           <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
           <label for="language" class="label me-3">{{ t('language') }}</label>
           <select
@@ -113,7 +123,7 @@ const themesAsOptions = [
           </select>
         </div>
 
-        <div role="group" class="flex align">
+        <div role="group" class="flex flex-wrap align">
           <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -->
           <label for="theme" class="label me-3">{{ t('theme') }}</label>
           <select
@@ -131,7 +141,95 @@ const themesAsOptions = [
             </option>
           </select>
         </div>
+
+        <fieldset class="theme-override mt-8">
+          <legend class="text-xl mb-6">{{ $t('theming.override') }}</legend>
+
+          <div
+            v-for="(_, colorName) in colors"
+            :key="colorName"
+            class="flex flex-wrap mb-2"
+          >
+            <FormField
+              :name="`color-picker-${colorName}`"
+              :label="
+                $t('theming.color_picker', {
+                  colorName: $t(`theming.colors.${colorName}`),
+                })
+              "
+              sr-hide-label
+            >
+              <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
+              <input
+                :id="`color-picker-${colorName}`"
+                v-model="colors[colorName]"
+                type="color"
+                class="inline-block w-8 h-8 -mr-8 cursor-pointer"
+              />
+              <div
+                :class="'bg-' + colorName"
+                class="inline-block w-8 h-8 pointer-events-none border border-base-300"
+              />
+            </FormField>
+
+            <FormField
+              :name="`color-hex-${colorName}`"
+              :label="
+                $t('theming.color_hex', {
+                  colorName: $t(`theming.colors.${colorName}`),
+                })
+              "
+              sr-hide-label
+            >
+              <input
+                :id="`color-hex-${colorName}`"
+                v-model="colors[colorName]"
+                size="7"
+                class="input input-bordered px-2 font-mono ml-3"
+              />
+            </FormField>
+
+            <span class="ml-3" aria-hidden>
+              {{ $t(`theming.colors.${colorName}`) }}
+            </span>
+          </div>
+
+          <div v-for="(_, sizeName) in sizes" :key="sizeName" class="flex mb-2">
+            <FormField
+              :name="`size-${sizeName}`"
+              :label="
+                $t('theming.size', {
+                  sizeName: $t(`theming.sizes.${sizeName}`),
+                })
+              "
+              sr-hide-label
+            >
+              <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
+              <input
+                :id="`size-${sizeName}`"
+                v-model="sizes[sizeName]"
+                type="number"
+                size="6"
+                class="input input-bordered inline-block pe-1"
+              />
+              <span class="ml-3" aria-hidden>
+                {{ $t(`theming.sizes.${sizeName}`) }}
+              </span>
+            </FormField>
+          </div>
+        </fieldset>
       </form>
     </section>
   </div>
 </template>
+
+<style scoped>
+.card .card-header {
+  border-top-left-radius: var(--rounded-box);
+  border-top-right-radius: var(--rounded-box);
+}
+.theme-override input.input {
+  min-height: 2rem;
+  height: 2rem;
+}
+</style>

@@ -16,3 +16,7 @@ export function exclude<T, K extends keyof T>(
   })
   return filtered
 }
+
+export function keysOf<T extends Record<string, string>>(obj: T) {
+  return Object.keys(obj) as Array<keyof T>
+}
