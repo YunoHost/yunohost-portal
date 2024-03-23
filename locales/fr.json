@@ -31,7 +31,7 @@
     "language": "Langue",
     "mail_address": "Adresse de courriel",
     "api": {
-        "processing": "Traitement en cours …"
+        "processing": "Traitement en cours…"
     },
     "app_list": "Liste des applications",
     "automatic": "Fonctionnement automatique ({name})",
