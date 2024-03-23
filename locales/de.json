@@ -27,7 +27,7 @@
     "password": "Passwort",
     "username": "Benutzername",
     "api": {
-        "processing": "In Arbeit …"
+        "processing": "In Arbeit…"
     },
     "app_list": "Programmliste",
     "back_to_apps": "Zurück zur Programmliste",
@@ -46,7 +46,7 @@
     "remove": "Entfernen",
     "save": "Sichern",
     "search": "Suchen",
-    "search_engine_placeholder": "Auf der {Suchmaschine} suchen",
+    "search_engine_placeholder": "Auf der {engine} suchen",
     "skip_link": {
         "main_content": "Zum Hauptinhalt springen",
         "footer": "Zur Fußzeile springen"
