@@ -1,3 +1,13 @@
+yunohost-portal (12.0.8) stable; urgency=low
+
+  - forms: use useFieldError to properly display error message ([#24](http://github.com/YunoHost/yunohost-portal/pull/24))
+  - Dockerfile: Bump required nodejs version ([#25](http://github.com/YunoHost/yunohost-portal/pull/25))
+  - i18n: Translations updated for Basque, Chinese (Simplified), Galician, German, Occitan
+
+  Thanks to all contributors <3 ! (axolotle, Florent, Hyppy Kangaroo, José M, Poesty Li, Quentí, xabirequejo)
+
+ -- Alexandre Aubin <alex.aubin@mailoo.org>  Fri, 28 Feb 2025 20:52:19 +0100
+
 yunohost-portal (12.0.7) stable; urgency=low
 
   - Update breakpoints to tile size + mobile tiles sizing in vw (14ab2c7)
