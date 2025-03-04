@@ -124,6 +124,13 @@ const tileClasses = computed(() => {
             :class="tileClasses.img"
             alt=""
           />
+          <div
+            v-else-if="settings.portal_tile_theme !== 'periodic'"
+            aria-hidden
+            class="app-logo w-24 h-24 min-w-24 rounded-xl"
+            :class="tileClasses.img"
+            alt=""
+          /></div>
           <div>
             <h4
               :data-initials="app.initials"
