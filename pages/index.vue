@@ -117,9 +117,9 @@ const tileClasses = computed(() => {
           :style="`--label-hash: ${app.label_hash}`"
         >
           <img
-            v-if="app.logo && settings.portal_tile_theme !== 'periodic'"
+            v-if="settings.portal_tile_theme !== 'periodic'"
             aria-hidden
-            :src="app.logo"
+            :src="app.logo ? app.logo : data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
             class="app-logo w-24 h-24 min-w-24 rounded-xl"
             :class="tileClasses.img"
             alt=""
