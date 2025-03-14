@@ -86,6 +86,7 @@ const login = handleSubmit(async (form) => {
           autocomplete="username"
           autocapitalize="off"
           spellcheck="false"
+          autofocus=""
           class="w-full"
         />
       </FormField>
