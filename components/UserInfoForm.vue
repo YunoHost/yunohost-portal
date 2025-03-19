@@ -42,7 +42,7 @@ const onSubmit = handleSubmit(async (form) => {
 
   let excludedFields = []
   if (!settings.value.allow_edit_email) {
-    excludedFields.push('email')
+    excludedFields.push('mail')
   }
   if (!settings.value.allow_edit_email_alias) {
     excludedFields.push('mailalias')
