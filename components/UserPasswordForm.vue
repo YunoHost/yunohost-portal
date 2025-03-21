@@ -114,7 +114,12 @@ const onSubmit = handleSubmit(async (form) => {
     </FormField>
 
     <FormField name="confirmpassword" :label="$t('confirm_new_password')">
-      <TextInput name="confirmpassword" type="password" class="w-full" />
+      <TextInput
+        name="confirmpassword"
+        type="password"
+        autocomplete="new-password"
+        class="w-full" 
+      />
     </FormField>
   </YForm>
 </template>
