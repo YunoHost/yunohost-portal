@@ -1,3 +1,9 @@
+yunohost-portal (12.0.10) stable; urgency=low
+
+  - Fix app logo placeholder ([#31](http://github.com/YunoHost/yunohost-portal/pull/31))
+
+  Thanks to all contributors <3 ! (OniriCorpe, tituspijean)
+
 yunohost-portal (12.0.9) stable; urgency=low
 
   - login: autofocus the username field on page load ([#29](http://github.com/YunoHost/yunohost-portal/pull/29))
@@ -5,7 +11,7 @@ yunohost-portal (12.0.9) stable; urgency=low
   - Permit autocompletion for the 'confirm password' field ([#30](http://github.com/YunoHost/yunohost-portal/pull/30))
   - i18n: Translations updated for Occitan
 
-  Thanks to all contributors <3 ! (OniriCorpe, Quentí, oleole39)
+  Thanks to all contributors <3 ! (OniriCorpe, Quentí, oleole39, tituspijean)
 
  -- tituspijean <titus+yunohost@pijean.ovh>  Sun, 23 Mar 2025 10:26:37 +0100
 
