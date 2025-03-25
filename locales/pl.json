@@ -2,7 +2,8 @@
     "_language": {
         "code": "pl",
         "dir": "ltr",
-        "name": "Polski"
+        "name": "Polski",
+        "fallback": "ang"
     },
     "add_forward": "Dodaj adres e-mail do przekazywania",
     "add_mail": "Dodaj alias e-mail",
@@ -20,9 +21,49 @@
     "logout": "Wyloguj",
     "mail_addresses": "Adresy e-mail",
     "mail_forward": "Adres do przekazywania wiadomości e-mail",
-    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_forward": "noweprzekierowanie{'@'}najakasdomene.org",
     "new_mail": "nowymail{'@'}domena.org",
     "new_password": "Nowe hasło",
     "password": "Hasło",
-    "username": "Nazwa użytkownika"
+    "username": "Nazwa użytkownika",
+    "language": "Język",
+    "password_changed_reconnect": "Hasło zostało zmienione, proszę połącz się ponownie.",
+    "save": "Zapisz",
+    "ssowat": {
+        "protected": "Proszę zaloguj się, aby uzyskać dostęp do tego adresu.",
+        "access_denied": "Nie masz dostępu do tego adresu."
+    },
+    "search_engine_placeholder": "Szukaj z użyciem {engine}",
+    "form_has_errors": "Formularz zawiera jakieś błędy",
+    "no_apps": "Jeszcze nie ma tu listy aplikacji, albo dla tego, że nie zainstalowano jeszcze żadnych aplikacji na tym serwerze, albo nie masz do nich dostępu. Proszę skontaktuj się z administracją po więcej informacji!",
+    "mail_address": "Adres e-mail",
+    "v": {
+        "email": "Nieprawidłowy e-mail: musi składać się wyłącznie ze znaków alfanumerycznych lub znaków \"_.\" (np. ktos{'@'}przyklad.com, kt0s-1{'@'}przyklad.com)",
+        "field_invalid": "Błąd w zawartości pola",
+        "field_required": "Pole trzeba wypełnić",
+        "password_not_match": "Hasła do siebie nie pasują.",
+        "string_too_short": "Nieprawidłowa wartość: potrzeba co najmniej {min} znaków"
+    },
+    "confirm_new_password": "Potwierdź nowe hasło",
+    "api": {
+        "processing": "Przetwarzanie…"
+    },
+    "app_list": "Lista aplikacji",
+    "back_to_apps": "Wróć do listy aplikacji",
+    "edit_browser_settings": "Edytuj ustawienia przeglądarki",
+    "edit_personal_settings": "Edytuj prywatne informacje",
+    "automatic": "Automat {name}",
+    "mail_forwards": "Adres do przekazywania e-maili",
+    "possibly_invalid_password": "Hasło może być nieprawidłowe",
+    "possibly_invalid_username": "Login może być nieprawidłowy",
+    "primary_mail_adress": "Podstawowy adres e-mail",
+    "remove": "Usuń",
+    "search": "Szukaj",
+    "skip_link": {
+        "main_content": "Przeskocz do głównej treści",
+        "footer": "Przeskocz do stopki"
+    },
+    "theme": "Skórka",
+    "visitor": "Odwiedzający",
+    "user_profile_updated": "Pomyślnie zaktualizowano informacje o użytkowniku!"
 }
