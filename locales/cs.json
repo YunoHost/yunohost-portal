@@ -2,7 +2,8 @@
     "_language": {
         "code": "cs",
         "dir": "ltr",
-        "name": "Čeština"
+        "name": "Čeština",
+        "fallback": "en"
     },
     "add_forward": "Přidat e-mailovou adresu pro přeposílání",
     "add_mail": "Přidat e-mail alias",
@@ -18,11 +19,25 @@
     "logged_out": "Odhlášení",
     "login": "Přihlásit se",
     "logout": "Odhlásit se",
-    "mail_addresses": "E-mailová adresa",
+    "mail_addresses": "E-mailové adresy",
     "mail_forward": "E-mail pro přeposílání",
     "new_forward": "newforward{'@'}myforeigndomain.org",
     "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "Nové heslo",
     "password": "Heslo",
-    "username": "Uživatelské jméno"
+    "username": "Uživatelské jméno",
+    "app_list": "Seznam aplikací",
+    "automatic": "Automatické ({name})",
+    "back_to_apps": "Přejít zpět na seznam aplikací",
+    "confirm_new_password": "Potvrdit nové heslo",
+    "edit_personal_settings": "Upravit osobní informace",
+    "form_has_errors": "Formulář obsahuje nějaké chyby",
+    "mail_address": "E-mailová adresa",
+    "search": "Hledat",
+    "remove": "Odstranit",
+    "api": {
+        "processing": "Zpracovávám…"
+    },
+    "save": "Uložit",
+    "search_engine_placeholder": "Hledat na {engine}"
 }
