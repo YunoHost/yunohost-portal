@@ -2,7 +2,8 @@
     "_language": {
         "code": "cs",
         "dir": "ltr",
-        "name": "Čeština"
+        "name": "Čeština",
+        "fallback": "en"
     },
     "add_forward": "Přidat e-mailovou adresu pro přeposílání",
     "add_mail": "Přidat e-mail alias",
@@ -14,15 +15,55 @@
     "footerlink_edit": "Upravit svůj profil",
     "footerlink_support": "Podpora",
     "fullname": "Jméno a příjmení",
-    "good_practices_about_user_password": "Vyberte si heslo aspoň 8 znaků dlouhé - dobrou praxí je ale používat delší frázi a používat různé druhy znaků (velká a malá písmena, číslice a speciální znaky).",
-    "logged_out": "Jste odhlášen/a",
+    "good_practices_about_user_password": "Vyberte si heslo aspoň 8 znaků dlouhé - dobrou praxí je ale používat delší frázi a/nebo používat různé druhy znaků (velká a malá písmena, číslice a speciální znaky).",
+    "logged_out": "Odhlášení",
     "login": "Přihlásit se",
     "logout": "Odhlásit se",
-    "mail_addresses": "E-mailová adresa",
+    "mail_addresses": "E-mailové adresy",
     "mail_forward": "E-mail pro přeposílání",
-    "new_forward": "newforward{'@'}myforeigndomain.org",
-    "new_mail": "newmail{'@'}mydomain.org",
+    "new_forward": "novepresmerovani{'@'}macizidomena.org",
+    "new_mail": "novymail{'@'}madomena.org",
     "new_password": "Nové heslo",
     "password": "Heslo",
-    "username": "Uživatelské jméno"
+    "username": "Uživatelské jméno",
+    "app_list": "Seznam aplikací",
+    "automatic": "Automatické ({name})",
+    "back_to_apps": "Přejít zpět na seznam aplikací",
+    "confirm_new_password": "Potvrdit nové heslo",
+    "edit_personal_settings": "Upravit osobní informace",
+    "form_has_errors": "Formulář obsahuje nějaké chyby",
+    "mail_address": "E-mailová adresa",
+    "search": "Hledat",
+    "remove": "Odstranit",
+    "api": {
+        "processing": "Zpracovávám…"
+    },
+    "save": "Uložit",
+    "search_engine_placeholder": "Hledat na {engine}",
+    "language": "Jazyk",
+    "mail_forwards": "Emailové adresy pro přeposílání",
+    "no_apps": "Zde není žádná aplikace, kterou by bylo možné uvést, buď proto, že na serveru ještě není žádná webová aplikace nainstalována, nebo proto, že k žádné nemáte přístup. Pro více informací se prosím obraťte na administrátory serveru!",
+    "password_changed_reconnect": "Vaše heslo bylo změněno, znovu se prosím připojte.",
+    "possibly_invalid_password": "Heslo je pravděpodobně neplatné",
+    "edit_browser_settings": "Editovat nastavení prohlížeče",
+    "possibly_invalid_username": "Uživatelské jméno je pravděpodobně neplatné",
+    "primary_mail_adress": "Primární emailová adresa",
+    "v": {
+        "password_not_match": "Hesla se neshodují.",
+        "email": "Neplatný email: musí obsahovat pouze písmna, čísla a znaky '_.' (např. nekdo{'@'}priklad.com, n3kd-0{'@'}priklad.com)",
+        "field_invalid": "Hodnota pole je neplatná",
+        "field_required": "Pole je povinné",
+        "string_too_short": "Neplatná hodnota: musí mít délku alespoň {min} znaků"
+    },
+    "skip_link": {
+        "main_content": "Přeskočit na hlavní obsah",
+        "footer": "Přeskočit na zápatí"
+    },
+    "ssowat": {
+        "access_denied": "Nemáte povolený přístup pro tuto adresu.",
+        "protected": "Prosím přihlašte se pro přístup na tuto adresu."
+    },
+    "theme": "Motiv",
+    "user_profile_updated": "Osobní uživatelské informace byli úspěšně aktualizovány!",
+    "visitor": "Návštěvník"
 }
