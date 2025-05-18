@@ -1,3 +1,12 @@
+yunohost-portal (12.1.0) testing; urgency=low
+
+  - Handle setting allow/disallow main email, email alias and email forward from portal ([#21](http://github.com/YunoHost/yunohost-portal/pull/21))
+  - i18n: Translations updated for Arabic, Czech, Polish
+
+  Thanks to all contributors <3 ! (ButterflyOfFire, demodé, harc, Josué Tille, tituspijean)
+
+ -- Alexandre Aubin <alex.aubin@mailoo.org>  Sun, 18 May 2025 19:01:58 +0200
+
 yunohost-portal (12.0.10) stable; urgency=low
 
   - Fix app logo placeholder ([#31](http://github.com/YunoHost/yunohost-portal/pull/31))
@@ -15,7 +24,7 @@ yunohost-portal (12.0.9) stable; urgency=low
 
  -- tituspijean <titus+yunohost@pijean.ovh>  Sun, 23 Mar 2025 10:26:37 +0100
 
- yunohost-portal (12.0.8) stable; urgency=low
+yunohost-portal (12.0.8) stable; urgency=low
 
   - forms: use useFieldError to properly display error message ([#24](http://github.com/YunoHost/yunohost-portal/pull/24))
   - Dockerfile: Bump required nodejs version ([#25](http://github.com/YunoHost/yunohost-portal/pull/25))
