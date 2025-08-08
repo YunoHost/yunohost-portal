@@ -10,10 +10,10 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const settings = await useSettings()
 
   const redirectUrl = useRedirectUrl()
-  if (to.query.r) {
-    redirectUrl.value = to.query.r as string
+  if (to.query.rd) {
+    redirectUrl.value = to.query.rd as string
     if (to.name !== 'login') {
-      return navigateTo({ path: '/login', query: { r: to.query.r } })
+      return navigateTo({ path: '/login', query: { rd: to.query.rd } })
     }
   } else {
     redirectUrl.value = null
