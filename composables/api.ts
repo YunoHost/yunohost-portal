@@ -16,7 +16,7 @@ const useSSOApiEndpoint = () => {
     (process.dev
       ? useRuntimeConfig().public.apiIp || window.location.hostname
       : window.location.hostname) +
-    '/api'
+    '/yunohostssoapi/api'
   )
 }
 
