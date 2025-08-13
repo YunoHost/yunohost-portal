@@ -23,7 +23,7 @@ const footerLinks = computed(() => [
 ])
 
 async function logout() {
-  const { error } = await useApi('/logout')
+  const { error } = await useApi('/logout', {method: 'POST', body: {}}, true)
 
   if (!error.value) {
     // Delete user infos
