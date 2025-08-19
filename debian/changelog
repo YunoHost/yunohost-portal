@@ -1,3 +1,12 @@
+yunohost-portal (12.1.1) stable; urgency=low
+
+  - i18n: Translations updated for Kabyle
+  - Release as stable !
+
+  Thanks to all contributors <3 ! (ButterflyOfFire)
+
+ -- Alexandre Aubin <alex.aubin@mailoo.org>  Wed, 20 Aug 2025 01:40:33 +0200
+
 yunohost-portal (12.1.0) testing; urgency=low
 
   - Handle setting allow/disallow main email, email alias and email forward from portal ([#21](http://github.com/YunoHost/yunohost-portal/pull/21))
