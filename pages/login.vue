@@ -28,14 +28,14 @@ const { handleSubmit, setErrors } = useForm({
 })
 
 const login = handleSubmit(async (form) => {
-  const { error } = await useApi('/login', {
+  const { error } = await useApi('/firstfactor', {
     method: 'POST',
-    body: { credentials: form.username + ':' + form.password },
-  })
+    body: { username:form.username, password:form.password, keepMeLoggedIn:true },
+  }, true)
 
   if (!error.value) {
     if (redirectUrl.value) {
-      await navigateTo(atob(redirectUrl.value), { external: true })
+      await navigateTo(redirectUrl.value, { external: true })
     }
 
     isLoggedIn.value = true

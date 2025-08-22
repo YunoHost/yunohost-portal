@@ -10,6 +10,16 @@ const useApiEndpoint = () => {
   )
 }
 
+const useSSOApiEndpoint = () => {
+  return (
+    'https://' +
+    (process.dev
+      ? useRuntimeConfig().public.apiIp || window.location.hostname
+      : window.location.hostname) +
+    '/yunohostssoapi/api'
+  )
+}
+
 export function useApi<T>(
   path: string,
   {
@@ -19,6 +29,7 @@ export function useApi<T>(
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
     body?: Record<string, any>
   } = {},
+  sso: boolean = false
 ) {
   type Resp = {
     data: Ref<T | null>
@@ -30,7 +41,7 @@ export function useApi<T>(
   }
 
   const query = () => {
-    return $fetch(useApiEndpoint() + path, {
+    return $fetch((sso ? useSSOApiEndpoint() : useApiEndpoint()) + path, {
       method,
       credentials: 'include',
       body,
