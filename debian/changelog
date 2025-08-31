@@ -1,4 +1,12 @@
-yunohost-portal (12.1.1) stable; urgency=low
+yunohost-portal (12.1.2) stable; urgency=low
+
+  - fix(settings): names of email edition settings ([#35](http://github.com/YunoHost/yunohost-portal/pull/35))
+
+  Thanks to all contributors <3 ! (tituspijean)
+
+ -- tituspijean <tituspijean@yunohost.org>  Sun, 31 Aug 2025 13:43:49 +0200
+
+ yunohost-portal (12.1.1) stable; urgency=low
 
   - i18n: Translations updated for Kabyle
   - Release as stable !
