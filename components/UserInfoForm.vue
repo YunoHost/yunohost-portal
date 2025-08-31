@@ -41,13 +41,13 @@ const onSubmit = handleSubmit(async (form) => {
   loading.value = true
 
   let excludedFields = []
-  if (!settings.value.allow_edit_email) {
+  if (!settings.value.portal_allow_edit_email) {
     excludedFields.push('mail')
   }
-  if (!settings.value.allow_edit_email_alias) {
+  if (!settings.value.portal_allow_edit_email_alias) {
     excludedFields.push('mailalias')
   }
-  if (!settings.value.allow_edit_email_forward) {
+  if (!settings.value.portal_allow_edit_email_forward) {
     excludedFields.push('mailforward')
   }
 
@@ -104,7 +104,7 @@ const onSubmit = handleSubmit(async (form) => {
     </FormField>
 
     <FormField name="mail" :label="$t('primary_mail_adress')" class="mb-10">
-      <TextInput name="mail" type="text" class="w-full" :disabled="!settings.allow_edit_email" />
+      <TextInput name="mail" type="text" class="w-full" :disabled="!settings.portal_allow_edit_email" />
     </FormField>
 
     <TextInputList
@@ -115,7 +115,7 @@ const onSubmit = handleSubmit(async (form) => {
       :button-label="$t('add_mail')"
       :placeholder="$t('new_mail')"
       class="mb-10"
-      :disabled="!settings.allow_edit_email_alias"
+      :disabled="!settings.portal_allow_edit_email_alias"
     />
 
     <TextInputList
@@ -125,7 +125,7 @@ const onSubmit = handleSubmit(async (form) => {
       :input-label="$t('mail_forward')"
       :button-label="$t('add_forward')"
       :placeholder="$t('new_forward')"
-      :disabled="!settings.allow_edit_email_forward"
+      :disabled="!settings.portal_allow_edit_email_forward"
     />
   </YForm>
 </template>
