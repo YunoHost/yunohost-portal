@@ -125,13 +125,13 @@ const tileClasses = computed(() => {
             alt=""
           />
           <div>
-            <h4
+            <h3
               :data-initials="app.initials"
               class="app-label break-words"
               :class="tileClasses.title"
             >
               <a :href="app.url" class="">{{ app.label }}</a>
-            </h4>
+            </h3>
             <p
               v-if="
                 app.description && settings.portal_tile_theme === 'descriptive'
