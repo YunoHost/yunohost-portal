@@ -6,7 +6,7 @@ yunohost-portal (12.1.2) stable; urgency=low
 
  -- tituspijean <tituspijean@yunohost.org>  Sun, 31 Aug 2025 13:43:49 +0200
 
- yunohost-portal (12.1.1) stable; urgency=low
+yunohost-portal (12.1.1) stable; urgency=low
 
   - i18n: Translations updated for Kabyle
   - Release as stable !
