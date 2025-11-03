@@ -8,7 +8,7 @@
 [YunoHost](https://yunohost.org) user portal ([VueJS/Nuxt](https://nuxt.com/) client for the portal API).
 
 This client is a part of the YunoHost project, and can not be installed directly.  
-Please visit the YunoHost website for [installation instructions](https://yunohost.org/install).
+Please visit the YunoHost website for [installation instructions](https://doc.yunohost.org/install).
 
 ![User portal interface screenshot, light version with app decriptions](./doc/portal_descriptive_light.jpg)
 

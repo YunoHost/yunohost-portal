@@ -11,10 +11,10 @@ const footerLinks = computed(() => [
   { text: t('footerlink_edit'), to: '/edit' },
   {
     text: t('footerlink_documentation'),
-    to: '//yunohost.org/user_guide',
+    to: '//doc.yunohost.org/',
     newWindow: true,
   },
-  { text: t('footerlink_support'), to: '//yunohost.org/help', newWindow: true },
+  { text: t('footerlink_support'), to: '//doc.yunohost.org/help', newWindow: true },
   {
     text: t('footerlink_administration'),
     to: `//${settings.value.domain}/yunohost/admin/`,
