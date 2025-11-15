@@ -60,7 +60,7 @@
     "username": "Nome de usuário",
     "visitor": "Visitante",
     "v": {
-        "email": "E-mail inválido: deve ser apenas alfanumérico e '_.' (por exemplo, alguém{'@'}example.com, s0me-1{'@'}example.com)",
+        "email": "E-mail inválido: deve ser apenas alfanumérico e '_.' (por exemplo, alguem{'@'}example.com, s0me-1{'@'}example.com)",
         "field_invalid": "O valor do campo é inválido",
         "field_required": "O valor do campo é obrigatório",
         "password_not_match": "As senhas não correspondem.",
