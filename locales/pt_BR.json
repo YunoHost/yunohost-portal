@@ -2,6 +2,68 @@
     "_language": {
         "code": "pt-BR",
         "dir": "ltr",
-        "name": "Português brasileiro"
+        "name": "Português brasileiro",
+        "fallback": "en"
+    },
+    "add_forward": "Adicionar um endereço de encaminhamento de e-mail",
+    "add_mail": "Adicionar um alias de e-mail",
+    "api": {
+        "processing": "Processando…"
+    },
+    "app_list": "Lista de aplicativos",
+    "automatic": "Automático ({name})",
+    "back_to_apps": "Voltar para a lista de aplicativos",
+    "cancel": "Cancelar",
+    "change_password": "Alterar senha",
+    "confirm_new_password": "Confirme a nova senha",
+    "current_password": "Senha atual",
+    "edit_browser_settings": "Editar configurações somente do navegador",
+    "edit_personal_settings": "Editar informações pessoais",
+    "footerlink_administration": "Administração",
+    "footerlink_documentation": "Documentação",
+    "footerlink_edit": "Editar meu perfil",
+    "footerlink_support": "Suporte",
+    "form_has_errors": "O formulário contém alguns erros",
+    "fullname": "Nome completo",
+    "good_practices_about_user_password": "Escolha uma senha de usuário com pelo menos 8 caracteres, embora seja uma boa prática usar senhas mais longas (como uma frase secreta) e/ou usar vários tipos de caracteres (maiúsculos, minúsculos, dígitos e caracteres especiais).",
+    "language": "Idioma",
+    "logged_out": "Desautenticado",
+    "login": "Entrar",
+    "logout": "Sair",
+    "mail_address": "Endereço de e-mail",
+    "mail_addresses": "Endereços de e-mail",
+    "mail_forward": "Endereço de encaminhamento de e-mail",
+    "mail_forwards": "Endereços de encaminhamento de e-mail",
+    "new_forward": "novoencaminhamento{'@'}meudominioexterno.org",
+    "new_mail": "novoemail{'@'}meudominio.org",
+    "new_password": "Nova senha",
+    "no_apps": "Não há nenhum aplicativo para listar aqui, seja porque nenhum aplicativo da web ainda está instalado no servidor ou porque você não tem acesso a nenhum. Por favor, verifique com os administradores do servidor para mais informações!",
+    "password": "Senha",
+    "password_changed_reconnect": "Sua senha foi alterada, por favor, reconecte.",
+    "possibly_invalid_password": "A senha é possivelmente inválida",
+    "possibly_invalid_username": "O nome de usuário é possivelmente inválido",
+    "primary_mail_adress": "Endereço de e-mail principal",
+    "remove": "Remover",
+    "save": "Salvar",
+    "search": "Pesquisar",
+    "search_engine_placeholder": "Pesquisar no {engine}",
+    "skip_link": {
+        "main_content": "Pular para o conteúdo principal",
+        "footer": "Pular para o rodapé"
+    },
+    "ssowat": {
+        "access_denied": "Você não tem permissão para acessar este URL.",
+        "protected": "Faça login para acessar este URL."
+    },
+    "theme": "Tema",
+    "user_profile_updated": "Informações pessoais do usuário atualizadas com sucesso!",
+    "username": "Nome de usuário",
+    "visitor": "Visitante",
+    "v": {
+        "email": "E-mail inválido: deve ser apenas alfanumérico e '_.' (por exemplo, alguém{'@'}example.com, s0me-1{'@'}example.com)",
+        "field_invalid": "O valor do campo é inválido",
+        "field_required": "O valor do campo é obrigatório",
+        "password_not_match": "As senhas não correspondem.",
+        "string_too_short": "Valor inválido: deve ter pelo menos {min} caracteres"
     }
 }
