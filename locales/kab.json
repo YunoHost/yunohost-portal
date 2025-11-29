@@ -30,5 +30,25 @@
     "confirm_new_password": "Sentem awal n uɛeddi amaynut",
     "footerlink_edit": "Ẓreg amaɣnu-inu",
     "search_engine_placeholder": "Nadi ɣef {engine}",
-    "back_to_apps": "Uɣsel ɣer tebdart n yesnasen"
+    "back_to_apps": "Uɣsel ɣer tebdart n yesnasen",
+    "visitor": "Inebgi",
+    "edit_personal_settings": "Ẓreg isallen udmawanen",
+    "primary_mail_adress": "Tansa imayl tamezwarut",
+    "v": {
+        "password_not_match": "Awalen n uɛeddi ur mṣadan ara."
+    },
+    "skip_link": {
+        "main_content": "Ddu ar ugbur amatu"
+    },
+    "ssowat": {
+        "protected": "Ttxil-k·m, qqen akken ad tkecmeḍ ɣer tansa-a URL.",
+        "access_denied": "Ur tesɛiḍ ara tasiregt ad tadfed ɣer usebter-a."
+    },
+    "password_changed_reconnect": "Awal-ik·im n uɛeddi yettwabeddel, ma ulac aɣilif qqen tikelt nniḍen.",
+    "edit_browser_settings": "Ẓreg iɣewwaren kan n iminig",
+    "possibly_invalid_password": "Awal n uɛeddi ahat mačči d ameɣtu",
+    "possibly_invalid_username": "Isem n useqdac ahat mačči d ameɣtu",
+    "api": {
+        "processing": "Asesfer…"
+    }
 }
