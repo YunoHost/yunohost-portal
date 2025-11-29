@@ -2,7 +2,8 @@
     "_language": {
         "code": "kab",
         "dir": "ltr",
-        "name": "Taqbaylit"
+        "name": "Taqbaylit",
+        "fallback": "kab"
     },
     "cancel": "Sefsex",
     "change_password": "Beddel awal n uffir",
@@ -17,5 +18,17 @@
     "new_password": "Awal uffir amaynut",
     "password": "Awal n uɛeddi",
     "username": "Isem n useqdac",
-    "save": "Ḥrez"
+    "save": "Ḥrez",
+    "language": "Tutlayt",
+    "remove": "Kkes",
+    "search": "Nadi",
+    "theme": "Asentel",
+    "app_list": "Tabdart n isnasen",
+    "automatic": "Awurman ({name})",
+    "mail_address": "Tansa imayl",
+    "mail_addresses": "Tansiwin imayl",
+    "confirm_new_password": "Sentem awal n uɛeddi amaynut",
+    "footerlink_edit": "Ẓreg amaɣnu-inu",
+    "search_engine_placeholder": "Nadi ɣef {engine}",
+    "back_to_apps": "Uɣsel ɣer tebdart n yesnasen"
 }
