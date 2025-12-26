@@ -6,12 +6,12 @@
         "fallback": "kab"
     },
     "cancel": "Sefsex",
-    "change_password": "Beddel awal n uffir",
+    "change_password": "Senfel awal n uɛeddi",
     "current_password": "Awal n uɛeddi amiran",
     "footerlink_administration": "Tadbelt",
     "footerlink_documentation": "Tasemlit",
     "footerlink_support": "Tallalt",
-    "fullname": "Isem inek ummid",
+    "fullname": "Isem-inek·inem ummid",
     "logged_out": "Tessensreḍ tuqqna",
     "login": "Qqen",
     "logout": "Senser",
@@ -50,5 +50,8 @@
     "possibly_invalid_username": "Isem n useqdac ahat mačči d ameɣtu",
     "api": {
         "processing": "Asesfer…"
-    }
+    },
+    "new_forward": "newforward{'@'}myforeigndomain.org",
+    "new_mail": "tansatamaynut{'@'}mydomain.org",
+    "user_profile_updated": "Tilɣa tudmawanin n useqdac ttwaleqment akken iwata!"
 }
