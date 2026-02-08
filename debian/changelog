@@ -1,3 +1,9 @@
+yunohost-portal (13.0.1) testing; urgency=low
+
+  - Fix debian build system
+
+ -- Félix Piédallu <felix@piedallu.me>  Sun, 08 Feb 2026 12:58:31 +0200
+
 yunohost-portal (13.0.0) testing; urgency=low
 
   - Bump version for Debian 13 Trixie.
