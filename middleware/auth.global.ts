@@ -27,7 +27,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   }
 
   if (to.name === 'login') {
-    if (isLoggedIn.value) {
+    if (isLoggedIn.value && !redirectUrl.value) {
       return navigateTo('/')
     }
   } else if (!isLoggedIn.value && !(to.meta.public && settings.value.public)) {
