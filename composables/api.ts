@@ -44,8 +44,13 @@ export function useApi<T>(
           useIsLoggedIn().value = false
           const route = useRoute()
           const settings = await useSettings()
-          if (!(settings.value.public && route.meta.public)) {
-            navigateTo('/login')
+          if (route.name !== 'login' && !(settings.value.public && route.meta.public)) {
+            const redirectUrl = useRedirectUrl()
+            navigateTo(
+              redirectUrl.value
+                ? { path: '/login', query: { r: redirectUrl.value } }
+                : '/login',
+            )
           }
         } else if (e.statusCode !== 400 && !e.data?.path) {
           throw createError({
