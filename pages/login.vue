@@ -35,7 +35,7 @@ const login = handleSubmit(async (form) => {
 
   if (!error.value) {
     if (redirectUrl.value) {
-      await navigateTo(atob(redirectUrl.value), { external: true })
+      return await navigateTo(atob(redirectUrl.value), { external: true })
     }
 
     isLoggedIn.value = true
