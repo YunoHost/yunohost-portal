@@ -15,7 +15,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
     if (to.name !== 'login') {
       return navigateTo({ path: '/login', query: { r: to.query.r } })
     }
-  } else {
+  } else if (to.name === 'login') {
     redirectUrl.value = null
   }
 
@@ -27,7 +27,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   }
 
   if (to.name === 'login') {
-    if (isLoggedIn.value && !redirectUrl.value) {
+    if (isLoggedIn.value) {
       return navigateTo('/')
     }
   } else if (!isLoggedIn.value && !(to.meta.public && settings.value.public)) {

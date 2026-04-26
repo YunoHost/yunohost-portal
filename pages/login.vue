@@ -34,11 +34,12 @@ const login = handleSubmit(async (form) => {
   })
 
   if (!error.value) {
+    isLoggedIn.value = true
+
     if (redirectUrl.value) {
       return await navigateTo(atob(redirectUrl.value), { external: true })
     }
 
-    isLoggedIn.value = true
     await navigateTo('/')
   } else {
     setErrors({
