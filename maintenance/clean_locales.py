@@ -92,7 +92,7 @@ def generate_locales_list():
             # Warn that translators have changed the language code
             print(
                 f"Language's code for file '{locale}.json' is '{code}': file"
-                " should probably be renamed to '{code}.json'"
+                f" should probably be renamed to '{code}.json'"
             )
 
         locales.append(
