@@ -37,6 +37,7 @@ let invitationErrorMessage = undefined;
 let onSubmit = undefined;
 let registrationParams = undefined;
 let formValues = undefined;
+let successMessage = undefined;
 
 if (invitationToken || settings.value.enable_self_registration) {
 
@@ -104,6 +105,78 @@ if (invitationToken || settings.value.enable_self_registration) {
         formValues = formValues_;
 
         // Submit logic
+
+        if (formMode == "invite") {
+            onSubmit = handleSubmit(async (form) => {
+              loading.value = true
+
+              const { error, data } = await useApi('/invitation', {
+                method: 'POST',
+                body: {
+                    token: invitationToken,
+                    username: formValues.username,
+                    fullname: formValues.fullname,
+                    password: formValues.password,
+                    external_email: formValues.external_email || undefined,
+                    accept_tos: registrationParams.tos ? document.getElementById("accept_tos").checked : undefined,
+                }
+              })
+
+              if (error.value) {
+                // Reset form dirty state but keep previous values
+                feedback.value = {
+                  variant: 'error',
+                  icon: 'alert',
+                  message: error.value.data.error || error.value.data,
+                }
+              } else {
+                 enableForm = false;
+                 successMessage = t('user_invite_success', {username: formValues.username});
+              }
+
+              loading.value = false
+            })
+        }
+        else {
+            onSubmit = handleSubmit(async (form) => {
+              loading.value = true
+
+              const { error, data } = await useApi('/registration', {
+                method: 'POST',
+                body: {
+                    username: formValues.username,
+                    fullname: formValues.fullname,
+                    password: formValues.password,
+                    external_email: formValues.external_email || undefined,
+                    notes: formValues.notes || undefined,
+                    accept_tos: registrationParams.tos ? document.getElementById("accept_tos").checked : undefined,
+                    challenge_token: document.getElementById("challenge_token").value,
+                    challenge_answer: formValues.challenge_answer,
+                }
+              })
+
+              if (error.value) {
+                // Reset form dirty state but keep previous values
+                feedback.value = {
+                  variant: 'error',
+                  icon: 'alert',
+                  message: error.value.data.error || error.value.data,
+                }
+
+                // Get a new challenge thingy to be able to resubmit the form without having to refresh the page
+                const { data: challengeParams } = await useApi('/registration/challenge')
+                registrationParams.challenge_calculation = challengeParams.value.calculation
+                document.getElementById("challenge_token").value = challengeParams.value.token
+                document.getElementById("challenge_answer").value = ""
+
+              } else {
+                 enableForm = false;
+                 successMessage = t('user_selfregistration_success');
+              }
+
+              loading.value = false
+            })
+        }
     }
 }
 </script>
@@ -125,13 +198,30 @@ if (invitationToken || settings.value.enable_self_registration) {
         />
 
         <BaseAlert
-            v-if="!invitationToken && !enableForm"
+            v-if="!invitationToken && !enableForm && !successMessage"
             variant="error"
             icon="close"
             :message="$t('user_selfregistration_not_enabled')"
             class="mt-4"
             assertive
         />
+
+        <center v-if="successMessage" >
+            <BaseAlert
+                variant="success"
+                icon="thumb-up"
+                :message="successMessage"
+                class="mt-4"
+                assertive
+            />
+            <YButton
+                variant="success"
+                :text="$t('go_back_to_login')"
+                icon="arrow-left"
+                @click="navigateTo('/login')"
+                class="mx-auto mt-3 w-fit"
+            />
+        </center>
 
         <BaseAlert
             v-if="enableForm && registrationParams.custom_notes"
