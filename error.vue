@@ -21,7 +21,7 @@ defineProps<{
     <div class="text-center mt-10">
       <h1 class="text-2xl font-bold">{{ t('critical_error') }}</h1>
       <p class="py-6">{{ error.statusMessage }}</p>
-      <code class="py-6 text-sm">{{ error.data }}</code>
+      <code class="py-6 text-sm">{{ error.data || error }}</code>
     </div>
   </main>
 </template>
