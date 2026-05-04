@@ -31,10 +31,23 @@ const validationListeners = {
 <template>
   <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
   <input
+    v-if="type != 'textarea'"
     :id="name"
     :value="value"
     :name="name"
     :type="type"
+    :aria-invalid="invalid"
+    :aria-describedby="describedBy"
+    class="input input-bordered"
+    :class="{ 'input-error': invalid }"
+    v-bind="attrs"
+    v-on="validationListeners"
+  />
+  <textarea
+    v-else
+    :id="name"
+    :value="value"
+    :name="name"
     :aria-invalid="invalid"
     :aria-describedby="describedBy"
     class="input input-bordered"
