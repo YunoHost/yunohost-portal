@@ -100,6 +100,7 @@ export interface Settings {
   portal_user_intro: string
   portal_public_intro: string
   apps: AppsSettings
+  enable_self_registration: boolean
 }
 
 const useSettingsState = () => useState<Settings>('settings')
