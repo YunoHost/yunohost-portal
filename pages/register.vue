@@ -1,0 +1,313 @@
+<script setup lang="ts">
+
+import { useForm } from 'vee-validate'
+import { toTypedSchema } from '@vee-validate/yup'
+import * as yup from 'yup'
+import { exclude, pick } from '@/utils/common'
+import type { User } from '@/composables/states'
+import type { Feedback } from '@/composables/form'
+
+const { t } = useI18n()
+const settings = await useSettings()
+
+definePageMeta({
+  layout: false,
+  public: true,
+})
+
+useHead({title: t('user_selfregistration_pagetitle')})
+const isLoggedIn = useIsLoggedIn()
+
+const loading: Ref<boolean> = ref(false)
+const feedback: Ref<Feedback> = ref(null)
+
+export interface RegistrationParams {
+  username: string
+  domain: string
+  external_email: string
+  tos: string
+  custom_notes: string
+}
+
+const invitationToken = useRoute().query.invitation;
+
+let enableForm = false;
+let formMode = "none";
+let invitationErrorMessage = undefined;
+let onSubmit = undefined;
+let registrationParams = undefined;
+let formValues = undefined;
+
+if (invitationToken || settings.value.enable_self_registration) {
+
+    if (invitationToken) {
+        useHead({title: t('user_invite_pagetitle')})
+        const { error: invitationError, data: registrationParams_ } = await useApi<RegistrationParams>('/invitation?token=' + invitationToken)
+        if (invitationError.value) {
+            invitationErrorMessage = invitationError.value.data.error || invitationError.value.data;
+        }
+        else {
+            registrationParams = registrationParams_.value;
+            enableForm = true;
+            formMode = "invite";
+        }
+    }
+    else {
+        const { error: error, data: challengeParams } = await useApi('/registration/challenge')
+
+        enableForm = true;
+        formMode = "selfregistration"
+
+        registrationParams = {
+            username: undefined,
+            domain: settings.value.domain,
+            external_email: undefined,
+            tos: settings.value.registration_tos,
+            custom_notes: settings.value.registration_self_registration_notes,
+            challenge_token: challengeParams.value.token,
+            challenge_calculation: challengeParams.value.calculation,
+        }
+    }
+
+    if (enableForm)  {
+        const { handleSubmit, setFieldError, resetForm, meta, values: formValues_, setFieldTouched } = useForm({
+          validationSchema: toTypedSchema(
+            yup.object({
+              username: yup.string().required()
+              .matches(/^[a-z0-9_\.]{2,}$/, {
+                  excludeEmptyString: true,
+                  message: { key: 'v.username_regex' },
+              }),
+              fullname: yup.string().required().min(2),
+              password: yup
+                .string()
+                .matches(/.{8,}/, {
+                  excludeEmptyString: true,
+                  message: { key: 'v.string_too_short', values: { min: 8 } },
+                })
+                .required(),
+              confirmpassword: yup
+                .string()
+                .oneOf([yup.ref('password')], 'v.password_not_match')
+                .required(),
+              external_email: yup.string().email().nullable(),
+              notes: yup.string().max(1000).nullable(),
+              accept_tos: yup.boolean().nullable(),
+            }),
+          ),
+          initialValues: {
+             username: (formMode == "invite") ? registrationParams.username || "" : "",
+             external_email: (formMode == "invite") ? registrationParams.external_email || "" : "",
+             challenge_token: (formMode == "selfregistration") ? registrationParams.challenge_token || "" : "",
+          }
+        })
+        formValues = formValues_;
+
+        // Submit logic
+    }
+}
+</script>
+
+<template>
+
+    <main class="w-90 m-auto max-w-[600px]">
+        <CustomLogo class="flex-none mx-auto w-1/2 mt-10" />
+        <PageTitle :text="$t('user_invite_pagetitle')" v-if="formMode == 'invite'" class="w-full text-center" />
+        <PageTitle :text="$t('user_selfregistration_pagetitle')" v-if="formMode == 'selfregistration'" class="w-full text-center" />
+
+        <BaseAlert
+            v-if="invitationToken && invitationErrorMessage"
+            variant="warning"
+            icon="close"
+            :message="invitationErrorMessage"
+            class="mt-4"
+            assertive
+        />
+
+        <BaseAlert
+            v-if="!invitationToken && !enableForm"
+            variant="error"
+            icon="close"
+            :message="$t('user_selfregistration_not_enabled')"
+            class="mt-4"
+            assertive
+        />
+
+        <BaseAlert
+            v-if="enableForm && registrationParams.custom_notes"
+            variant="info"
+            :message="registrationParams.custom_notes"
+            class="my-4"
+            assertive
+        />
+
+        <YForm v-if="enableForm" :loading="loading" :feedback="feedback" @submit.prevent="onSubmit">
+
+            <FormField
+                name="username"
+                :label="$t('username')"
+                :description="registrationParams.username ? t('user_invite_fixed_username_help') : t('user_invite_username_help')"
+                class="mb-4"
+            >
+                <TextInput
+                    name="username"
+                    type="text"
+                    autocomplete="username"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    autofocus=""
+                    class="w-full"
+                    :disabled="registrationParams.username"
+                />
+            </FormField>
+
+            <FormField
+                name="fullname"
+                :label="$t('fullname')"
+                class="mb-4"
+                >
+                <TextInput
+                    name="fullname"
+                    type="text"
+                    :placeholder="$t('user_fullname_placeholder')"
+                    autocomplete="name"
+                    class="w-full"
+                    />
+            </FormField>
+
+            <FormField
+                name="password"
+                :label="$t('password')"
+                :description="$t('good_practices_about_user_password')"
+                class="mb-4">
+                <TextInput
+                    name="password"
+                    type="password"
+                    autocomplete="new-password"
+                    class="w-full"
+                />
+            </FormField>
+
+            <FormField
+                name="confirmpassword"
+                :label="$t('confirm_new_password')"
+                class="mb-4">
+                <TextInput
+                    name="confirmpassword"
+                    type="password"
+                    autocomplete="new-password"
+                    class="w-full"
+                />
+            </FormField>
+
+            <FormField
+                name="mail"
+                :label="$t('primary_mail_adress')"
+                :description="$t('primary_mail_adress_help')"
+                class="mb-4">
+                <TextInput name="mail" type="text" class="w-full" disabled :value="formValues.username + '@' + registrationParams.domain" />
+            </FormField>
+
+            <FormField
+                name="external_email"
+                :label="$t('external_mail_adress')"
+                :description="$t('external_mail_adress_help')"
+                class="mb-4">
+                <TextInput name="external_email" type="text" class="w-full" />
+            </FormField>
+
+            <FormField
+                v-if="formMode == 'selfregistration'"
+                name="notes"
+                :label="$t('user_selfregistration_notes')"
+                class="mb-4"
+                >
+                <TextInput
+                    name="notes"
+                    type="textarea"
+                    class="w-full !h-24 py-2"
+                    maxlength="1000"
+                    />
+            </FormField>
+
+            <FormField
+                v-if="registrationParams.tos"
+                name="accept_tos"
+                label=""
+                class="mb-4">
+                <CheckboxInput name="accept_tos">
+                    <NuxtLink
+                      :to="registrationParams.tos"
+                      target="_blank"
+                      class="link text-base-content inline-block"
+                    >
+                        {{ t('user_accept_tos') }}
+                        <YIcon name="external-link" aria-hidden="true" size="1em" />
+                    </NuxtLink>
+                </CheckboxInput>
+                <template v-slot:label>
+                    <span><!-- Dirty hack because checkboxes are a special cases in terms for input/label HTML topology... --></span>
+                </template>
+            </FormField>
+
+            <FormField
+                v-if="formMode == 'selfregistration'"
+                name="challenge_token"
+                label=""
+                class="hidden"
+                >
+                <TextInput
+                    name="challenge_token"
+                    type="text"
+                    class="w-full"
+                    />
+            </FormField>
+
+            <FormField
+                v-if="formMode == 'selfregistration'"
+                name="challenge_answer"
+                :label="$t('user_selfregistration_antibot_calculation', {calculation: registrationParams.challenge_calculation})"
+                class="mb-4"
+                >
+                <TextInput
+                    name="challenge_answer"
+                    type="text"
+                    class="w-full"
+                />
+            </FormField>
+
+            <div v-if="formMode == 'selfregistration'">{{ t('user_selfregistration_validation_explaination') }}</div>
+
+            <template v-slot:actions>
+              <SubmitButton
+                v-if="formMode == 'invite'"
+                :loading="loading"
+                :text="$t('user_invite_submit')"
+                :loadingText="$t('user_invite_submit_loading')"
+                icon="rocket-launch"
+                variant="success"
+                class="mx-auto mt-3 w-fit mb-20"
+              />
+              <SubmitButton
+                v-if="formMode == 'selfregistration'"
+                :loading="loading"
+                :text="$t('user_selfregistration_submit')"
+                :loadingText="$t('user_selfregistration_submit_loading')"
+                icon="account-box-plus"
+                variant="success"
+                class="mx-auto mt-3 w-fit mb-20"
+              />
+            </template>
+
+        </YForm>
+
+    </main>
+
+</template>
+
+<style scoped>
+.card .card-header {
+  border-top-left-radius: var(--rounded-box);
+  border-top-right-radius: var(--rounded-box);
+}
+</style>
