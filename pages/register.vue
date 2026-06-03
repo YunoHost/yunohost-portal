@@ -30,153 +30,170 @@ export interface RegistrationParams {
 }
 
 const invitationToken = useRoute().query.invitation;
+const confirmRequestId = useRoute().query.confirm;
 
 let enableForm = false;
 let formMode = "none";
-let invitationErrorMessage = undefined;
+let generalErrorMessage = undefined;
 let onSubmit = undefined;
 let registrationParams = undefined;
 let formValues = undefined;
-let successMessage = undefined;
+let generalSuccessMessage = undefined;
 
-if (invitationToken || settings.value.enable_self_registration) {
-
-    if (invitationToken) {
-        useHead({title: t('user_invite_pagetitle')})
-        const { error: invitationError, data: registrationParams_ } = await useApi<RegistrationParams>('/invitation?token=' + invitationToken)
-        if (invitationError.value) {
-            invitationErrorMessage = invitationError.value.data.error || invitationError.value.data;
-        }
-        else {
-            registrationParams = registrationParams_.value;
-            enableForm = true;
-            formMode = "invite";
-        }
+if (invitationToken) {
+    useHead({title: t('user_invite_pagetitle')})
+    const { error: invitationError, data: registrationParams_ } = await useApi<RegistrationParams>('/invitation?token=' + invitationToken)
+    if (invitationError.value) {
+        generalErrorMessage = invitationError.value.data.error || invitationError.value.data;
     }
     else {
-        const { error: error, data: challengeParams } = await useApi('/registration/challenge')
-
+        registrationParams = registrationParams_.value;
         enableForm = true;
-        formMode = "selfregistration"
-
-        registrationParams = {
-            username: undefined,
-            domain: settings.value.domain,
-            external_email: undefined,
-            tos: settings.value.registration_tos,
-            custom_notes: settings.value.registration_self_registration_notes,
-            challenge_token: challengeParams.value.token,
-            challenge_calculation: challengeParams.value.calculation,
-        }
+        formMode = "invite";
     }
+}
+else if (confirmRequestId) {
+    const { error: confirmError } = await useApi('/registration/' + confirmRequestId + '/confirm', { method: "PUT" })
+    if (confirmError.value) {
+        generalErrorMessage = confirmError.value.data.error || confirmError.value.data;
+    }
+    else {
+        generalSuccessMessage = t('user_selfregistration_now_pending_validation');
+    }
+}
+else if (settings.value.enable_self_registration) {
+    const { error: error, data: challengeParams } = await useApi('/registration/challenge')
 
-    if (enableForm)  {
-        const { handleSubmit, setFieldError, resetForm, meta, values: formValues_, setFieldTouched } = useForm({
-          validationSchema: toTypedSchema(
-            yup.object({
-              username: yup.string().required()
-              .matches(/^[a-z0-9_\.]{2,}$/, {
-                  excludeEmptyString: true,
-                  message: { key: 'v.username_regex' },
-              }),
-              fullname: yup.string().required().min(2),
-              password: yup
-                .string()
-                .matches(/.{8,}/, {
-                  excludeEmptyString: true,
-                  message: { key: 'v.string_too_short', values: { min: 8 } },
-                })
-                .required(),
-              confirmpassword: yup
-                .string()
-                .oneOf([yup.ref('password')], 'v.password_not_match')
-                .required(),
-              external_email: yup.string().email().nullable(),
-              notes: yup.string().max(1000).nullable(),
-              accept_tos: yup.boolean().nullable(),
-            }),
-          ),
-          initialValues: {
-             username: (formMode == "invite") ? registrationParams.username || "" : "",
-             external_email: (formMode == "invite") ? registrationParams.external_email || "" : "",
-             challenge_token: (formMode == "selfregistration") ? registrationParams.challenge_token || "" : "",
+    enableForm = true;
+    formMode = "selfregistration"
+
+    registrationParams = {
+        username: undefined,
+        domain: settings.value.domain,
+        external_email: undefined,
+        tos: settings.value.registration_tos,
+        custom_notes: settings.value.registration_self_registration_notes,
+        require_and_verify_email: settings.value.registration_require_and_verify_email,
+        challenge_token: challengeParams.value.token,
+        challenge_calculation: challengeParams.value.calculation,
+    }
+}
+
+if (enableForm)  {
+    const { handleSubmit, setFieldError, resetForm, meta, values: formValues_, setFieldTouched } = useForm({
+      validationSchema: toTypedSchema(
+        yup.object({
+          username: yup.string().required()
+          .matches(/^[a-z0-9_\.]{2,}$/, {
+              excludeEmptyString: true,
+              message: { key: 'v.username_regex' },
+          }),
+          fullname: yup.string().required().min(2),
+          password: yup
+            .string()
+            .matches(/.{8,}/, {
+              excludeEmptyString: true,
+              message: { key: 'v.string_too_short', values: { min: 8 } },
+            })
+            .required(),
+          confirmpassword: yup
+            .string()
+            .oneOf([yup.ref('password')], 'v.password_not_match')
+            .required(),
+          external_email: yup.string().email().when(([], schema) => {
+                if (registrationParams.require_and_verify_email) {
+                  return schema.required();
+                }
+                return schema.nullable().notRequired();
+          }),
+          notes: yup.string().max(1000).nullable(),
+          accept_tos: yup.boolean().nullable(),
+        }),
+      ),
+      initialValues: {
+         username: (formMode == "invite") ? registrationParams.username || "" : "",
+         external_email: (formMode == "invite") ? registrationParams.external_email || "" : "",
+         challenge_token: (formMode == "selfregistration") ? registrationParams.challenge_token || "" : "",
+      }
+    })
+    formValues = formValues_;
+
+    // Submit logic
+
+    if (formMode == "invite") {
+        onSubmit = handleSubmit(async (form) => {
+          loading.value = true
+
+          const { error, data } = await useApi('/invitation', {
+            method: 'POST',
+            body: {
+                token: invitationToken,
+                username: formValues.username,
+                fullname: formValues.fullname,
+                password: formValues.password,
+                external_email: formValues.external_email || undefined,
+                accept_tos: registrationParams.tos ? document.getElementById("accept_tos").checked : undefined,
+            }
+          })
+
+          if (error.value) {
+            // Reset form dirty state but keep previous values
+            feedback.value = {
+              variant: 'error',
+              icon: 'alert',
+              message: error.value.data.error || error.value.data,
+            }
+          } else {
+             enableForm = false;
+             generalSuccessMessage = t('user_invite_success', {username: formValues.username});
           }
+
+          loading.value = false
         })
-        formValues = formValues_;
+    }
+    else {
+        onSubmit = handleSubmit(async (form) => {
+          loading.value = true
 
-        // Submit logic
+          const { error, data } = await useApi('/registration', {
+            method: 'POST',
+            body: {
+                username: formValues.username,
+                fullname: formValues.fullname,
+                password: formValues.password,
+                external_email: formValues.external_email || undefined,
+                notes: formValues.notes || undefined,
+                accept_tos: registrationParams.tos ? document.getElementById("accept_tos").checked : undefined,
+                challenge_token: document.getElementById("challenge_token").value,
+                challenge_answer: formValues.challenge_answer,
+            }
+          })
 
-        if (formMode == "invite") {
-            onSubmit = handleSubmit(async (form) => {
-              loading.value = true
+          if (error.value) {
+            // Reset form dirty state but keep previous values
+            feedback.value = {
+              variant: 'error',
+              icon: 'alert',
+              message: error.value.data.error || error.value.data,
+            }
 
-              const { error, data } = await useApi('/invitation', {
-                method: 'POST',
-                body: {
-                    token: invitationToken,
-                    username: formValues.username,
-                    fullname: formValues.fullname,
-                    password: formValues.password,
-                    external_email: formValues.external_email || undefined,
-                    accept_tos: registrationParams.tos ? document.getElementById("accept_tos").checked : undefined,
-                }
-              })
+            // Get a new challenge thingy to be able to resubmit the form without having to refresh the page
+            const { data: challengeParams } = await useApi('/registration/challenge')
+            registrationParams.challenge_calculation = challengeParams.value.calculation
+            document.getElementById("challenge_token").value = challengeParams.value.token
+            document.getElementById("challenge_answer").value = ""
 
-              if (error.value) {
-                // Reset form dirty state but keep previous values
-                feedback.value = {
-                  variant: 'error',
-                  icon: 'alert',
-                  message: error.value.data.error || error.value.data,
-                }
-              } else {
-                 enableForm = false;
-                 successMessage = t('user_invite_success', {username: formValues.username});
-              }
-
-              loading.value = false
-            })
-        }
-        else {
-            onSubmit = handleSubmit(async (form) => {
-              loading.value = true
-
-              const { error, data } = await useApi('/registration', {
-                method: 'POST',
-                body: {
-                    username: formValues.username,
-                    fullname: formValues.fullname,
-                    password: formValues.password,
-                    external_email: formValues.external_email || undefined,
-                    notes: formValues.notes || undefined,
-                    accept_tos: registrationParams.tos ? document.getElementById("accept_tos").checked : undefined,
-                    challenge_token: document.getElementById("challenge_token").value,
-                    challenge_answer: formValues.challenge_answer,
-                }
-              })
-
-              if (error.value) {
-                // Reset form dirty state but keep previous values
-                feedback.value = {
-                  variant: 'error',
-                  icon: 'alert',
-                  message: error.value.data.error || error.value.data,
-                }
-
-                // Get a new challenge thingy to be able to resubmit the form without having to refresh the page
-                const { data: challengeParams } = await useApi('/registration/challenge')
-                registrationParams.challenge_calculation = challengeParams.value.calculation
-                document.getElementById("challenge_token").value = challengeParams.value.token
-                document.getElementById("challenge_answer").value = ""
-
-              } else {
-                 enableForm = false;
-                 successMessage = t('user_selfregistration_success');
-              }
-
-              loading.value = false
-            })
-        }
+          } else {
+             enableForm = false;
+             if (registrationParams.require_and_verify_email) {
+                generalSuccessMessage = t('user_selfregistration_to_be_confirmed_via_email_link');
+             }
+             else {
+                generalSuccessMessage = t('user_selfregistration_now_pending_validation');
+             }
+          }
+          loading.value = false
+        })
     }
 }
 </script>
@@ -189,16 +206,16 @@ if (invitationToken || settings.value.enable_self_registration) {
         <PageTitle :text="$t('user_selfregistration_pagetitle')" v-if="formMode == 'selfregistration'" class="w-full text-center" />
 
         <BaseAlert
-            v-if="invitationToken && invitationErrorMessage"
+            v-if="generalErrorMessage"
             variant="warning"
             icon="close"
-            :message="invitationErrorMessage"
+            :message="generalErrorMessage"
             class="mt-4"
             assertive
         />
 
         <BaseAlert
-            v-if="!invitationToken && !enableForm && !successMessage"
+            v-if="!invitationToken && !confirmRequestId && !enableForm && !generalSuccessMessage"
             variant="error"
             icon="close"
             :message="$t('user_selfregistration_not_enabled')"
@@ -206,11 +223,11 @@ if (invitationToken || settings.value.enable_self_registration) {
             assertive
         />
 
-        <center v-if="successMessage" >
+        <center v-if="generalSuccessMessage" >
             <BaseAlert
                 variant="success"
                 icon="thumb-up"
-                :message="successMessage"
+                :message="generalSuccessMessage"
                 class="mt-4"
                 assertive
             />
@@ -301,7 +318,7 @@ if (invitationToken || settings.value.enable_self_registration) {
             <FormField
                 name="external_email"
                 :label="$t('external_mail_adress')"
-                :description="$t('external_mail_adress_help')"
+                :description="registrationParams.require_and_verify_email ? $t('external_mail_adress_help') : $t('external_mail_adress_optional_help') "
                 class="mb-4">
                 <TextInput name="external_email" type="text" class="w-full" />
             </FormField>
@@ -366,8 +383,17 @@ if (invitationToken || settings.value.enable_self_registration) {
                 />
             </FormField>
 
-            <div v-if="formMode == 'selfregistration'">{{ t('user_selfregistration_validation_explaination') }}</div>
-
+            <div v-if="formMode == 'selfregistration'">
+                <YIcon
+                  name="information-outline"
+                  aria-hidden="true"
+                />
+                {{
+                   registrationParams.require_and_verify_email ?
+                   t('user_selfregistration_confirm_mail_and_admin_validation_explaination') :
+                   t('user_selfregistration_admin_validation_explaination')
+                }}
+            </div>
             <template v-slot:actions>
               <SubmitButton
                 v-if="formMode == 'invite'"
