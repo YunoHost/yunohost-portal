@@ -25,7 +25,7 @@
     "footerlink_support": "Support",
     "form_has_errors": "The form contains some errors",
     "fullname": "Full name",
-    "good_practices_about_user_password": "Pick a user password of at least 8 characters - though it is good practice to use longer ones (i.e. a passphrase) and/or use various kind of characters (uppercase, lowercase, digits and special characters).",
+    "good_practices_about_user_password": "Pick a user password of at least {min} characters - though it is good practice to use longer ones (i.e. a passphrase) and/or use various kind of characters (uppercase, lowercase, digits and special characters).",
     "language": "Language",
     "logged_out": "Logged out",
     "login": "Log in",
@@ -64,6 +64,7 @@
         "field_invalid": "Field value is invalid",
         "field_required": "Field value is required",
         "password_not_match": "Passwords don't match.",
-        "string_too_short": "Invalid value: must be at least {min} characters"
+        "string_too_short": "Invalid value: must be at least {min} characters",
+        "string_too_long": "Invalid value: {max} characters maximum"
     }
 }

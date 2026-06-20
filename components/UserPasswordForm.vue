@@ -7,6 +7,25 @@ import type { Feedback } from '@/composables/form'
 
 const { t } = useI18n()
 
+const settings = await useSettings()
+const user = await useUser()
+// Length, digits, lowers, uppers, others
+// Sync this data with src/utils/password.py
+const strengthLevels: Array = [
+    [8, 0, 0, 0, 0],
+    [8, 1, 1, 1, 0],
+    [8, 1, 1, 1, 1],
+    [10, 1, 1, 1, 1],
+    [12, 1, 1, 1, 1],
+    [15, 1, 1, 1, 1],
+    [30, 0, 1, 0, 0],
+]
+let strengthLevel: string
+if (user.value.groups.includes("admins"))
+    strengthLevel = settings.value.admin_strength
+else
+    strengthLevel = settings.value.user_strength
+let passwordMin = (strengthLevel!="-1") ? strengthLevels[Number(strengthLevel)][0]:1
 const loading: Ref<boolean> = ref(false)
 const feedback: Ref<Feedback> = ref(null)
 
@@ -16,10 +35,11 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
       currentpassword: yup.string().required(),
       newpassword: yup
         .string()
-        .matches(/.{8,}/, {
-          excludeEmptyString: true,
-          message: { key: 'v.string_too_short', values: { min: 8 } },
-        })
+        .max(126, 
+          { key: 'v.string_too_long', values: { max: 126 }})
+        .min(passwordMin, 
+          { key:'v.string_too_short', values: { min: passwordMin } }
+        )
         .required(),
       confirmpassword: yup
         .string()
@@ -102,7 +122,7 @@ const onSubmit = handleSubmit(async (form) => {
     <FormField
       name="newpassword"
       :label="$t('new_password')"
-      :description="$t('good_practices_about_user_password')"
+      :description="$t('good_practices_about_user_password', {min: passwordMin})"
       class="mb-3"
     >
       <TextInput
