@@ -84,7 +84,7 @@ if (enableForm)  {
       validationSchema: toTypedSchema(
         yup.object({
           username: yup.string().required()
-          .matches(/^[a-z0-9_\.]{2,}$/, {
+          .matches(/^[a-z0-9][-a-z0-9_\.]*$/, {
               excludeEmptyString: true,
               message: { key: 'v.username_regex' },
           }),
