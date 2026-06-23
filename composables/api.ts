@@ -16,7 +16,7 @@ export function useApi<T>(
     method = 'GET',
     body = undefined,
   }: {
-    method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
+    method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'QUERY'
     body?: Record<string, any>
   } = {},
 ) {

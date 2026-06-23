@@ -42,7 +42,10 @@ let generalSuccessMessage = undefined;
 
 if (invitationToken) {
     useHead({title: t('user_invite_pagetitle')})
-    const { error: invitationError, data: registrationParams_ } = await useApi<RegistrationParams>('/invitation?token=' + invitationToken)
+    const { error: invitationError, data: registrationParams_ } = await useApi<RegistrationParams>('/invitation', {
+        method: "QUERY",
+        body: new URLSearchParams({ token: invitationToken })
+    })
     if (invitationError.value) {
         generalErrorMessage = invitationError.value.data.error || invitationError.value.data;
     }
