@@ -12,6 +12,7 @@ const user = await useUser()
 // Length, digits, lowers, uppers, others
 // Sync this data with src/utils/password.py
 const strengthLevels: Array = [
+    [1, 0, 0, 0, 0],
     [8, 0, 0, 0, 0],
     [8, 1, 1, 1, 0],
     [8, 1, 1, 1, 1],
@@ -25,7 +26,7 @@ if (user.value.groups.includes("admins"))
     strengthLevel = settings.value.admin_strength
 else
     strengthLevel = settings.value.user_strength
-let passwordMin = (strengthLevel!="-1") ? strengthLevels[Number(strengthLevel)][0]:1
+let passwordMin = strengthLevels[Number(strengthLevel) + 1][0]
 const loading: Ref<boolean> = ref(false)
 const feedback: Ref<Feedback> = ref(null)
 
