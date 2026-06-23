@@ -99,6 +99,8 @@ export interface Settings {
   show_other_domains_apps: 0 | 1
   portal_user_intro: string
   portal_public_intro: string
+  admin_strength: string
+  user_strength: string
   apps: AppsSettings
 }
 
