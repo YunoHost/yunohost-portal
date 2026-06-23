@@ -203,7 +203,7 @@ if (enableForm)  {
 
 <template>
 
-    <main class="w-90 m-auto max-w-[600px]">
+    <main class="m-auto max-w-[600px] px-3">
         <CustomLogo class="flex-none mx-auto w-1/2 mt-10" />
         <PageTitle :text="$t('user_invite_pagetitle')" v-if="formMode == 'invite'" class="w-full text-center" />
         <PageTitle :text="$t('user_selfregistration_pagetitle')" v-if="formMode == 'selfregistration'" class="w-full text-center" />
