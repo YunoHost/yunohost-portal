@@ -29,7 +29,7 @@ const apps = Object.values(appsData.value).map((app) => {
     label_hash: parseInt(app.label.replaceAll(' ', ''), 36) % 10000,
     initials: app.label.substring(0, 2),
   }
-})
+})}).sort((a, b) => a.label.localeCompare(b.label, 'en', { sensitivity: 'base' }))
 
 const search = ref('')
 
