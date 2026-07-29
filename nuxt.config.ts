@@ -106,6 +106,11 @@ if (socialurl) {
       globPatterns: ['**/*.{js,css,html,png,svg,ico,woff,woff2}'],
     },
   },
+  nitro: {
+    prerender: {
+      ignore: ['/manifest.json'],
+    },
+  },
   vite: {
     server: {
       fs: {
