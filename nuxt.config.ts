@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     head: {
       link: [
         { rel: 'stylesheet', href: '/yunohost/sso/customassets/custom.css' },
-        { rel: 'manifest', href: '/yunohost/sso/manifest.webmanifest' },
+        { rel: 'manifest', href: '/yunohost/sso/manifest.json' },
         { rel: 'apple-touch-icon', href: '/yunohost/sso/icons/apple-touch-icon.png' },
       ],
       meta: [
@@ -79,6 +79,7 @@ if (socialurl) {
     '@vite-pwa/nuxt',
   ],
   pwa: {
+    manifestFilename: 'manifest.json',
     registerType: 'autoUpdate',
     manifest: {
       name: 'YunoHost Portal',
