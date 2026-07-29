@@ -17,6 +17,7 @@ useHead({
 const isLoggedIn = useIsLoggedIn()
 const redirectUrl = useRedirectUrl()
 const queryMsg = useQueryMsg()
+const settings = await useSettings()
 
 const { handleSubmit, setErrors } = useForm({
   validationSchema: toTypedSchema(
@@ -109,5 +110,12 @@ const login = handleSubmit(async (form) => {
 
       <YButton :text="t('login')" type="submit" block />
     </form>
+
+    <div v-if="settings.enable_self_registration" class="text-right mt-2">
+        <NuxtLink to="/register" class="link link-hover text-base-content inline-block text-gray-400">
+          Register
+        </NuxtLink>
+    </div>
+
   </main>
 </template>
