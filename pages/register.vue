@@ -386,7 +386,7 @@ if (enableForm)  {
                 />
             </FormField>
 
-            <div v-if="formMode == 'selfregistration'">
+            <div id="submit-details" v-if="formMode == 'selfregistration'">
                 <YIcon
                   name="information-outline"
                   aria-hidden="true"
@@ -414,6 +414,7 @@ if (enableForm)  {
                 :loadingText="$t('user_selfregistration_submit_loading')"
                 icon="account-box-plus"
                 variant="success"
+                aria-describedby="submit-details"
                 class="mx-auto mt-3 w-fit mb-20"
               />
             </template>
