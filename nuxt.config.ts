@@ -11,6 +11,62 @@ export default defineNuxtConfig({
     head: {
       link: [
         { rel: 'stylesheet', href: '/yunohost/sso/customassets/custom.css' },
+        { rel: 'manifest', href: '/yunohost/sso/manifest.webmanifest' },
+        { rel: 'apple-touch-icon', href: '/yunohost/sso/icons/apple-touch-icon.png' },
+      ],
+      meta: [
+        { name: 'theme-color', content: '#1c1e21' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+      ],
+      script: [
+        {
+          innerHTML: `/* Should we get a random Archillect image for the background? */
+const getArchillectBackground = true;
+
+/* Stick your social link in the header, e.g. for https://streetpass.social/
+ * set to false to disable. */
+const socialurl = 'https://social.sdfeu.org/@radian';
+
+const userMail = document.querySelector('.user-mail');
+const email = userMail !== null ? userMail.innerText : '';
+
+if (getArchillectBackground) {
+  const latestID = 410187; // TODO fetch from .archillect_latest.json
+  const poolSize = 50;     // number of latest images to randomise through
+  document.styleSheets[0].insertRule(\`.container{
+    background: linear-gradient(
+      rgba(12,0,12,.9),
+      rgba(12,0,12,.5) ),
+      url('https://archillect.mhsattarian.workers.dev/$\{Math.floor(Math.random() * poolSize + (latestID - poolSize) + 1)}/img') !important;
+  }\`);
+  document.styleSheets[0].insertRule(\`body{
+    background: linear-gradient(
+      rgba(12,0,12,.9),
+      rgba(12,0,12,.5) ) !important;
+  }\`);
+}
+
+if (socialurl) {
+  const mastodon = document.createElement('link');
+  mastodon.href = socialurl;
+  mastodon.rel = 'me';
+  document.head.appendChild(mastodon);
+}`,
+        },
+        {
+          innerHTML: `new MutationObserver((_, obs) => {
+  const input = document.querySelector('input#search');
+  const label = document.querySelector('label[for=search]');
+  if (input && label) {
+    input.placeholder = 'Search the PLANET!!!';
+    label.textContent = 'Search the planet.';
+    obs.disconnect();
+  }
+}).observe(document.body, { childList: true, subtree: true });`,
+          tagPosition: 'bodyClose',
+        },
       ],
     },
   },
