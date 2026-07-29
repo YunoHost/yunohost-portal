@@ -320,7 +320,7 @@ if (enableForm)  {
 
             <FormField
                 name="external_email"
-                :label="registrationParams.require_and_verify_email ? $t('external_mail_address') : $t('external_mail_address')"
+                :label="registrationParams.require_and_verify_email ? $t('external_mail_address') : $t('external_mail_address_optional')"
                 :description="registrationParams.require_and_verify_email ? $t('external_mail_address_help') : $t('external_mail_address_optional_help') "
                 class="mb-4">
                 <TextInput name="external_email" type="text" class="w-full" />
