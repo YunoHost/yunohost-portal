@@ -312,16 +312,16 @@ if (enableForm)  {
 
             <FormField
                 name="mail"
-                :label="$t('primary_mail_adress')"
-                :description="$t('primary_mail_adress_help')"
+                :label="$t('primary_mail_address')"
+                :description="$t('primary_mail_address_help')"
                 class="mb-4">
                 <TextInput name="mail" type="text" class="w-full" disabled :value="formValues.username + '@' + registrationParams.domain" />
             </FormField>
 
             <FormField
                 name="external_email"
-                :label="$t('external_mail_adress')"
-                :description="registrationParams.require_and_verify_email ? $t('external_mail_adress_help') : $t('external_mail_adress_optional_help') "
+                :label="registrationParams.require_and_verify_email ? $t('external_mail_address') : $t('external_mail_address')"
+                :description="registrationParams.require_and_verify_email ? $t('external_mail_address_help') : $t('external_mail_address_optional_help') "
                 class="mb-4">
                 <TextInput name="external_email" type="text" class="w-full" />
             </FormField>

@@ -43,7 +43,7 @@
     "password_changed_reconnect": "Votre mot de passe a été modifié, veuillez vous reconnecter.",
     "possibly_invalid_password": "Le mot de passe est potentiellement invalide",
     "possibly_invalid_username": "Le nom du compte n'est probablement pas valide",
-    "primary_mail_adress": "Adresse mail principale",
+    "primary_mail_address": "Adresse mail principale",
     "remove": "Supprimer",
     "save": "Sauvegarder",
     "skip_link": {
