@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import { useForm } from 'vee-validate'
+import { createHash } from 'crypto';
 import { toTypedSchema } from '@vee-validate/yup'
 import * as yup from 'yup'
 import { exclude, pick } from '@/utils/common'
@@ -34,6 +35,7 @@ const confirmRequestId = useRoute().query.confirm;
 
 let enableForm = false;
 let formMode = "none";
+let powPromise = undefined;
 let generalErrorMessage = undefined;
 let onSubmit = undefined;
 let registrationParams = undefined;
@@ -79,8 +81,62 @@ else if (settings.value.enable_self_registration) {
         require_and_verify_email: settings.value.registration_require_and_verify_email,
         challenge_token: challengeParams.value.token,
         challenge_calculation: challengeParams.value.calculation,
+        challenge_pow: challengeParams.value.pow,
     }
+
+    // Proof of Work Captcha
+    async function solvePoWChallenge(token, challenge_pow, nb_worker) {
+        return new Promise((resolve, reject) => {
+            let urls: Array = [];
+            let workers: Array<Worker> = [];
+            const terminate = () => {
+                for (let worker of workers) worker.terminate();
+                for (let url of urls) URL.revokeObjectURL(url);
+            };
+            for (let i = 0; i < nb_worker; i++) {
+                const blob = new Blob([
+                  `const sha256 = async (text) => {
+                        const msgUint8 = new TextEncoder().encode(text);
+                        const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8);
+                        return new Uint8Array(hashBuffer).toHex();
+                    };
+                    addEventListener("message", async (event) => {
+                        const {token, challenge_pow, nb_worker, i} = event.data;
+                        for(var k=i; k<10 ** 9; k += nb_worker) {
+                            computedHash = await sha256(token + k);
+                            if (challenge_pow == computedHash) {
+                                postMessage(k);
+                                break;
+                            }
+                        }
+                    });`
+                ], { type: "application/javascript", });
+                const url = URL.createObjectURL(blob);
+                const worker = new Worker(url);
+                urls.push(url);
+                workers.push(worker);
+                worker.onmessage = (e) => {
+                    terminate();
+                    resolve(e.data);
+                };
+                worker.postMessage({token, challenge_pow, nb_worker, i});
+            }
+        });
+    }
+    
+    async function solveAllPoWChallenges() {
+        let token = registrationParams.challenge_token;
+        let challenge_pows = registrationParams.challenge_pow.split("|");
+        let answers = [];
+        for (let challenge_pow of challenge_pows) {
+            answers.push(await solvePoWChallenge(token, challenge_pow, 5));
+        }
+        return answers;
+    }
+    powPromise = solveAllPoWChallenges();
 }
+
+
 
 if (enableForm)  {
     const { handleSubmit, setFieldError, resetForm, meta, values: formValues_, setFieldTouched } = useForm({
@@ -157,45 +213,49 @@ if (enableForm)  {
     else {
         onSubmit = handleSubmit(async (form) => {
           loading.value = true
-
-          const { error, data } = await useApi('/registration', {
-            method: 'POST',
-            body: {
-                username: formValues.username,
-                fullname: formValues.fullname,
-                password: formValues.password,
-                external_email: formValues.external_email || undefined,
-                notes: formValues.notes || undefined,
-                accept_tos: registrationParams.tos ? document.getElementById("accept_tos").checked : undefined,
-                challenge_token: document.getElementById("challenge_token").value,
-                challenge_answer: formValues.challenge_answer,
+          
+          powPromise.then(async (powAnswers) => {
+  
+            const { error, data } = await useApi('/registration', {
+              method: 'POST',
+              body: {
+                  username: formValues.username,
+                  fullname: formValues.fullname,
+                  password: formValues.password,
+                  external_email: formValues.external_email || undefined,
+                  notes: formValues.notes || undefined,
+                  accept_tos: registrationParams.tos ? document.getElementById("accept_tos").checked : undefined,
+                  challenge_token: document.getElementById("challenge_token").value,
+                  challenge_answer: formValues.challenge_answer,
+                  proof_of_work: powAnswers.join('|'),
+              }
+            })
+  
+            if (error.value) {
+              // Reset form dirty state but keep previous values
+              feedback.value = {
+                variant: 'error',
+                icon: 'alert',
+                message: error.value.data.error || error.value.data,
+              }
+  
+              // Get a new challenge thingy to be able to resubmit the form without having to refresh the page
+              const { data: challengeParams } = await useApi('/registration/challenge')
+              registrationParams.challenge_calculation = challengeParams.value.calculation
+              document.getElementById("challenge_token").value = challengeParams.value.token
+              document.getElementById("challenge_answer").value = ""
+  
+            } else {
+               enableForm = false;
+               if (registrationParams.require_and_verify_email) {
+                  generalSuccessMessage = t('user_selfregistration_to_be_confirmed_via_email_link');
+               }
+               else {
+                  generalSuccessMessage = t('user_selfregistration_now_pending_validation');
+               }
             }
-          })
-
-          if (error.value) {
-            // Reset form dirty state but keep previous values
-            feedback.value = {
-              variant: 'error',
-              icon: 'alert',
-              message: error.value.data.error || error.value.data,
-            }
-
-            // Get a new challenge thingy to be able to resubmit the form without having to refresh the page
-            const { data: challengeParams } = await useApi('/registration/challenge')
-            registrationParams.challenge_calculation = challengeParams.value.calculation
-            document.getElementById("challenge_token").value = challengeParams.value.token
-            document.getElementById("challenge_answer").value = ""
-
-          } else {
-             enableForm = false;
-             if (registrationParams.require_and_verify_email) {
-                generalSuccessMessage = t('user_selfregistration_to_be_confirmed_via_email_link');
-             }
-             else {
-                generalSuccessMessage = t('user_selfregistration_now_pending_validation');
-             }
-          }
-          loading.value = false
+            loading.value = false
+          });
         })
     }
 }
