@@ -94,6 +94,7 @@ else if (settings.value.enable_self_registration) {
                 for (let url of urls) URL.revokeObjectURL(url);
             };
             for (let i = 0; i < nb_worker; i++) {
+                // FIXME put this code in a file ?
                 const blob = new Blob([
                   `const sha256 = async (text) => {
                         const msgUint8 = new TextEncoder().encode(text);
@@ -126,7 +127,10 @@ else if (settings.value.enable_self_registration) {
     
     async function solveAllPoWChallenges() {
         let token = registrationParams.challenge_token;
-        let challenge_pows = registrationParams.challenge_pow.split("|");
+        let challenge_pows = registrationParams.challenge_pow
+        if (!challenge_pows)
+            return [];
+        challenge_pows = challenge_pows.split("|");
         let answers = [];
         for (let challenge_pow of challenge_pows) {
             answers.push(await solvePoWChallenge(token, challenge_pow, 5));
