@@ -16,7 +16,7 @@
     "footerlink_support": "Támogatás",
     "fullname": "Teljes név",
     "good_practices_about_user_password": "Válasszon legalább 8 karakterből álló felhasználói jelszót - jó gyakorlat azonban hosszabb jelszó használata (azaz egy jelmondat) és/vagy különféle karakterek (nagybetűk, kisbetűk, számjegyek és speciális karakterek) használata.",
-    "logged_out": "Kilépett",
+    "logged_out": "Kijelentkezve",
     "login": "Belépés",
     "logout": "Kijelentkezés",
     "mail_addresses": "Email címek",
@@ -25,5 +25,17 @@
     "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "Új jelszó",
     "password": "Jelszó",
-    "username": "Felhasználónév"
+    "username": "Felhasználónév",
+    "api": {
+        "processing": "Feldolgozás folyamatban…"
+    },
+    "app_list": "Alkalmazás lista",
+    "automatic": "Automatikus {name}",
+    "back_to_apps": "Vissza az alkalmazások listához",
+    "confirm_new_password": "Új jelszó megerősítése",
+    "edit_browser_settings": "A böngészőbeli beállítások módosítása",
+    "edit_personal_settings": "Személyes adatok módosítása",
+    "form_has_errors": "Az űrlap hibákat tartalmaz",
+    "language": "Nyelv",
+    "mail_address": "E-mail"
 }
