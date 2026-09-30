@@ -7,7 +7,7 @@
     },
     "add_forward": "Adjon hozzá egy e-mail továbbító címet",
     "add_mail": "Adjon hozzá egy e-mail álnevet",
-    "cancel": "Megszünteti",
+    "cancel": "Visszavonás",
     "change_password": "Jelszó módosítása",
     "current_password": "Jelenlegi jelszó",
     "footerlink_administration": "Adminisztráció",
@@ -37,5 +37,6 @@
     "edit_personal_settings": "Személyes adatok módosítása",
     "form_has_errors": "Az űrlap hibákat tartalmaz",
     "language": "Nyelv",
-    "mail_address": "E-mail"
+    "mail_address": "E-mail",
+    "mail_forwards": "E-mail továbbító címek"
 }
