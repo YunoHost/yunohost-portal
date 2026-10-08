@@ -35,7 +35,8 @@
     "edit_personal_settings": "Ẓreg isallen udmawanen",
     "primary_mail_adress": "Tansa imayl tamezwarut",
     "v": {
-        "password_not_match": "Awalen n uɛeddi ur mṣadan ara."
+        "password_not_match": "Awalen n uɛeddi ur mṣadan ara.",
+        "field_invalid": "Azal n wurti d arameɣtu"
     },
     "skip_link": {
         "main_content": "Ddu ar ugbur amatu"
