@@ -2,7 +2,8 @@
     "_language": {
         "code": "pt",
         "dir": "ltr",
-        "name": "Português"
+        "name": "Português",
+        "fallback": "en"
     },
     "add_forward": "Adicionar um endereço de encaminhamento de email",
     "add_mail": "Adicionar um alias de email",
@@ -24,5 +25,7 @@
     "new_mail": "novomail{'@'}meudominio.org",
     "new_password": "Nova senha",
     "password": "Senha",
-    "username": "Nome de utilizador"
+    "username": "Nome de utilizador",
+    "app_list": "Lista de aplicações",
+    "back_to_apps": "Voltar à lista de aplicações"
 }

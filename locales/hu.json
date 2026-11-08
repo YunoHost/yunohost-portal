@@ -2,11 +2,12 @@
     "_language": {
         "code": "hu",
         "dir": "ltr",
-        "name": "Magyar"
+        "name": "Magyar",
+        "fallback": "hu"
     },
     "add_forward": "Adjon hozzá egy e-mail továbbító címet",
     "add_mail": "Adjon hozzá egy e-mail álnevet",
-    "cancel": "Megszünteti",
+    "cancel": "Visszavonás",
     "change_password": "Jelszó módosítása",
     "current_password": "Jelenlegi jelszó",
     "footerlink_administration": "Adminisztráció",
@@ -15,7 +16,7 @@
     "footerlink_support": "Támogatás",
     "fullname": "Teljes név",
     "good_practices_about_user_password": "Válasszon legalább 8 karakterből álló felhasználói jelszót - jó gyakorlat azonban hosszabb jelszó használata (azaz egy jelmondat) és/vagy különféle karakterek (nagybetűk, kisbetűk, számjegyek és speciális karakterek) használata.",
-    "logged_out": "Kilépett",
+    "logged_out": "Kijelentkezve",
     "login": "Belépés",
     "logout": "Kijelentkezés",
     "mail_addresses": "Email címek",
@@ -24,5 +25,45 @@
     "new_mail": "newmail{'@'}mydomain.org",
     "new_password": "Új jelszó",
     "password": "Jelszó",
-    "username": "Felhasználónév"
+    "username": "Felhasználónév",
+    "api": {
+        "processing": "Feldolgozás folyamatban…"
+    },
+    "app_list": "Alkalmazás lista",
+    "automatic": "Automatikus {name}",
+    "back_to_apps": "Vissza az alkalmazások listához",
+    "confirm_new_password": "Új jelszó megerősítése",
+    "edit_browser_settings": "A böngészőbeli beállítások módosítása",
+    "edit_personal_settings": "Személyes adatok módosítása",
+    "form_has_errors": "Az űrlap hibákat tartalmaz",
+    "language": "Nyelv",
+    "mail_address": "E-mail",
+    "mail_forwards": "E-mail továbbító címek",
+    "no_apps": "Itt nincsenek listázandó applikációk, vagy azért mert még nem lett telepítve egy sem, vagy mert nem rendelkezik elegendő engedéllyel, hogy hozzájuk férhessen. Bővebb információért fordulj az adminisztrátorokhoz!",
+    "password_changed_reconnect": "A jelszavad megváltozott, kérjük újból jelentkezz be.",
+    "possibly_invalid_password": "A jelszó hibás",
+    "possibly_invalid_username": "A felhasználónév hibás",
+    "primary_mail_adress": "Elsődleges e-mail cím",
+    "remove": "Törlés",
+    "save": "Mentés",
+    "search": "Keresés",
+    "search_engine_placeholder": "Keresés a {engine}-n",
+    "skip_link": {
+        "main_content": "Ugrás a fő tartalomhoz",
+        "footer": "Ugrás az előlábhoz"
+    },
+    "ssowat": {
+        "access_denied": "Nincs hozzáférési engedélye ehhez az url-hez.",
+        "protected": "Jelentkezzen be, hogy hozzáférjen ehhez az url-hez."
+    },
+    "theme": "Téma",
+    "user_profile_updated": "Felhasználó személyes adatai sikeresen frissítve!",
+    "visitor": "Látogató",
+    "v": {
+        "email": "Hibás e-mail: csak betűket, számokat és a '_.' karaktereket használhatja (pl. valaki{'@'}pelda.com, va1aki-1{'@'}pelda.com)",
+        "field_invalid": "A mező tartalma hibás",
+        "field_required": "A mező kötelező",
+        "password_not_match": "A jelszó nem egyezik.",
+        "string_too_short": "Hibás érték: legalább {min} karakter hosszúnak kell lennie"
+    }
 }
