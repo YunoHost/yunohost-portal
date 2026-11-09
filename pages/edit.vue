@@ -80,6 +80,14 @@ const themesAsOptions = [
 
     <section class="card card-bordered border-base-300 my-10">
       <div class="card-header bg-base-300 py-4 px-8">
+        <h2 class="text-3xl">{{ t('twofactor.title') }}</h2>
+      </div>
+
+      <UserTwoFactorForm class="p-8" />
+    </section>
+
+    <section class="card card-bordered border-base-300 my-10">
+      <div class="card-header bg-base-300 py-4 px-8">
         <h2 class="text-3xl">{{ t('edit_browser_settings') }}</h2>
       </div>
 
