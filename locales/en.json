@@ -57,7 +57,7 @@
     },
     "theme": "Theme",
     "twofactor": {
-        "cannot_disable_enforced": "Two-factor authentication is mandatory on this server. If you lost access to your authenticator app, contact an administrator.",
+        "cannot_disable_enforced": "Two-factor authentication is mandatory for your account. If you lost access to your authenticator app, contact an administrator.",
         "cant_scan": "Can't scan the QR code?",
         "code": "Authentication code",
         "code_invalid": "Invalid or already used code",
@@ -80,7 +80,7 @@
         "i_saved_recovery_codes": "I saved my recovery codes in a safe place",
         "login_enter_code": "Enter the code from your authenticator app for {username}.",
         "login_enter_recovery_code": "Enter one of your recovery codes for {username}. Each code can only be used once.",
-        "login_setup_required": "Two-factor authentication is mandatory on this server. Set it up to continue.",
+        "login_setup_required": "Two-factor authentication is mandatory for your account. Set it up to continue.",
         "manual_key": "Enter this key manually in your app (time-based, 6 digits, 30 seconds):",
         "must_save_recovery_codes": "Please save your recovery codes first",
         "qr_code_label": "QR code to scan with your authenticator app",
