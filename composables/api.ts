@@ -44,7 +44,13 @@ export function useApi<T>(
           useIsLoggedIn().value = false
           const route = useRoute()
           const settings = await useSettings()
-          if (!(settings.value.public && route.meta.public)) {
+          // Don't navigate when already on the login page: it would drop the
+          // `r` query (redirect to the app once logged in), and the login
+          // page handles its own 401s (bad password, 2FA challenges)
+          if (
+            route.name !== 'login' &&
+            !(settings.value.public && route.meta.public)
+          ) {
             navigateTo('/login')
           }
         } else if (e.statusCode !== 400 && !e.data?.path) {
