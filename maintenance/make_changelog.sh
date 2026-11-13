@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 VERSION="?"
 RELEASE="stable"
 REPO=$(basename $(git rev-parse --show-toplevel))
