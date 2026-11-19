@@ -91,9 +91,8 @@ const onSubmit = handleSubmit(async (form) => {
       :label="$t('current_password')"
       class="mb-3"
     >
-      <TextInput
+      <PasswordInput
         name="currentpassword"
-        type="password"
         autocomplete="current-password"
         class="w-full"
       />
@@ -105,20 +104,18 @@ const onSubmit = handleSubmit(async (form) => {
       :description="$t('good_practices_about_user_password')"
       class="mb-3"
     >
-      <TextInput
+      <PasswordInput
         name="newpassword"
-        type="password"
         autocomplete="new-password"
         class="w-full"
       />
     </FormField>
 
     <FormField name="confirmpassword" :label="$t('confirm_new_password')">
-      <TextInput
+      <PasswordInput
         name="confirmpassword"
-        type="password"
         autocomplete="new-password"
-        class="w-full" 
+        class="w-full"
       />
     </FormField>
   </YForm>

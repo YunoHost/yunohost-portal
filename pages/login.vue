@@ -98,9 +98,8 @@ const login = handleSubmit(async (form) => {
         class="mb-4"
         row
       >
-        <TextInput
+        <PasswordInput
           name="password"
-          type="password"
           :placeholder="t('password')"
           autocomplete="current-password"
           class="w-full"
