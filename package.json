@@ -21,6 +21,7 @@
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@types/node": "^22.6.1",
     "@typescript-eslint/parser": "^8.7.0",
+    "@vite-pwa/nuxt": "^1.1.1",
     "daisyui": "^4.12.10",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.1.0",
