@@ -29,7 +29,7 @@
     "app_list": "Uygulama listesi",
     "automatic": "Otomatik bir şekilde ({name})",
     "back_to_apps": "Uygulama listesine geri dön",
-    "confirm_new_password": "Yeni şifreyi onayla",
+    "confirm_new_password": "Yeni parolayı onayla",
     "edit_browser_settings": "Sadece tarayıcıya özel ayarları düzenle",
     "edit_personal_settings": "Kişisel bilgileri düzenle",
     "form_has_errors": "Bu formda hatalar bulundu",
@@ -60,7 +60,7 @@
         "processing": "İşleniyor…"
     },
     "v": {
-        "email": "Geçersiz e-posta: yalnızca alfasayısal karakterler, '_.' karakterleri kullanılmalıdır (örn. someone{'@'}example.com, s0me-1{'@'}example.com)",
+        "email": "Geçersiz e-posta: yalnızca alfanümerik karakterler ve '_.' karakterleri kullanılmalıdır (örn. kullanici{'@'}ornek.com, kull4n1c1{'@'}ornek.com)",
         "field_invalid": "Alan değeri geçersiz",
         "field_required": "Alan değeri zorunludur",
         "password_not_match": "Şifreler eşleşmiyor.",
