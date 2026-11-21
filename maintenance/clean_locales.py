@@ -7,8 +7,9 @@ from typing import Any
 
 # FIXME use Path
 ROOT_FOLDER = Path(__file__).parent.parent
-LOCALES_FOLDER = ROOT_FOLDER / "locales"
-LOCALES_LIST_FILE = ROOT_FOLDER / "maintenance" / "locales.json"
+I18N_FOLDER = ROOT_FOLDER / "i18n"
+LOCALES_FOLDER = I18N_FOLDER / "locales"
+LOCALES_LIST_FILE = I18N_FOLDER / "locales.json"
 LOCALE_FILES = {path.stem: path for path in LOCALES_FOLDER.glob("*.json")}
 ALL_LOCALES = set(LOCALE_FILES.keys())
 

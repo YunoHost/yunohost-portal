@@ -1,4 +1,5 @@
-import locales from './maintenance/locales.json'
+import type { FallbackLocale } from 'vue-i18n'
+import locales from './locales.json'
 
 // https://vue-i18n.intlify.dev/guide/essentials/fallback#explicit-fallback-with-decision-maps
 const fallbackLocale = Object.fromEntries(
@@ -10,5 +11,5 @@ fallbackLocale.default = ['en']
 
 export default defineI18nConfig(() => ({
   legacy: false,
-  fallbackLocale,
+  fallbackLocale: fallbackLocale as FallbackLocale,
 }))

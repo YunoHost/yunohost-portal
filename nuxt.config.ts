@@ -1,5 +1,5 @@
-import type { LocaleObject } from '@nuxtjs/i18n/dist/runtime/composables'
-import locales from './maintenance/locales.json'
+import type { LocaleObject } from '@nuxtjs/i18n'
+import locales from './i18n/locales.json'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'no_prefix',
     lazy: true,
-    langDir: 'locales',
+    langDir: 'i18n/locales',
     locales: locales as LocaleObject[],
   },
   colorMode: {
