@@ -8,9 +8,9 @@
     "postinstall": "nuxt prepare",
     "lint:js": "eslint --ext \".ts,.vue,.cjs,.js\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
-    "upgrade-deps": "yarn upgrade-interactive --latest"
+    "lint": "$npm_execpath lint:js && $npm_execpath lint:prettier",
+    "lintfix": "prettier --write --list-different . && $npm_execpath lint:js --fix",
+    "upgrade-deps": "$npm_execpath upgrade-interactive --latest"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.5.1",
