@@ -1,4 +1,6 @@
 {
+  "name": "yunohost-portal",
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "nuxt build",
