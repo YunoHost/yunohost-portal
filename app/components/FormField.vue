@@ -27,9 +27,7 @@ const describedBy = computed(() => {
 
 const error = computed(() => {
   const e = errorMessage.value as
-    | string
-    | undefined
-    | { key: string; values: Record<string, unknown> };
+    string | undefined | { key: string; values: Record<string, unknown> };
   if (!e) return '';
   if (typeof e === 'string') return t(e);
   return t(e.key, e.values);
