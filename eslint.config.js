@@ -1,19 +1,37 @@
-import { defineConfig } from "eslint/config";
 import withNuxt from './.nuxt/eslint.config.mjs'
+import prettier from 'eslint-plugin-prettier/recommended'
+import vue from 'eslint-plugin-vue'
+import pluginVueA11y from 'eslint-plugin-vuejs-accessibility'
 
-export default withNuxt(
+let configs = [
+  ...vue.configs['flat/recommended'],
+  ...pluginVueA11y.configs['flat/recommended'],
+  prettier,
   {
     rules: {
+      camelcase: 'warn',
+      'vue/no-v-html': 'off',
       'prettier/prettier': [
         'error',
         {
-          semi: false,
-          tabWidth: 2,
-          singleQuote: true,
+          overrides: [
+            {
+              files: 'i18n/**/*.json',
+              options: {
+                tabWidth: 4,
+              },
+            },
+            {
+              files: ['*.vue', '*.ts', '*.js'],
+              options: {
+                singleQuote: true,
+                semi: false,
+              },
+            },
+          ],
         },
       ],
-      camelcase: 'warn',
-      'vue/no-v-html': 'off',
-    }
-  }
-)
+    },
+  },
+]
+export default withNuxt(configs)
