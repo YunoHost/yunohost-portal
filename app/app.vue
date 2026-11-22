@@ -5,7 +5,7 @@ const settings = await useSettings();
 
 useHead({
   titleTemplate: (titleChunk) => {
-    const baseTitle = settings.value.portal_title;
+    const baseTitle = settings.value.portal_title || 'YunoHost';
     return titleChunk ? `${titleChunk} - ${baseTitle}` : baseTitle;
   },
 });
