@@ -119,7 +119,11 @@ const tileClasses = computed(() => {
           <img
             v-if="settings.portal_tile_theme !== 'periodic'"
             aria-hidden
-            :src="app.logo ? app.logo : 'data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='"
+            :src="
+              app.logo
+                ? app.logo
+                : 'data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='
+            "
             class="app-logo w-24 h-24 min-w-24 rounded-xl"
             :class="tileClasses.img"
             alt=""
@@ -185,8 +189,9 @@ const tileClasses = computed(() => {
 #app-tiles.periodic .app-tile {
   min-height: 180px;
   border-radius: 0.3em !important;
-  --app-tile-colors: #f94144, #f3722c, #f8961e, #f9844a, #f9c74f, #90be6d,
-    #43aa8b, #4d908e, #577590, #277da1;
+  --app-tile-colors:
+    #f94144, #f3722c, #f8961e, #f9844a, #f9c74f, #90be6d, #43aa8b, #4d908e,
+    #577590, #277da1;
   --app-tile-colors-n: 10;
   color: white;
   --i: mod(var(--label-hash), var(--app-tile-colors-n));

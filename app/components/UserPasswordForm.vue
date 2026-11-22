@@ -118,7 +118,7 @@ const onSubmit = handleSubmit(async (form) => {
         name="confirmpassword"
         type="password"
         autocomplete="new-password"
-        class="w-full" 
+        class="w-full"
       />
     </FormField>
   </YForm>

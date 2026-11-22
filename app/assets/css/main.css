@@ -15,27 +15,27 @@
 @source inline("bg-error");
 
 @theme {
-    --breakpoint-sm: 620px;
-    --breakpoint-md: 848px;
-    --breakpoint-lg: 1044px;
-    --breakpoint-xl: 1240px;
-    --breakpoint-2xl: 1436px;
+  --breakpoint-sm: 620px;
+  --breakpoint-md: 848px;
+  --breakpoint-lg: 1044px;
+  --breakpoint-xl: 1240px;
+  --breakpoint-2xl: 1436px;
 }
 @plugin "daisyui" {
-    themes:
-        light --default,
-        // dark
-        black, // to rework contrasts
-        synthwave,
-        halloween,
-        coffee,
-        // light
-        cupcake,
-        cyberpunk,
-        valentine,
-        nord;
+  themes:
+    light --default,
+    // dark
+    black,
+    // to rework contrasts
+    synthwave,
+    halloween,
+    coffee,
+    // light
+    cupcake,
+    cyberpunk,
+    valentine,
+    nord;
 }
-
 
 /*
 @plugin "daisyui/theme" {
@@ -81,7 +81,7 @@
   --color-secondary-content: black;
   --color-accent: #79e7f9;
   --color-accent-content: black;
-  --color-neutral: #EDEDED;
+  --color-neutral: #ededed;
   --color-neutral-content: black;
   --color-info: oklch(74% 0.16 232.661);
   --color-info-content: black;
@@ -101,7 +101,6 @@
   --depth: 0;
   --noise: 0;
 }
-
 
 /*
 @plugin "daisyui/theme" {

@@ -27,9 +27,7 @@ export default defineNuxtConfig({
     'nuxt-icons',
   ],
   vite: {
-    plugins: [
-      tailwindcss()
-    ],
+    plugins: [tailwindcss()],
     server: {
       fs: {
         // For `./ynh-dev use-git yunohost-portal` to work

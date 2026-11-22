@@ -59,6 +59,6 @@ function onAdd() {
       </div>
     </FormField>
 
-    <YButton :text="buttonLabel" @click="onAdd" v-if="!disabled"/>
+    <YButton :text="buttonLabel" @click="onAdd" v-if="!disabled" />
   </fieldset>
 </template>

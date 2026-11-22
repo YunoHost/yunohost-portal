@@ -104,7 +104,12 @@ const onSubmit = handleSubmit(async (form) => {
     </FormField>
 
     <FormField name="mail" :label="$t('primary_mail_adress')" class="mb-10">
-      <TextInput name="mail" type="text" class="w-full" :disabled="!settings.portal_allow_edit_email" />
+      <TextInput
+        name="mail"
+        type="text"
+        class="w-full"
+        :disabled="!settings.portal_allow_edit_email"
+      />
     </FormField>
 
     <TextInputList
