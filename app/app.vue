@@ -23,6 +23,8 @@ useHead({
 </template>
 
 <style>
+@reference "./assets/css/main.css";
+
 body {
   font-family: 'Source Sans 3';
 }

@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@source inline("safelisted");
+@source inline("bg-primary");
+@source inline("bg-secondary");
+@source inline("bg-accent");
+@source inline("bg-neutral");
+@source inline("bg-base-100");
+@source inline("bg-base-200");
+@source inline("bg-base-300");
+@source inline("bg-base-content");
+@source inline("bg-info");
+@source inline("bg-success");
+@source inline("bg-warning");
+@source inline("bg-error");
+
+@theme {
+    --breakpoint-sm: 620px;
+    --breakpoint-md: 848px;
+    --breakpoint-lg: 1044px;
+    --breakpoint-xl: 1240px;
+    --breakpoint-2xl: 1436px;
+}
+@plugin "daisyui" {
+    themes:
+        light --default,
+        // dark
+        black, // to rework contrasts
+        synthwave,
+        halloween,
+        coffee,
+        // light
+        cupcake,
+        cyberpunk,
+        valentine,
+        nord;
+}
+
+
+/*
+@plugin "daisyui/theme" {
+    name: "legacy";
+    default: true;
+    --color-primary: #2980b9;
+    --color-secondary: #30333b;
+    --color-accent: #7028b8;
+    --color-neutral: #999;
+    --color-info: #2980b9;
+    --color-success: #27ae60;
+    --color-warning: #e67e22;
+    --color-error: #c0392b;
+    --color-base-100: #41444f;
+    --color-base-200: #999;
+    --color-base-300: #30333b;
+    --color-base-content: #fff;
+    --color-primary-content: #fff;
+    --color-secondary-content: #fff;
+    --color-accent-content: #fff;
+    --color-neutral-content: #fff;
+    --color-info-content: #fff;
+    --color-success-content: #fff;
+    --color-warning-content: #fff;
+    --color-error-content: #fff;
+    --rounded-box: 0rem;
+    --rounded-btn: 0rem;
+};
+*/
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(0.243535 0 0);
+  --color-base-200: oklch(0.243535 0 0);
+  --color-base-300: oklch(0.243535 0 0);
+  --color-base-content: oklch(97.807% 0.029 256.847);
+  --color-primary: #53a5fb;
+  --color-primary-content: black;
+  --color-secondary: #20cb98;
+  --color-secondary-content: black;
+  --color-accent: #79e7f9;
+  --color-accent-content: black;
+  --color-neutral: #EDEDED;
+  --color-neutral-content: black;
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: black;
+  --color-success: #70ea8d;
+  --color-success-content: black;
+  --color-warning: #ffd452;
+  --color-warning-content: black;
+  --color-error: #ff5a5a;
+  --color-error-content: black;
+
+  --radius-selector: 0.1875rem;
+  --radius-field: 0.1875rem;
+  --radius-box: 0.1875rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+
+/*
+@plugin "daisyui/theme" {
+    name: "dark";
+    color-scheme: dark;
+    default: true;
+    prefersdark: true;
+    color-scheme: dark;
+    themecontroller: true;
+
+    --color-primary: #53a5fb,
+    --color-secondary: #20cb98,
+    --color-accent: #b957ea,
+    --color-neutral: #ededed,
+    --color-info: #79e7f9,
+    --color-success: #70ea8d,
+    --color-warning: #ffd452,
+    --color-error: #ff5a5a,
+    --color-base-100: #202020,
+    --color-base-200: #3c3c3c,
+    --color-base-300: #303030,
+    --color-base-content: #fafafa,
+
+    --color-primary-content: #000,
+    --color-secondary-content: #000,
+    --color-accent-content: #000,
+    --color-neutral-content: #000,
+    --color-info-content: #000,
+    --color-success-content: #000,
+    --color-warning-content: #000,
+    --color-error-content: #000,
+
+    --rounded-box: 0.1875rem,
+    --rounded-btn: 0.1875rem,
+    --border-btn: 1px,
+};*/
+
+/*
+@plugin "daisyui/theme" {
+  name: "omg";
+  --color-primary: #ffe066,
+  --color-secondary: #eebefa,
+  --color-accent: #bac8ff,
+  --color-neutral: #e7ebf3,
+  --color-info: #a5d8ff,
+  --color-success: #63e6be,
+  --color-warning: #ff922b,
+  --color-error: #fcc2d7,
+  --color-base-100: #343a40,
+  --color-base-200: #6f7479,
+  --color-base-300: #212529,
+  --color-base-content: #f1f3f5,
+  --rounded-box: .13rem,
+  --rounded-btn: .3rem,
+  --rounded-badge: 1.9rem,
+  --animation-btn: 0.25s,
+  --animation-input: 0.2s,
+  --btn-focus-scale: 0.95,
+  --border-btn: 1px,
+  --tab-border: 1px,
+  --tab-radius: 0.5rem,
+};
+*/

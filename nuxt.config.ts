@@ -1,5 +1,6 @@
 import type { LocaleObject } from '@nuxtjs/i18n'
 import locales from './i18n/locales.json'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -14,6 +15,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+  css: ['~/assets/css/main.css'],
   modules: [
     '@nuxt/devtools',
     '@nuxt/eslint',
@@ -21,11 +23,13 @@ export default defineNuxtConfig({
     '@nuxt/icon/module',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
-    '@nuxtjs/tailwindcss',
     '@vee-validate/nuxt',
     'nuxt-icons',
   ],
   vite: {
+    plugins: [
+      tailwindcss()
+    ],
     server: {
       fs: {
         // For `./ynh-dev use-git yunohost-portal` to work

@@ -9,6 +9,8 @@ defineProps<{
 </template>
 
 <style>
+@reference "../assets/css/main.css";
+
 .intro {
   @apply mt-4;
 }
