@@ -8,11 +8,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint:js": "eslint --ext \".ts,.vue,.cjs,.js\" .",
-    "lint:prettier": "prettier --check .",
-    "lint": "$npm_execpath lint:js && $npm_execpath lint:prettier",
-    "lintfix": "prettier --write --list-different . && $npm_execpath lint:js --fix",
-    "upgrade-deps": "$npm_execpath upgrade-interactive --latest"
+    "lint": "eslint . --ext .ts,.vue,.cjs,.js",
+    "format": "$npm_execpath lint --fix",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
     "@nuxt/devtools": "^4.2.0",

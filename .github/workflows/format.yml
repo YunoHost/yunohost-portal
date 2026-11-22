@@ -23,11 +23,7 @@ jobs:
 
       - name: Apply prettier and eslint fix
         run: |
-          yarn lintfix
-
-      - name: Run type checking
-        run: |
-          yarn type-check
+          yarn format
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:

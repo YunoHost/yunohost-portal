@@ -22,4 +22,4 @@ jobs:
 
       - name: Run type checking
         run: |
-          yarn type-check
+          yarn typecheck
