@@ -4,7 +4,7 @@ import locales from './i18n/locales.json'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
-  spaLoadingTemplate: 'app/spa-loading-template.html',
+  spaLoadingTemplate: 'spa-loading-template.html',
   app: {
     baseURL: '/yunohost/sso',
     buildAssetsDir: '/assets/',
