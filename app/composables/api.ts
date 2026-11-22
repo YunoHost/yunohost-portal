@@ -17,7 +17,7 @@ export function useApi<T>(
     body = undefined,
   }: {
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
-    body?: Record<string, any>
+    body?: Record<string, unknown>
   } = {},
 ) {
   type Resp = {

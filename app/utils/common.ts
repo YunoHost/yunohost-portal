@@ -10,9 +10,7 @@ export function exclude<T, K extends keyof T>(
   obj: T,
   ...keys: K[]
 ): Omit<T, K> {
-  const filtered = { ...obj }
-  keys.forEach((key) => {
-    delete filtered[key]
-  })
-  return filtered
+  return Object.fromEntries(
+    Object.entries(obj as object).filter(([k]) => !keys.includes(k as K)),
+  ) as Omit<T, K>
 }
