@@ -1,8 +1,5 @@
 <script setup lang="ts">
-const head = useLocaleHead({
-  addDirAttribute: true,
-  addSeoAttributes: true,
-});
+const head = useLocaleHead();
 
 const settings = await useSettings();
 

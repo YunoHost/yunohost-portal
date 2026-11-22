@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import type { H3Error } from 'h3';
 
-const head = useLocaleHead({
-  addDirAttribute: true,
-  addSeoAttributes: true,
-});
+const head = useLocaleHead();
 
 defineProps<{
   error: H3Error;
