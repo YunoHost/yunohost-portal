@@ -36,7 +36,8 @@ export const usePreferedLocale = () => {
       localStorage.setItem('preferedLocale', value);
 
       if (value === 'auto') {
-        const browserLocale = getBrowserLocale();
+        // @ts-expect-error Doc says: Returns browser locale code filtered against the ones defined in options.
+        const browserLocale: Locale | undefined = getBrowserLocale();
         value = browserLocale || defaultLocale;
       }
       setLocale(value);
