@@ -1,4 +1,18 @@
 {
+  "name": "yunohost-portal",
+  "version": "0.1.0",
+  "description": "YunoHost User Portal",
+  "homepage": "https://yunohost.org",
+  "author": "Yunohost",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/YunoHost/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YunoHost/yunohost-portal"
+  },
+  "type": "module",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -6,34 +20,38 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint:js": "eslint --ext \".ts,.vue,.cjs,.js\" --ignore-path .gitignore .",
-    "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
-    "upgrade-deps": "yarn upgrade-interactive --latest"
-  },
-  "devDependencies": {
-    "@nuxt/devtools": "^1.5.1",
-    "@nuxtjs/color-mode": "^3.5.1",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/i18n": "^8.5.5",
-    "@nuxtjs/tailwindcss": "^6.12.1",
-    "@types/node": "^22.6.1",
-    "@typescript-eslint/parser": "^8.7.0",
-    "daisyui": "^4.12.10",
-    "eslint": "^8.54.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-vue": "^9.28.0",
-    "eslint-plugin-vuejs-accessibility": "^2.4.1",
-    "nuxt": "^3.13.2",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.2"
+    "lint": "eslint .",
+    "format": "$npm_execpath lint --fix",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
+    "@nuxt/devtools": "^4.2.0",
+    "@nuxt/eslint": "^1.17.0",
+    "@nuxt/fonts": "^1.2.0",
+    "@nuxt/icon": "^2.6.3",
+    "@nuxt/kit": "^4.6.4",
+    "@nuxtjs/color-mode": "^4.1.0",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@tailwindcss/vite": "^4.3.5",
+    "@vee-validate/nuxt": "^4.15.1",
     "@vee-validate/yup": "^4.13.2",
-    "nuxt-icons": "^3.2.1",
-    "vee-validate": "^4.13.2"
+    "daisyui": "^5.8.0",
+    "nuxt": "^4.0.0",
+    "nuxt-icons": "^4.0.0",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.8",
+    "vue": "^3.5.46",
+    "vue-router": "^5.5.1",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.7",
+    "eslint-plugin-vue": "^10.12.1",
+    "eslint-plugin-vuejs-accessibility": "^2.6.3",
+    "prettier": "^3.3.3",
+    "typescript": "^6.0.0",
+    "vue-tsc": "^3.3.14"
   }
 }

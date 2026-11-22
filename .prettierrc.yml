@@ -1,0 +1,8 @@
+overrides:
+  - files: "i18n/**/*.json"
+    options:
+      tabWidth: 4
+  - files: ["*.vue", "*.ts", "*.js"]
+    options:
+      singleQuote: true
+      semi: true

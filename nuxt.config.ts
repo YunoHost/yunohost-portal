@@ -1,5 +1,6 @@
-import type { LocaleObject } from '@nuxtjs/i18n/dist/runtime/composables'
-import locales from './maintenance/locales.json'
+import type { LocaleObject } from '@nuxtjs/i18n';
+import locales from './i18n/locales.json';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -14,14 +15,19 @@ export default defineNuxtConfig({
       ],
     },
   },
+  css: ['~/assets/css/main.css'],
   modules: [
+    '@nuxt/devtools',
+    '@nuxt/eslint',
+    '@nuxt/fonts',
+    '@nuxt/icon/module',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
-    '@nuxtjs/tailwindcss',
+    '@vee-validate/nuxt',
     'nuxt-icons',
-    '@nuxtjs/google-fonts',
   ],
   vite: {
+    plugins: [tailwindcss()],
     server: {
       fs: {
         // For `./ynh-dev use-git yunohost-portal` to work
@@ -30,11 +36,6 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  googleFonts: {
-    families: {
-      'Source+Sans+3': [500, 900],
-    },
-  },
   runtimeConfig: {
     public: {
       apiIp: '', // overridden by NUXT_PUBLIC_API_IP environment variable
@@ -42,8 +43,6 @@ export default defineNuxtConfig({
   },
   i18n: {
     strategy: 'no_prefix',
-    lazy: true,
-    langDir: 'locales',
     locales: locales as LocaleObject[],
   },
   colorMode: {
@@ -51,5 +50,5 @@ export default defineNuxtConfig({
     dataValue: 'theme',
     classSuffix: '',
   },
-  compatibilityDate: '2024-09-24',
-})
+  compatibilityDate: '2025-07-15',
+});
