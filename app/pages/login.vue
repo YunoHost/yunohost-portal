@@ -50,7 +50,7 @@ const login = handleSubmit(async (form) => {
 </script>
 
 <template>
-  <main class="w-50 m-auto max-w-[300px]">
+  <main class="m-auto max-w-75">
     <CustomLogo class="flex-none mx-auto w-1/2 mb-10" />
 
     <BaseAlert
