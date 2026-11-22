@@ -40,7 +40,9 @@ watch(
 const onSubmit = handleSubmit(async (form) => {
   loading.value = true;
 
-  const excludedFields = [];
+  type UserInfos = 'fullname' | 'mail' | 'mailalias' | 'mailforward';
+  const excludedFields: UserInfos[] = [];
+
   if (!settings.value.portal_allow_edit_email) {
     excludedFields.push('mail');
   }
@@ -51,9 +53,7 @@ const onSubmit = handleSubmit(async (form) => {
     excludedFields.push('mailforward');
   }
 
-  const { error, data } = await useApi<
-    Pick<User, 'fullname' | 'mail' | 'mailalias' | 'mailforward'>
-  >('/update', {
+  const { error, data } = await useApi<Pick<User, UserInfos>>('/update', {
     method: 'PUT',
     body: exclude(form, ...excludedFields),
   });

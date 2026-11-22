@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Locale } from 'vue-i18n';
+
 const { t, locales, getBrowserLocale } = useI18n();
 
 useHead({
@@ -10,10 +12,11 @@ const preferedTheme = await usePreferedTheme();
 const preferedLocale = usePreferedLocale();
 
 const localesAsOptions = computed(() => {
-  const options = locales.value.map((locale) => ({
-    text: locale.name,
-    value: locale.code,
-  }));
+  const options: { text: string | undefined; value: Locale | 'auto' }[] =
+    locales.value.map((locale) => ({
+      text: locale.name,
+      value: locale.code,
+    }));
   const browserLocale = getBrowserLocale();
   const browserLocaleName = locales.value.find(
     (locale) => locale.code === browserLocale,

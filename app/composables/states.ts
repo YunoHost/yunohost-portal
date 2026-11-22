@@ -1,3 +1,5 @@
+import type { Locale } from 'vue-i18n';
+
 // AUTH
 
 export const useIsLoggedIn = () => {
@@ -29,7 +31,7 @@ export const usePreferedLocale = () => {
 
   return computed({
     get: () => preferedLocale.value,
-    set: (value) => {
+    set: (value: Locale | 'auto') => {
       preferedLocale.value = value;
       localStorage.setItem('preferedLocale', value);
 
@@ -100,6 +102,9 @@ export interface Settings {
   show_other_domains_apps: 0 | 1;
   portal_user_intro: string;
   portal_public_intro: string;
+  portal_allow_edit_email: boolean;
+  portal_allow_edit_email_alias: boolean;
+  portal_allow_edit_email_forward: boolean;
   apps: AppsSettings;
 }
 

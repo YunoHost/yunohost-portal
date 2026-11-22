@@ -20,7 +20,7 @@ function onAdd() {
     // auto focus new input
     const inputs = group.value?.querySelectorAll('input');
     if (inputs && inputs.length) {
-      inputs[inputs.length - 1].focus();
+      inputs[inputs.length - 1]!.focus();
     }
   });
 }
