@@ -11,6 +11,7 @@ let configs = [
     rules: {
       camelcase: 'warn',
       'vue/no-v-html': 'off',
+      'vue/multi-word-component-names': 'off',
       'prettier/prettier': [
         'error',
         {
