@@ -4,7 +4,7 @@ import locales from './i18n/locales.json'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
-  spaLoadingTemplate: 'spa-loading-template.html',
+  spaLoadingTemplate: 'app/spa-loading-template.html',
   app: {
     baseURL: '/yunohost/sso',
     buildAssetsDir: '/assets/',
@@ -43,7 +43,6 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'no_prefix',
     lazy: true,
-    langDir: 'i18n/locales',
     locales: locales as LocaleObject[],
   },
   colorMode: {
