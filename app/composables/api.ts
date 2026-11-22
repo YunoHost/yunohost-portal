@@ -3,7 +3,7 @@ import type { FetchError } from 'ofetch'
 const useApiEndpoint = () => {
   return (
     'https://' +
-    (process.dev
+    (import.meta.dev
       ? useRuntimeConfig().public.apiIp || window.location.hostname
       : window.location.hostname) +
     '/yunohost/portalapi'

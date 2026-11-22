@@ -40,7 +40,7 @@ watch(
 const onSubmit = handleSubmit(async (form) => {
   loading.value = true
 
-  let excludedFields = []
+  const excludedFields = []
   if (!settings.value.portal_allow_edit_email) {
     excludedFields.push('mail')
   }

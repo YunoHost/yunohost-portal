@@ -47,6 +47,7 @@ function onAdd() {
           class="join-item w-full"
         />
         <YButton
+          v-if="!disabled"
           variant="error"
           icon="delete-forever"
           icon-size="2em"
@@ -54,11 +55,10 @@ function onAdd() {
           :text="$t('remove')"
           class="join-item px-3"
           @click="remove(idx)"
-          v-if="!disabled"
         />
       </div>
     </FormField>
 
-    <YButton :text="buttonLabel" @click="onAdd" v-if="!disabled" />
+    <YButton v-if="!disabled" :text="buttonLabel" @click="onAdd" />
   </fieldset>
 </template>
