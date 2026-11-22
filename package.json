@@ -20,7 +20,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint . --ext .ts,.vue,.cjs,.js",
+    "lint": "eslint .",
     "format": "$npm_execpath lint --fix",
     "typecheck": "nuxt typecheck"
   },
