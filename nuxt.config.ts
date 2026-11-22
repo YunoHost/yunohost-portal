@@ -15,10 +15,14 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    '@nuxt/devtools',
+    '@nuxt/eslint',
     '@nuxt/fonts',
+    '@nuxt/icon/module',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxtjs/tailwindcss',
+    '@vee-validate/nuxt',
     'nuxt-icons',
   ],
   vite: {

@@ -15,27 +15,28 @@
     "upgrade-deps": "$npm_execpath upgrade-interactive --latest"
   },
   "dependencies": {
-    "@nuxt/devtools": "^1.5.1",
+    "@nuxt/devtools": "^4.2.0",
+    "@nuxt/eslint": "^1.17.0",
     "@nuxt/fonts": "^1.2.0",
-    "@nuxtjs/color-mode": "^3.5.1",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
+    "@nuxt/icon": "^2.6.3",
+    "@nuxt/kit": "^4.6.4",
+    "@nuxtjs/color-mode": "^4.1.0",
     "@nuxtjs/i18n": "^10.6.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "@types/node": "^22.6.1",
+    "@vee-validate/nuxt": "^4.15.1",
     "@vee-validate/yup": "^4.13.2",
     "daisyui": "^4.12.10",
     "nuxt": "^4.0.0",
-    "nuxt-icons": "^3.2.1",
-    "vee-validate": "^4.13.2",
+    "nuxt-icons": "^4.0.0",
+    "tailwindcss": "^3.4.19",
+    "vite": "^8.3.8",
+    "vue": "^3.5.46",
+    "vue-router": "^5.5.1",
     "yup": "^1.7.1"
   },
   "devDependencies": {
-    "eslint": "^8.54.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-vue": "^9.28.0",
-    "eslint-plugin-vuejs-accessibility": "^2.4.1",
+    "eslint": "^10.15.0",
     "prettier": "^3.3.3",
-    "typescript": "^5.6.2"
+    "typescript": "^6.0.0"
   }
 }
