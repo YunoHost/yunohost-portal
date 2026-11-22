@@ -79,7 +79,7 @@ const login = handleSubmit(async (form) => {
         class="mb-4"
         row
       >
-        <!-- eslint-disable-next-line vuejs-accessibility/no-autofocus -->
+        <!-- eslint-disable vuejs-accessibility/no-autofocus -->
         <TextInput
           name="username"
           type="text"
@@ -90,6 +90,7 @@ const login = handleSubmit(async (form) => {
           autofocus
           class="w-full"
         />
+        <!-- eslint-enable vuejs-accessibility/no-autofocus -->
       </FormField>
 
       <FormField
