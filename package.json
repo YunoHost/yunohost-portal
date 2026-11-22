@@ -1,5 +1,17 @@
 {
   "name": "yunohost-portal",
+  "version": "0.1.0",
+  "description": "YunoHost User Portal",
+  "homepage": "https://yunohost.org",
+  "author": "Yunohost",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/YunoHost/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YunoHost/yunohost-portal"
+  },
   "type": "module",
   "private": true,
   "scripts": {
