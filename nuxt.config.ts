@@ -37,7 +37,6 @@ export default defineNuxtConfig({
   },
   i18n: {
     strategy: 'no_prefix',
-    lazy: true,
     locales: locales as LocaleObject[],
   },
   colorMode: {
