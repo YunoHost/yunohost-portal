@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { useField } from 'vee-validate'
-import { formGroupExtras } from '@/composables/form'
+import { useField } from 'vee-validate';
+import { formGroupExtras } from '@/composables/form';
 
 const props = withDefaults(
   defineProps<{
-    name: string
-    type: HTMLInputElement['type']
+    name: string;
+    type: HTMLInputElement['type'];
   }>(),
   {},
-)
-const attrs = useAttrs()
+);
+const attrs = useAttrs();
 const { describedBy, invalid } = inject(formGroupExtras, {
   describedBy: ref(undefined),
   invalid: ref(false),
-})
+});
 const { value, handleBlur, handleChange, errorMessage } = useField(
   () => props.name,
   {
     validateOnValueUpdate: false,
   },
-)
+);
 
 const validationListeners = {
   blur: (e: FocusEvent) => handleBlur(e, true),
   change: handleChange,
   input: (e: InputEvent) => handleChange(e, !!errorMessage.value),
-}
+};
 </script>
 
 <template>

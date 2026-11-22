@@ -1,7 +1,7 @@
-import withNuxt from './.nuxt/eslint.config.mjs'
-import prettier from 'eslint-plugin-prettier/recommended'
-import vue from 'eslint-plugin-vue'
-import pluginVueA11y from 'eslint-plugin-vuejs-accessibility'
+import withNuxt from './.nuxt/eslint.config.mjs';
+import prettier from 'eslint-plugin-prettier/recommended';
+import vue from 'eslint-plugin-vue';
+import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
 
 let configs = [
   ...vue.configs['flat/recommended'],
@@ -25,7 +25,7 @@ let configs = [
               files: ['*.vue', '*.ts', '*.js'],
               options: {
                 singleQuote: true,
-                semi: false,
+                semi: true,
               },
             },
           ],
@@ -33,5 +33,5 @@ let configs = [
       ],
     },
   },
-]
-export default withNuxt(configs)
+];
+export default withNuxt(configs);

@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/yup'
-import * as yup from 'yup'
-import { exclude, pick } from '@/utils/common'
-import type { User } from '@/composables/states'
-import type { Feedback } from '@/composables/form'
+import { useForm } from 'vee-validate';
+import { toTypedSchema } from '@vee-validate/yup';
+import * as yup from 'yup';
+import { exclude, pick } from '@/utils/common';
+import type { User } from '@/composables/states';
+import type { Feedback } from '@/composables/form';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
-const user = await useUser()
-const settings = await useSettings()
-const loading: Ref<boolean> = ref(false)
-const feedback: Ref<Feedback> = ref(null)
+const user = await useUser();
+const settings = await useSettings();
+const loading: Ref<boolean> = ref(false);
+const feedback: Ref<Feedback> = ref(null);
 
 const { handleSubmit, setFieldError, resetForm, meta } = useForm({
   validationSchema: toTypedSchema(
@@ -25,30 +25,30 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
   initialValues: {
     ...pick(user.value, 'fullname', 'mail', 'mailalias', 'mailforward'),
   },
-})
+});
 
 watch(
   () => meta.value.dirty,
   (value) => {
     // remove global feedback on edition
     if (value) {
-      feedback.value = null
+      feedback.value = null;
     }
   },
-)
+);
 
 const onSubmit = handleSubmit(async (form) => {
-  loading.value = true
+  loading.value = true;
 
-  const excludedFields = []
+  const excludedFields = [];
   if (!settings.value.portal_allow_edit_email) {
-    excludedFields.push('mail')
+    excludedFields.push('mail');
   }
   if (!settings.value.portal_allow_edit_email_alias) {
-    excludedFields.push('mailalias')
+    excludedFields.push('mailalias');
   }
   if (!settings.value.portal_allow_edit_email_forward) {
-    excludedFields.push('mailforward')
+    excludedFields.push('mailforward');
   }
 
   const { error, data } = await useApi<
@@ -56,39 +56,39 @@ const onSubmit = handleSubmit(async (form) => {
   >('/update', {
     method: 'PUT',
     body: exclude(form, ...excludedFields),
-  })
+  });
 
   if (error.value) {
     // Reset form dirty state but keep previous values
-    resetForm({ values: { ...form, mail: user.value.mail } })
-    const errData = error.value.data
-    let message
+    resetForm({ values: { ...form, mail: user.value.mail } });
+    const errData = error.value.data;
+    let message;
 
     if (errData.path) {
-      setFieldError(errData.path, errData.error)
-      message = t('form_has_errors')
+      setFieldError(errData.path, errData.error);
+      message = t('form_has_errors');
     } else {
-      message = errData.error || errData
+      message = errData.error || errData;
     }
     feedback.value = {
       variant: 'error',
       icon: 'alert',
       message,
-    }
+    };
   } else if (data.value) {
-    Object.assign(user.value, data.value)
+    Object.assign(user.value, data.value);
     resetForm({
       values: { ...data.value, mail: user.value.mail },
-    })
+    });
     feedback.value = {
       variant: 'success',
       icon: 'thumb-up',
       message: t('user_profile_updated'),
-    }
+    };
   }
 
-  loading.value = false
-})
+  loading.value = false;
+});
 </script>
 
 <template>

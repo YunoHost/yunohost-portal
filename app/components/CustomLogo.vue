@@ -1,9 +1,9 @@
 <script setup lang="ts">
-let customLogo: Settings['portal_logo']
+let customLogo: Settings['portal_logo'];
 
 try {
-  const settings = await useSettings()
-  customLogo = settings.value.portal_logo
+  const settings = await useSettings();
+  customLogo = settings.value.portal_logo;
 } catch {
   // If `yunohost-portal-api` is down we can't get settings
 }

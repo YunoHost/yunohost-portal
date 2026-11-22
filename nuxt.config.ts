@@ -1,6 +1,6 @@
-import type { LocaleObject } from '@nuxtjs/i18n'
-import locales from './i18n/locales.json'
-import tailwindcss from '@tailwindcss/vite'
+import type { LocaleObject } from '@nuxtjs/i18n';
+import locales from './i18n/locales.json';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -51,4 +51,4 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   compatibilityDate: '2025-07-15',
-})
+});

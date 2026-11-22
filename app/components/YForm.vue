@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import type { Feedback } from '@/composables/form'
+import type { Feedback } from '@/composables/form';
 
 withDefaults(
   defineProps<{
-    loading: boolean
-    feedback?: Feedback
-    submitVariant?: 'success' | 'warning' | 'error'
+    loading: boolean;
+    feedback?: Feedback;
+    submitVariant?: 'success' | 'warning' | 'error';
   }>(),
   {
     feedback: null,
     submitVariant: 'success',
   },
-)
+);
 </script>
 
 <template>

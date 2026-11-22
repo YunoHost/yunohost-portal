@@ -1,28 +1,28 @@
 <script setup lang="ts">
-import { useFieldArray } from 'vee-validate'
+import { useFieldArray } from 'vee-validate';
 
 const props = defineProps<{
-  name: string
-  label: string
-  inputLabel: string
-  buttonLabel: string
-  type: HTMLInputElement['type']
-  placeholder?: string
-  disabled: boolean
-}>()
+  name: string;
+  label: string;
+  inputLabel: string;
+  buttonLabel: string;
+  type: HTMLInputElement['type'];
+  placeholder?: string;
+  disabled: boolean;
+}>();
 
-const group: Ref<HTMLElement | null> = ref(null)
-const { remove, push, fields } = useFieldArray(props.name)
+const group: Ref<HTMLElement | null> = ref(null);
+const { remove, push, fields } = useFieldArray(props.name);
 
 function onAdd() {
-  push('')
+  push('');
   nextTick(() => {
     // auto focus new input
-    const inputs = group.value?.querySelectorAll('input')
+    const inputs = group.value?.querySelectorAll('input');
     if (inputs && inputs.length) {
-      inputs[inputs.length - 1].focus()
+      inputs[inputs.length - 1].focus();
     }
-  })
+  });
 }
 </script>
 

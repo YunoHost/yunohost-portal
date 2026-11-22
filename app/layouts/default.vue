@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { User } from '@/composables/states'
+import type { User } from '@/composables/states';
 
-const { t } = useI18n()
-const isLoggedIn = useIsLoggedIn()
-const queryMsg = useQueryMsg()
-const settings = await useSettings()
-const user = await useUser<User | null>()
+const { t } = useI18n();
+const isLoggedIn = useIsLoggedIn();
+const queryMsg = useQueryMsg();
+const settings = await useSettings();
+const user = await useUser<User | null>();
 
 const footerLinks = computed(() => [
   { text: t('footerlink_edit'), to: '/edit' },
@@ -24,16 +24,16 @@ const footerLinks = computed(() => [
     to: `//${settings.value.domain}/yunohost/admin/`,
     newWindow: true,
   },
-])
+]);
 
 async function logout() {
-  const { error } = await useApi('/logout')
+  const { error } = await useApi('/logout');
 
   if (!error.value) {
     // Delete user infos
-    user.value = null
-    isLoggedIn.value = false
-    await navigateTo(settings.value.public ? '/' : '/login')
+    user.value = null;
+    isLoggedIn.value = false;
+    await navigateTo(settings.value.public ? '/' : '/login');
   } else {
     // FIXME : display an error or something
   }

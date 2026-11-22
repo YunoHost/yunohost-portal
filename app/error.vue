@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { H3Error } from 'h3'
+import type { H3Error } from 'h3';
 
 const head = useLocaleHead({
   addDirAttribute: true,
   addSeoAttributes: true,
-})
+});
 
 defineProps<{
-  error: H3Error
-}>()
+  error: H3Error;
+}>();
 </script>
 
 <template>

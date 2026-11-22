@@ -1,22 +1,22 @@
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/yup'
-import * as yup from 'yup'
+import { useForm } from 'vee-validate';
+import { toTypedSchema } from '@vee-validate/yup';
+import * as yup from 'yup';
 
 definePageMeta({
   layout: false,
   public: true,
-})
+});
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 useHead({
   title: t('login'),
-})
+});
 
-const isLoggedIn = useIsLoggedIn()
-const redirectUrl = useRedirectUrl()
-const queryMsg = useQueryMsg()
+const isLoggedIn = useIsLoggedIn();
+const redirectUrl = useRedirectUrl();
+const queryMsg = useQueryMsg();
 
 const { handleSubmit, setErrors } = useForm({
   validationSchema: toTypedSchema(
@@ -25,28 +25,28 @@ const { handleSubmit, setErrors } = useForm({
       password: yup.string().required(),
     }),
   ),
-})
+});
 
 const login = handleSubmit(async (form) => {
   const { error } = await useApi('/login', {
     method: 'POST',
     body: { credentials: form.username + ':' + form.password },
-  })
+  });
 
   if (!error.value) {
     if (redirectUrl.value) {
-      await navigateTo(atob(redirectUrl.value), { external: true })
+      await navigateTo(atob(redirectUrl.value), { external: true });
     }
 
-    isLoggedIn.value = true
-    await navigateTo('/')
+    isLoggedIn.value = true;
+    await navigateTo('/');
   } else {
     setErrors({
       username: t('possibly_invalid_username'),
       password: t('possibly_invalid_password'),
-    })
+    });
   }
-})
+});
 </script>
 
 <template>

@@ -5,4 +5,4 @@ overrides:
   - files: ["*.vue", "*.ts", "*.js"]
     options:
       singleQuote: true
-      semi: false
+      semi: true

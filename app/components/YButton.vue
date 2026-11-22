@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { NuxtLink } from '#components'
+import { NuxtLink } from '#components';
 
 const props = withDefaults(
   defineProps<{
-    type?: 'button' | 'submit' | 'reset'
-    text?: string
-    variant?: string
-    icon?: string
-    iconSize?: string
-    iconOnly?: boolean
-    iconClass?: string
-    block?: boolean
+    type?: 'button' | 'submit' | 'reset';
+    text?: string;
+    variant?: string;
+    icon?: string;
+    iconSize?: string;
+    iconOnly?: boolean;
+    iconClass?: string;
+    block?: boolean;
   }>(),
   {
     type: 'button',
@@ -22,7 +22,7 @@ const props = withDefaults(
     iconOnly: false,
     block: false,
   },
-)
+);
 
 const variantClass = computed(() => {
   return {
@@ -30,8 +30,8 @@ const variantClass = computed(() => {
     success: 'btn-success',
     info: 'btn-info',
     error: 'btn-error',
-  }[props.variant]
-})
+  }[props.variant];
+});
 </script>
 
 <template>

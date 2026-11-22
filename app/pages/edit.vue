@@ -1,30 +1,30 @@
 <script setup lang="ts">
-const { t, locales, getBrowserLocale } = useI18n()
+const { t, locales, getBrowserLocale } = useI18n();
 
 useHead({
   title: t('footerlink_edit'),
-})
+});
 
-const settings = await useSettings()
-const preferedTheme = await usePreferedTheme()
-const preferedLocale = usePreferedLocale()
+const settings = await useSettings();
+const preferedTheme = await usePreferedTheme();
+const preferedLocale = usePreferedLocale();
 
 const localesAsOptions = computed(() => {
   const options = locales.value.map((locale) => ({
     text: locale.name,
     value: locale.code,
-  }))
-  const browserLocale = getBrowserLocale()
+  }));
+  const browserLocale = getBrowserLocale();
   const browserLocaleName = locales.value.find(
     (locale) => locale.code === browserLocale,
-  )?.name
+  )?.name;
   options.unshift({
     text: t('automatic', { name: browserLocaleName }),
     value: 'auto',
-  })
+  });
 
-  return options
-})
+  return options;
+});
 
 const themesAsOptions = [
   'auto',
@@ -51,7 +51,7 @@ const themesAsOptions = [
       ? theme.charAt(0).toUpperCase() + theme.slice(1)
       : t('automatic', { name: settings.value.portal_theme }),
   value: theme,
-}))
+}));
 </script>
 
 <template>

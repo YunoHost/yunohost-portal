@@ -1,14 +1,14 @@
 <script setup lang="ts">
 const props = defineProps<{
-  loading: boolean | null
-  text?: string
-  loadingText?: string
-  icon?: string
-  loadingIcon?: string
-}>()
+  loading: boolean | null;
+  text?: string;
+  loadingText?: string;
+  icon?: string;
+  loadingIcon?: string;
+}>();
 
-const { t } = useI18n()
-const baseAttrs = useAttrs()
+const { t } = useI18n();
+const baseAttrs = useAttrs();
 const attrs = computed(() => {
   return {
     text: props.loading
@@ -22,14 +22,14 @@ const attrs = computed(() => {
           : props.icon,
     iconClass: props.loading ? 'animate-spin' : '',
     ...baseAttrs,
-  }
-})
+  };
+});
 
 const onClick = (e: MouseEvent) => {
   if (props.loading) {
-    e.preventDefault()
+    e.preventDefault();
   }
-}
+};
 </script>
 
 <template>

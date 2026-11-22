@@ -1,16 +1,16 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    tag?: string
-    text?: string
-    srOnly?: boolean
+    tag?: string;
+    text?: string;
+    srOnly?: boolean;
   }>(),
   {
     tag: 'h1',
     text: undefined,
     srOnly: false,
   },
-)
+);
 </script>
 
 <template>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    message?: string
-    variant?: 'info' | 'success' | 'warning' | 'error'
-    icon?: string
-    assertive?: boolean
+    message?: string;
+    variant?: 'info' | 'success' | 'warning' | 'error';
+    icon?: string;
+    assertive?: boolean;
   }>(),
   {
     message: '',
@@ -12,7 +12,7 @@ const props = withDefaults(
     icon: undefined,
     assertive: false,
   },
-)
+);
 
 const classVariant = computed(() => {
   return {
@@ -20,8 +20,8 @@ const classVariant = computed(() => {
     success: 'alert-success',
     warning: 'alert-warning',
     error: 'alert-error',
-  }[props.variant]
-})
+  }[props.variant];
+});
 </script>
 
 <template>

@@ -1,5 +1,5 @@
-import { setLocale } from 'yup'
-import { usePreferedTheme } from '@/composables/states'
+import { setLocale } from 'yup';
+import { usePreferedTheme } from '@/composables/states';
 
 export default defineNuxtPlugin({
   async setup() {
@@ -14,12 +14,12 @@ export default defineNuxtPlugin({
         email: 'v.email',
         min: ({ min }) => ({ key: 'v.string_too_short', values: { min } }),
       },
-    })
+    });
 
-    const preferedTheme = await usePreferedTheme()
-    const colorMode = useColorMode()
+    const preferedTheme = await usePreferedTheme();
+    const colorMode = useColorMode();
     if (preferedTheme.value !== 'auto') {
-      colorMode.preference = preferedTheme.value
+      colorMode.preference = preferedTheme.value;
     }
   },
-})
+});

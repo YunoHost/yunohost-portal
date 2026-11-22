@@ -2,16 +2,16 @@
 const head = useLocaleHead({
   addDirAttribute: true,
   addSeoAttributes: true,
-})
+});
 
-const settings = await useSettings()
+const settings = await useSettings();
 
 useHead({
   titleTemplate: (titleChunk) => {
-    const baseTitle = settings.value.portal_title
-    return titleChunk ? `${titleChunk} - ${baseTitle}` : baseTitle
+    const baseTitle = settings.value.portal_title;
+    return titleChunk ? `${titleChunk} - ${baseTitle}` : baseTitle;
   },
-})
+});
 </script>
 
 <template>

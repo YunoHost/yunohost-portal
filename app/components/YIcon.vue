@@ -1,13 +1,13 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    name: string
-    size?: string
+    name: string;
+    size?: string;
   }>(),
   {
     size: '1.5em',
   },
-)
+);
 </script>
 
 <template>

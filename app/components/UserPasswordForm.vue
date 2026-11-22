@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { toTypedSchema } from '@vee-validate/yup'
-import * as yup from 'yup'
-import { exclude } from '@/utils/common'
-import type { Feedback } from '@/composables/form'
+import { useForm } from 'vee-validate';
+import { toTypedSchema } from '@vee-validate/yup';
+import * as yup from 'yup';
+import { exclude } from '@/utils/common';
+import type { Feedback } from '@/composables/form';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
-const loading: Ref<boolean> = ref(false)
-const feedback: Ref<Feedback> = ref(null)
+const loading: Ref<boolean> = ref(false);
+const feedback: Ref<Feedback> = ref(null);
 
 const { handleSubmit, setFieldError, resetForm, meta } = useForm({
   validationSchema: toTypedSchema(
@@ -32,56 +32,56 @@ const { handleSubmit, setFieldError, resetForm, meta } = useForm({
     newpassword: '',
     confirmpassword: '',
   },
-})
+});
 
 watch(
   () => meta.value.dirty,
   (value) => {
     // remove global feedback on edition
     if (value) {
-      feedback.value = null
+      feedback.value = null;
     }
   },
-)
+);
 
 const onSubmit = handleSubmit(async (form) => {
-  loading.value = true
+  loading.value = true;
 
   const { error } = await useApi('/update', {
     method: 'PUT',
     body: exclude(form, 'confirmpassword'),
-  })
+  });
 
   if (error.value) {
     // Reset form dirty state and remove previous entries
     resetForm({
       values: { currentpassword: '', newpassword: '', confirmpassword: '' },
-    })
-    const errData = error.value.data
-    let message
+    });
+    const errData = error.value.data;
+    let message;
 
     if (errData.path) {
-      setFieldError(errData.path, errData.error)
-      message = t('form_has_errors')
+      setFieldError(errData.path, errData.error);
+      message = t('form_has_errors');
     } else {
-      message = errData.error || errData
+      message = errData.error || errData;
     }
     feedback.value = {
       variant: 'error',
       icon: 'alert',
       message,
-    }
+    };
   } else {
     // reset loggedin state and redirect to login
-    useIsLoggedIn().value = false
+    useIsLoggedIn().value = false;
     return navigateTo({
       path: '/login',
       query: { msg: 'password_changed_reconnect' },
-    })
+    });
   }
 
-  loading.value = false
-})
+  loading.value = false;
+});
 </script>
 
 <template>

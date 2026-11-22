@@ -1,25 +1,25 @@
 <script setup lang="ts">
 definePageMeta({
   public: true,
-})
+});
 
-const { t, locale } = useI18n()
-const isLoggedIn = await useIsLoggedIn()
-const settings = await useSettings()
-const appsData = await useApps()
+const { t, locale } = useI18n();
+const isLoggedIn = await useIsLoggedIn();
+const settings = await useSettings();
+const appsData = await useApps();
 
 useHead({
   title: t('app_list'),
-})
+});
 
 const intro = computed(() => {
   const {
     portal_user_intro: userIntro,
     portal_public_intro: publicIntro,
     public: isPublic,
-  } = settings.value
-  return isLoggedIn.value ? userIntro : isPublic ? publicIntro : null
-})
+  } = settings.value;
+  return isLoggedIn.value ? userIntro : isPublic ? publicIntro : null;
+});
 
 const apps = Object.values(appsData.value).map((app) => {
   return {
@@ -28,17 +28,17 @@ const apps = Object.values(appsData.value).map((app) => {
     description: app.description?.[locale.value] || app.description?.en,
     label_hash: parseInt(app.label.replaceAll(' ', ''), 36) % 10000,
     initials: app.label.substring(0, 2),
-  }
-})
+  };
+});
 
-const search = ref('')
+const search = ref('');
 
 async function onSearchSubmit() {
   await navigateTo(settings.value.search_engine + search.value, {
     open: {
       target: '_blank',
     },
-  })
+  });
 }
 
 const tileClasses = computed(() => {
@@ -56,8 +56,8 @@ const tileClasses = computed(() => {
       tile: 'flex-col p-3 items-center',
       title: 'leading-6 text-center text-base',
     },
-  }[settings.value.portal_tile_theme]
-})
+  }[settings.value.portal_tile_theme];
+});
 </script>
 
 <template>

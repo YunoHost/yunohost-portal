@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { useFieldError } from 'vee-validate'
-import { formGroupExtras } from '@/composables/form'
+import { useFieldError } from 'vee-validate';
+import { formGroupExtras } from '@/composables/form';
 
 const props = defineProps<{
-  name: string
-  label: string
-  icon?: string
-  description?: string
-  row?: boolean
-  srHideLabel?: boolean
-}>()
+  name: string;
+  label: string;
+  icon?: string;
+  description?: string;
+  row?: boolean;
+  srHideLabel?: boolean;
+}>();
 
-const { t } = useI18n()
-const errorMessage = useFieldError(() => props.name)
-const invalid = computed(() => !!errorMessage.value)
+const { t } = useI18n();
+const errorMessage = useFieldError(() => props.name);
+const invalid = computed(() => !!errorMessage.value);
 const describedBy = computed(() => {
   return (
     [
@@ -22,21 +22,23 @@ const describedBy = computed(() => {
     ]
       .filter((x) => x)
       .join(' ') || undefined
-  )
-})
+  );
+});
 
 const error = computed(() => {
   const e = errorMessage.value as
-    string | undefined | { key: string; values: Record<string, unknown> }
-  if (!e) return ''
-  if (typeof e === 'string') return t(e)
-  return t(e.key, e.values)
-})
+    | string
+    | undefined
+    | { key: string; values: Record<string, unknown> };
+  if (!e) return '';
+  if (typeof e === 'string') return t(e);
+  return t(e.key, e.values);
+});
 
 provide(formGroupExtras, {
   describedBy,
   invalid,
-})
+});
 </script>
 
 <template>
