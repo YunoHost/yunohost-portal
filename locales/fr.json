@@ -15,7 +15,7 @@
     "footerlink_edit": "Éditer mon profil",
     "footerlink_support": "Support",
     "fullname": "Nom complet",
-    "good_practices_about_user_password": "Choisissez un mot de passe d’au moins 8 caractères, bien qu'il soit recommandé d'utiliser un mot de passe plus long (c'est-à-dire une phrase secrète) et/ou une combinaison de caractères (majuscules, minuscules, chiffres et caractères spéciaux).",
+    "good_practices_about_user_password": "Veuillez choisir un mot de passe d’au moins 8 caractères, bien qu'il soit recommandé d'utiliser un mot de passe plus long (c'est-à-dire une phrase secrète) et/ou une combinaison de caractères (majuscules, minuscules, chiffres et caractères spéciaux).",
     "logged_out": "Déconnecté⋅e",
     "login": "Connexion",
     "logout": "Déconnexion",
@@ -25,7 +25,7 @@
     "new_mail": "nouvelle_adresse{'@'}domaine.org",
     "new_password": "Nouveau mot de passe",
     "password": "Mot de passe",
-    "username": "Nom du compte",
+    "username": "Identifiant du compte",
     "search": "Recherche",
     "search_engine_placeholder": "Rechercher sur {engine}",
     "language": "Langue",
@@ -43,7 +43,7 @@
     "password_changed_reconnect": "Votre mot de passe a été modifié, veuillez vous reconnecter.",
     "possibly_invalid_password": "Le mot de passe est potentiellement invalide",
     "possibly_invalid_username": "Le nom du compte n'est probablement pas valide",
-    "primary_mail_adress": "Adresse mail principale",
+    "primary_mail_address": "Adresse mail principale",
     "remove": "Supprimer",
     "save": "Sauvegarder",
     "skip_link": {
@@ -58,7 +58,7 @@
     "visitor": "Visiteur",
     "v": {
         "field_invalid": "La valeur du champ n'est pas valide",
-        "field_required": "La valeur du champ est obligatoire",
+        "field_required": "Ce champ est obligatoire",
         "password_not_match": "Les mots de passe ne correspondent pas.",
         "string_too_short": "Valeur non valide : doit contenir au moins {min} caractères",
         "email": "Adresse mail invalide : elle doit être alphanumérique et peut contenir les caractères '_.' (par exemple : dupond{'@'}exemple.fr, dup0nd-1{'@'}exemple.fr)"
