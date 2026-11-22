@@ -15,11 +15,11 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    '@nuxt/fonts',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxtjs/tailwindcss',
     'nuxt-icons',
-    '@nuxtjs/google-fonts',
   ],
   vite: {
     server: {
@@ -30,11 +30,6 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  googleFonts: {
-    families: {
-      'Source+Sans+3': [500, 900],
-    },
-  },
   runtimeConfig: {
     public: {
       apiIp: '', // overridden by NUXT_PUBLIC_API_IP environment variable
