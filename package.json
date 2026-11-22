@@ -14,7 +14,7 @@
     "lintfix": "prettier --write --list-different . && $npm_execpath lint:js --fix",
     "upgrade-deps": "$npm_execpath upgrade-interactive --latest"
   },
-  "devDependencies": {
+  "dependencies": {
     "@nuxt/devtools": "^1.5.1",
     "@nuxtjs/color-mode": "^3.5.1",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
@@ -22,21 +22,20 @@
     "@nuxtjs/i18n": "^10.6.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@types/node": "^22.6.1",
-    "@typescript-eslint/parser": "^8.7.0",
+    "@vee-validate/yup": "^4.13.2",
     "daisyui": "^4.12.10",
+    "nuxt": "^4.0.0",
+    "nuxt-icons": "^3.2.1",
+    "vee-validate": "^4.13.2",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
     "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-vue": "^9.28.0",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
-    "nuxt": "^4.0.0",
     "prettier": "^3.3.3",
     "typescript": "^5.6.2"
-  },
-  "dependencies": {
-    "@vee-validate/yup": "^4.13.2",
-    "nuxt-icons": "^3.2.1",
-    "vee-validate": "^4.13.2",
-    "yup": "^1.7.1"
   }
 }
